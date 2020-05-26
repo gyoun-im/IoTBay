@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -47,24 +47,46 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"css/index.css\">\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>Index Page</title>\r\n");
+      out.write("        <title>Login Page</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
       out.write("        <img class=\"logo\" src=\"css/IoTBay_Logo.png\">\r\n");
-      out.write("        <div>\r\n");
+      out.write("        <h1>Login</h1>\r\n");
+      out.write("        <div class=\"center\">\r\n");
+      out.write("        <form method=\"post\" action=\"welcome.jsp\">\r\n");
       out.write("            <table class=\"center\">\r\n");
       out.write("                <tr>\r\n");
       out.write("                    <td>\r\n");
-      out.write("                        <a href=\"login.jsp\"><button class=\"bttn\">Login</button></a>\r\n");
+      out.write("                        <input class=\"tb\" type=\"text\" placeholder=\"Enter your email\" name=\"email\" >\r\n");
       out.write("                    </td>\r\n");
+      out.write("                </tr>\r\n");
+      out.write("                <tr>\r\n");
       out.write("                    <td>\r\n");
-      out.write("                        <a href=\"register.jsp\"><button class=\"bttn\">Register</button></a>\r\n");
+      out.write("                        Username\r\n");
+      out.write("                    </td>\r\n");
+      out.write("                </tr>\r\n");
+      out.write("                <tr>\r\n");
+      out.write("                    <td>\r\n");
+      out.write("                        <input class=\"tb\" type=\"text\" placeholder=\"Enter your password\" name=\"password\" >\r\n");
+      out.write("                    </td>\r\n");
+      out.write("                </tr>\r\n");
+      out.write("                <tr>\r\n");
+      out.write("                    <td>\r\n");
+      out.write("                        Password\r\n");
       out.write("                    </td>\r\n");
       out.write("                </tr>\r\n");
       out.write("            </table>\r\n");
+      out.write("            <div class=\"center\">\r\n");
+      out.write("                <a><button class=\"bttn\" formaction=\"index.jsp\" class=\"a\">Cancel</button></a>\r\n");
+      out.write("                <a><input class=\"bttn\" type=\"submit\" value=\"Login\"></a>\r\n");
+      out.write("            </div>\r\n");
+      out.write("        </form>\r\n");
       out.write("        </div>\r\n");
+      out.write("        \r\n");
       out.write("        <div class=\"center\">\r\n");
-      out.write("            <a href=\"mainPage.jsp\"><button class=\"bttn\">Continue to IoTBay</button></a>\r\n");
+      out.write("            <p>Don't have account? <a href=\"register.jsp\">Sign up</a></p>\r\n");
+      out.write("            <p>or continue as guest <a href=\"mainPage.jsp\">click here</a> </p>\r\n");
+      out.write("            <p>or go back to the <a href=\"index.jsp\">index page</a> </p>\r\n");
       out.write("        </div>\r\n");
       out.write("    </body>\r\n");
       out.write("</html>\r\n");
