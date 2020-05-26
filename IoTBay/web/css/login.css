@@ -111,11 +111,10 @@ a:hover
 color:#47B9DE;
 }
 
-  table.center {
-  margin-left:auto; 
-  margin-right:auto;
-  
-  }
+ .center
+{
+    text-align: center;
+}
   
   input[type=text] {
    width: 300px;
