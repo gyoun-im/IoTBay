@@ -4,7 +4,7 @@
     display: block;
 }
 
-button {
+.bttn {
   background-color: Red;
   color: white;
   padding: 16px 20px;
@@ -16,6 +16,7 @@ button {
 a.test{
   color: blue;
   text-decoration:none;
+  
 }
 a:hover{
   opacity:0.8;
@@ -27,3 +28,21 @@ a:hover{
   margin-right:auto;
   text-align: center;
 }
+
+.tb
+{
+    width: 100%
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+
+
+ font-size: 30px;
+ font-weight: 800; 
+ line-height: 12px; 
+ margin: 0 0 24px; 
+ text-align: center; 
+
+}
+

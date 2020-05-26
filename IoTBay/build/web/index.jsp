@@ -12,16 +12,16 @@
             <table class="center">
                 <tr>
                     <td>
-                        <a href="login.jsp"><button class="a">Login</button></a>
+                        <a href="login.jsp"><button class="bttn">Login</button></a>
                     </td>
                     <td>
-                        <a href="register.jsp"><button class="a">Register</button></a>
+                        <a href="register.jsp"><button class="bttn">Register</button></a>
                     </td>
                 </tr>
             </table>
         </div>
         <div class="center">
-            <a href="mainPage.jsp"><button class="a">Continue to IoTBay</button></a>
+            <a href="mainPage.jsp"><button class="bttn">Continue to IoTBay</button></a>
         </div>
     </body>
 </html>
