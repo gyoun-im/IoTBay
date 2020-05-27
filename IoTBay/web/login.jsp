@@ -7,7 +7,9 @@
         <title>Login Page</title>
     </head>
     <body>
-        <img class="logo" src="css/IoTBay_Logo.png">
+         <div class="container">
+            <img src="css/IoTBay_Logo.png">
+        </div>
         <h1>Login</h1>
         <div class="center">
         <form method="post" action="welcome.jsp">
@@ -43,7 +45,6 @@
         <div class="center">
             <p>Don't have account? <a href="register.jsp">Sign up</a></p>
             <p>or continue as guest <a href="mainPage.jsp">click here</a> </p>
-            <p>or go back to the <a href="index.jsp">index page</a> </p>
         </div>
     </body>
 </html>

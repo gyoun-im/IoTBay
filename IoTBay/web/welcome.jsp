@@ -1,17 +1,15 @@
-<%-- 
-    Document   : welcome
-    Created on : 25/05/2020, 5:16:42 PM
-    Author     : Gabriel
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="css/index.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Welcome Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="container">
+            <img src="css/IoTBay_Logo.png">
+        </div>
+        <h1>Welcome to IoTBay</h1>
     </body>
 </html>

@@ -4,6 +4,11 @@
     display: block;
 }
 
+.lg{
+    width: 1px;
+    height: 1px;
+}
+
 .bttn {
   background-color: Red;
   color: white;
@@ -46,3 +51,19 @@ h1 {
 
 }
 
+.tableAlignment
+{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table{
+    margin: 0 auto;
+    
+}
+
+.container img {
+    width: 10%;
+    height: auto;
+}

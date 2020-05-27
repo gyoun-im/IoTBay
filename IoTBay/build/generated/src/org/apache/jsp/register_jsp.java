@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class register_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -47,46 +47,29 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <head>\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"css/index.css\">\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>Login Page</title>\r\n");
+      out.write("        <title>Register Page</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
-      out.write("         <div class=\"container\">\r\n");
-      out.write("            <img src=\"css/IoTBay_Logo.png\">\r\n");
+      out.write("        <div class=\"container\">\r\n");
+      out.write("        <img src=\"css/IoTBay_Logo.png\">\r\n");
       out.write("        </div>\r\n");
-      out.write("        <h1>Login</h1>\r\n");
-      out.write("        <div class=\"center\">\r\n");
+      out.write("        <h1>Register</h1>   \r\n");
       out.write("        <form method=\"post\" action=\"welcome.jsp\">\r\n");
-      out.write("            <table class=\"center\">\r\n");
-      out.write("                <tr>\r\n");
-      out.write("                    <td>\r\n");
-      out.write("                        <input class=\"tb\" type=\"text\" placeholder=\"Enter your email\" name=\"email\" >\r\n");
-      out.write("                    </td>\r\n");
-      out.write("                </tr>\r\n");
-      out.write("                <tr>\r\n");
-      out.write("                    <td>\r\n");
-      out.write("                        Username\r\n");
-      out.write("                    </td>\r\n");
-      out.write("                </tr>\r\n");
-      out.write("                <tr>\r\n");
-      out.write("                    <td>\r\n");
-      out.write("                        <input class=\"tb\" type=\"text\" placeholder=\"Enter your password\" name=\"password\" >\r\n");
-      out.write("                    </td>\r\n");
-      out.write("                </tr>\r\n");
-      out.write("                <tr>\r\n");
-      out.write("                    <td>\r\n");
-      out.write("                        Password\r\n");
-      out.write("                    </td>\r\n");
-      out.write("                </tr>\r\n");
+      out.write("            <table>\r\n");
+      out.write("                <tr><td>Full name: </td><td><input class=\"tb\" type=\"text\" name=\"name\" ></td></tr>                \r\n");
+      out.write("                <tr><td>Date of birth: </td><td><input class=\"tb\" type=\"date\" name=\"dob\" ></td></tr>\r\n");
+      out.write("                <tr><td>Email: </td><td><input class=\"tb\" type=\"text\" name=\"email\" ></td></tr>\r\n");
+      out.write("                <tr><td>Contact number: </td><td><input class=\"tb\" type=\"text\" name=\"number\" ></td></tr>\r\n");
+      out.write("                <tr><td>Password: </td><td><input class=\"tb\" type=\"password\" name=\"password\" ></td></tr>\r\n");
+      out.write("                <tr><td>Are you a staff?</td><td><input type=\"checkbox\" name=\"submitted\" value=\"yes\"></td></tr>\r\n");
       out.write("            </table>\r\n");
       out.write("            <div class=\"center\">\r\n");
       out.write("                <a><button class=\"bttn\" formaction=\"index.jsp\" class=\"a\">Cancel</button></a>\r\n");
-      out.write("                <a><input class=\"bttn\" type=\"submit\" value=\"Login\"></a>\r\n");
+      out.write("                <a><input class=\"bttn\" type=\"submit\" value=\"Register\"></a>\r\n");
       out.write("            </div>\r\n");
       out.write("        </form>\r\n");
-      out.write("        </div>\r\n");
-      out.write("        \r\n");
       out.write("        <div class=\"center\">\r\n");
-      out.write("            <p>Don't have account? <a href=\"register.jsp\">Sign up</a></p>\r\n");
+      out.write("            <p>Already have an account? <a href=\"login.jsp\">Login here</a></p>\r\n");
       out.write("            <p>or continue as guest <a href=\"mainPage.jsp\">click here</a> </p>\r\n");
       out.write("        </div>\r\n");
       out.write("    </body>\r\n");
