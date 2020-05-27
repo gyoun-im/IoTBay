@@ -11,5 +11,8 @@
             <img src="css/IoTBay_Logo.png">
         </div>
         <h1>Welcome to IoTBay</h1>
+        <div class="center">
+        <a href="register.jsp"><button class="bttn">Continue to IoTBay</button></a>
+        </div>
     </body>
 </html>
