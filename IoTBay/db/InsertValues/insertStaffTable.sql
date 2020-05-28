@@ -1,5 +1,5 @@
 INSERT INTO STAFF
-(NAME, EMAIL, PHONENUMBER, ADDRESS, STAFFTYPE)
+(NAME, DATEOFBIRTH, EMAIL, PHONENUMBER, ADDRESS, PASSWORD, STAFFTYPE)
 VALUES
 ('Sarah Grant', 'sarahgrant@gmail.com', '0478999656', '14 Mellow St Sydney 2000', 'Normal staff'),
 ('Ben Malik', 'benmalik@gmail.com', '0466332230', '26 Grange St Sydney 2000', 'Normal staff'),

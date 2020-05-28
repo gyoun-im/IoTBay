@@ -17,6 +17,16 @@
                 <tr><td>Date of birth: </td><td><input class="tb" type="date" name="dob" ></td></tr>
                 <tr><td>Email: </td><td><input class="tb" type="text" name="email" ></td></tr>
                 <tr><td>Contact number: </td><td><input class="tb" type="text" name="number" ></td></tr>
+                <tr><td>Address: </td><td><input class="tb" type="text" name="address" ></td></tr>
+                <tr><td>Gender</td>
+                    <td>
+                        <select name="gender">
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="Prefer not to say">Prefer not to say</option>
+                        </select>
+                    </td>
+                </tr>
                 <tr><td>Password: </td><td><input class="tb" type="password" name="password" ></td></tr>
                 <tr><td>Are you a staff?</td><td><input type="checkbox" name="submitted" value="yes"></td></tr>
             </table>
