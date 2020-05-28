@@ -1,8 +1,17 @@
 package uts.isd.model;
 import java.io.Serializable;
 
-public class Customer  implements Serializable{
+public class Customer implements Serializable{
     
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
     private String name;
     private String dob;
     private String gender;
@@ -11,7 +20,7 @@ public class Customer  implements Serializable{
     private String address;
     private String password;
     private Boolean promo;
-    private Integer reward;
+    private int reward;
 
     public String getName() {
         return name;
@@ -77,7 +86,7 @@ public class Customer  implements Serializable{
         this.promo = promo;
     }
 
-    public Integer getReward() {
+    public int getReward() {
         return reward;
     }
 
@@ -85,7 +94,8 @@ public class Customer  implements Serializable{
         this.reward = reward;
     }
 
-    public Customer(String name, String dob, String gender, String number, String email, String address, String password, Boolean promo, Integer reward) {
+    public Customer(Integer id, String name, String dob, String gender, String number, String email, String address, String password, Boolean promo, int reward) {
+        this.id=id;
         this.name = name;
         this.dob = dob;
         this.gender = gender;
