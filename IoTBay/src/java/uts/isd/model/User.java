@@ -8,16 +8,20 @@ public class User implements Serializable{
     private String email;
     private String number;
     private String password;
+    private String address;
+    private String gender;
+      
+    public User(){}
     
-     public User(){}
-    
-    public User(String name, String dob, String email, String number, String password)
+    public User(String name, String dob, String email, String number, String password, String address, String gender)
     {
         this.name=name;
         this.dob=dob;
         this.email=email;
         this.number=number;
         this.password=password;        
+        this.address=address;
+        this.gender=gender;
     }
 
     public String getName() {
@@ -58,6 +62,22 @@ public class User implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
     
 }
