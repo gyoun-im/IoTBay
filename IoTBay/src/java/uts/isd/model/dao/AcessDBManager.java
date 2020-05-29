@@ -9,11 +9,11 @@ import java.util.ArrayList;
 * DBManager is the primary DAO class to interact with the database. 
 * Complete the existing methods of this classes to perform CRUD operations with the db.
  */
-public class DBManager_Access {
+public class AcessDBManager {
 
     private Statement st;
 
-    public DBManager_Access(Connection conn) throws SQLException {
+    public AcessDBManager(Connection conn) throws SQLException {
         st = conn.createStatement();
     }
     
@@ -50,7 +50,7 @@ public class DBManager_Access {
     }
 
     //Add a customer-data into the database   
-    public void addCustomer(int Id, String name, String dob, String gender, String number, String email, String address, String password, Boolean promo, Integer reward, Boolean reg) throws SQLException {                   //code for add-operation       
+    public void addCustomer(Integer Id, String name, String dob, String gender, String number, String email, String address, String password, Boolean promo, Integer reward, Boolean reg) throws SQLException {                   //code for add-operation       
        st.executeUpdate("INSERT INTO IOTBAY.CUSTOMER " + "VALUES ('" 
                + Id + "','" + name + "', '" + dob + "', '" 
                + gender + "', '" + number + "', '" 

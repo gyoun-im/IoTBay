@@ -13,7 +13,7 @@ public class TestDB {
     private static Scanner in = new Scanner(System.in);
     private DBConnector connector;
     private Connection conn;
-    private DBManager_Access db;
+    private AcessDBManager db;
     
     public static void main(String[] args) throws SQLException {
         (new TestDB()).runQueries();
@@ -26,7 +26,7 @@ public class TestDB {
         {
             connector = new DBConnector();
             conn = connector.openConnection();
-            db = new DBManager_Access(conn);
+            db = new AcessDBManager(conn);
         }catch (ClassNotFoundException | SQLException ex)
         {
             Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
@@ -69,6 +69,8 @@ public class TestDB {
     
     private void testAdd(){
         
+        System.out.print("User id: ");
+        String id = in.nextLine();
         System.out.print("User name: ");
         String name = in.nextLine();
         System.out.print("User dob: ");
@@ -91,7 +93,7 @@ public class TestDB {
         String reg = in.nextLine();
 
         try{
-            db.addCustomer(db.customerId(), name, dob, gender, number, email, address, password, Boolean.TRUE, Integer.SIZE, Boolean.TRUE);
+            db.addCustomer(id, name, dob, gender, number, email, address, password, Boolean.TRUE, Integer.SIZE, Boolean.TRUE);
         } catch (SQLException ex){
             Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE,null, ex);
         }
