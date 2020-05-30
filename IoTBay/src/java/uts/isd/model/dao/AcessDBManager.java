@@ -24,32 +24,29 @@ public class AcessDBManager {
     
 
         //Find customer by email and password in the database   
-        public Customer findCustomer(String email, String password) throws SQLException {
+        public Customer findCustomer(String email) throws SQLException {
         //Find if the customer exists in the CUSTOMER TABLE
-        String fetch ="select * from IOTBAY.CUSTOMER where EMAIL='" + email + "' and PASSWORD = '" + password + "'";
+        String fetch ="select * from IOTBAY.CUSTOMER where EMAIL='" + email +  "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while(rs.next()) //goes through every row in the CUSTOMER table
         {
-            String customerEmail = rs.getString(6);
-            String customerPass = rs.getString(8);
-                if (customerEmail.equals(email) && customerPass.equals(password)){
+            String customerEmail = rs.getString(4);
+                if (customerEmail.equals(email)){
                     //number corresponds to the columns of the user table
                     Integer customerId=rs.getInt(1);
                     String customerName = rs.getString(2);
-                    String customerGender = rs.getString(4);
-                    String customerDob = rs.getString(3);
-                    String customerNumber = rs.getString(5);
-                    String customerAddress = rs.getString(7);
-                    Boolean customerPromo = rs.getBoolean(9);
-                    Integer customerReward = rs.getInt(10);
-                    return new Customer (customerId, customerName, customerDob, customerGender, customerNumber, customerEmail, customerAddress, customerPass, customerPromo, customerReward);
+                    String customerNumber = rs.getString(3);
+                    String customerAddress = rs.getString(5);
+                    Boolean customerReg = rs.getBoolean(6);        
+                    return new Customer (customerId, customerName, customerNumber, customerEmail, customerAddress, customerReg);
                 }
         }
         return null;
     }
 
     //Add a customer-data into the database   
+<<<<<<< HEAD:IoTBay/src/java/uts/isd/model/dao/AcessDBManager.java
     public void addCustomer(Integer Id, String name, String dob, String gender, String number, String email, String address, String password, Boolean promo, Integer reward, Boolean reg) throws SQLException {                   //code for add-operation       
        st.executeUpdate("INSERT INTO IOTBAY.CUSTOMER " + "VALUES ('" 
                + Id + "','" + name + "', '" + dob + "', '" 
@@ -57,6 +54,10 @@ public class AcessDBManager {
                + email + "', '" + address + "', '" 
                + password + "', '" + promo + "', '"+ reward + "', '"+ reg               
                + "')");
+=======
+    public void addCustomer(String name, String number, String email, String address, boolean register) throws SQLException {                   //code for add-operation       
+      st.executeUpdate("INSERT INTO IOTBAY.CUSTOMER " + "VALUES ('" + name + "','"+number+"', '" + email + "', '" + address + "', '" + register + "')");
+>>>>>>> Gabriel:IoTBay/src/java/uts/isd/model/dao/DBManager_Access.java
 
     }
     
@@ -69,36 +70,26 @@ public class AcessDBManager {
     }
 
 //update a customer details in the database   
-    public void updateCustomer(String name, String dob, String gender, String number, String email, String address, String password, Boolean promo, Integer reward) throws SQLException {
-       st.executeUpdate("UPDATE IOTBAY.CUSTOMER SET "
-               + "NAME ='" + name 
-               + "DATEOFBIRTH ='" + dob 
-               + "GENDER ='" + gender 
-               + "CONTACTNUMBER ='" + number 
-               + "BILLINGADDRESS ='" + address 
-               + "PASSWORD ='" + password 
-               + "PROMOTIONALNEWSLETTER ='" + promo 
-               + "', REWARDPOINTS='" + reward 
-               + "' WHERE EMAIL='" + email + "'" );
+    public void updateCustomer( String name, String number, String email, String address) throws SQLException {
+      st.executeUpdate("UPDATE IOTBAY.CUSTOMER SET NAME ='" + name + "', BILLINGADDRESS = '" + address + "', CONTACTNUMBER='" + number + "' WHERE EMAIL='" + email + "'" );
 
     }
 
     //delete a customer from the database   
-    public void deleteUser(String email) throws SQLException {
+    public void deleteCustomer(String email) throws SQLException {
         st.executeUpdate("DELETE FROM IOTBAY.CUSTOMER WHERE EMAIL='" + email + "'");
 
     }
     
-    public boolean checkCustomer(String email, String password) throws SQLException
+    public boolean checkCustomer(String email) throws SQLException
     {
-        String fetch = "select * from IOTBAY.CUSTOMER where EMAIL ='" + email + "' and PASSWORD='" + password + "'";
+        String fetch = "select * from IOTBAY.CUSTOMER where EMAIL ='" + email + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while (rs.next())
         {
-            String customerEmail = rs.getString(6);
-            String customerPass = rs.getString(8);
-            if (customerEmail.equals(email) && customerPass.equals(password))
+            String customerEmail = rs.getString(4);
+            if (customerEmail.equals(email) )
             {
                 return true;
             }
@@ -115,16 +106,13 @@ public class AcessDBManager {
         while (rs.next())
         {
             Integer customerId=rs.getInt(1);
-            String customerEmail = rs.getString(6);
-            String customerPass = rs.getString(8); 
+            String customerEmail = rs.getString(4);           
             String customerName = rs.getString(2);
-            String customerGender = rs.getString(4);
-            String customerDob = rs.getString(3);
-            String customerNumber = rs.getString(5);
-            String customerAddress = rs.getString(7);
-            Boolean customerPromo = rs.getBoolean(9);
-            Integer customerReward = rs.getInt(10);
-            temp.add(new Customer (customerId, customerName, customerDob, customerGender, customerNumber, customerEmail, customerAddress, customerPass, customerPromo, customerReward));
+            String customerNumber = rs.getString(3);
+            String customerAddress = rs.getString(5);
+            Boolean customerReg = rs.getBoolean(6);
+            
+            temp.add(new Customer (customerId, customerName,  customerNumber, customerEmail, customerAddress, customerReg));
            
         }
         return temp;
@@ -136,44 +124,48 @@ public class AcessDBManager {
     
     
     //Find staff by email and password in the database   
-        public Staff findStaff(String email, String password) throws SQLException {
+        public Staff findStaff(String email) throws SQLException {
         //Find if the staff exists in the CUSTOMER TABLE
-        String fetch ="select * from IOTBAY.STAFF where EMAIL='" + email + "' and PASSWORD = '" + password + "'";
+        String fetch ="select * from IOTBAY.STAFF where EMAIL='" + email + "'";
         ResultSet rs = st.executeQuery(fetch);
         
         while(rs.next()) //goes through every row in the STAFF table
         {
-            String staffEmail = rs.getString(4);
-            String staffPass = rs.getString(7);
-                if (staffEmail.equals(email) && staffPass.equals(password)){
+            String staffEmail = rs.getString(3);
+            
+                if (staffEmail.equals(email)){
                     //number corresponds to the columns of the STAFF table
+                    Integer staffId =rs.getInt(1);
                     String staffName = rs.getString(2);
-                    String staffDob = rs.getString(3);
-                    String staffNumber = rs.getString(5);
-                    String staffAddress = rs.getString(6);
-                    return new Staff (staffName, staffDob, staffNumber, staffEmail, staffAddress, staffPass);
+                    String staffNumber = rs.getString(4);
+                    String staffAddress = rs.getString(5);
+                    String staffType = rs.getString(6);
+                    String staffHistory = rs.getString(7);
+                    Integer userId =rs.getInt(8);
+                    return new Staff (staffId, staffName, staffNumber, staffEmail, staffAddress, staffType, staffHistory, userId);
                 }
         }
         return null;
     }
 
     //Add a staff-data into the database   
-    public void addStaff(String name, String dob, String email, String number, String address, String password) throws SQLException {                   //code for add-operation       
+    public void addStaff(int staffid, String name, String email, String number, String address, String type, String history, int accid) throws SQLException {                   //code for add-operation       
        st.executeUpdate("INSERT INTO IOTBAY.STAFF " + "VALUES ('" 
-               + name + "', '" + dob + "', '" 
+               + staffid + "','" + name + "', '"  
                + email + "', '" + number+ "', '" 
-               + address + "', '" + password + "')");
+               + address + "', '" + type+ "', '" + history+ "', '"             
+               + accid + "')");
 
     }
 
     //update a staff details in the database   
-    public void updateStaff(String name, String dob, String email, String number, String address, String password) throws SQLException {
+    public void updateStaff( String name, String email, String number, String address, String type, String history, int accid) throws SQLException {
        st.executeUpdate("UPDATE IOTBAY.STAFF SET "
                + "NAME ='" + name 
-               + "DATEOFBIRTH ='" + dob 
+               + "TYPE ='" + type
                + "PHONENUMBER ='" + number 
                + "ADDRESS ='" + address 
-               + "PASSWORD ='" + password 
+               + "history ='" + history 
                + "' WHERE EMAIL='" + email + "'" );
 
     }

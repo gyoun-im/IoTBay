@@ -73,27 +73,22 @@ public class TestDB {
         String id = in.nextLine();
         System.out.print("User name: ");
         String name = in.nextLine();
-        System.out.print("User dob: ");
-        String dob = in.nextLine();
-        System.out.print("User gender: ");
-        String gender = in.nextLine();
+       
+        
         System.out.print("User number: ");
         String number = in.nextLine();
         System.out.print("User email: ");
         String email = in.nextLine();
         System.out.print("User address: ");
         String address = in.nextLine();
-        System.out.print("User password: ");
-        String password = in.nextLine();
-        System.out.print("User promo: ");
-        String promo = in.nextLine();
-        System.out.print("User reward: ");
-        String reward = in.nextLine();
-        System.out.print("User reg: ");
-        String reg = in.nextLine();
+        
 
         try{
+<<<<<<< HEAD
             db.addCustomer(id, name, dob, gender, number, email, address, password, Boolean.TRUE, Integer.SIZE, Boolean.TRUE);
+=======
+            db.addCustomer(name, number, email, address, true);
+>>>>>>> Gabriel
         } catch (SQLException ex){
             Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE,null, ex);
         }
@@ -103,10 +98,8 @@ public class TestDB {
     
     private void testRead() throws SQLException{
         System.out.print("User email:");
-        String email = in.nextLine();
-        System.out.print("User password:");
-        String password = in.nextLine();
-        Customer customer = db.findCustomer(email, password);
+        String email = in.nextLine();   
+        Customer customer = db.findCustomer(email);
         
         if(customer != null){
             System.out.println("User " + customer.getName() + " exists in the database.");
@@ -119,18 +112,16 @@ public class TestDB {
         
         System.out.print("User email:");
         String email = in.nextLine();
-        System.out.print("User password:");
-        String password = in.nextLine();
         
         try{
-            if(db.checkCustomer(email, password)){
+            if(db.checkCustomer(email)){
                 System.out.print("User name: ");
                 String name = in.nextLine();
-                System.out.print("User gender: ");
-                String gender = in.nextLine();
-                System.out.print("User favourite colour:");
-                String colour = in.nextLine();
-                db.updateCustomer(name, name, gender, name, email, gender, password, Boolean.TRUE, Integer.SIZE);
+                System.out.print("User number: ");
+                String number = in.nextLine();
+                System.out.print("User address: ");
+                String address = in.nextLine();     
+                db.updateCustomer(name, number, email, address);
             }else{
                 System.out.println("User does not exist");
             }
@@ -142,12 +133,11 @@ public class TestDB {
     private void testDelete(){
         System.out.print("User email:");
         String email = in.nextLine();
-        System.out.print("User password:");
-        String password = in.nextLine();
+       
         
         try{
-            if(db.checkCustomer(email, password)){
-                db.deleteUser(email);
+            if(db.checkCustomer(email)){
+                db.deleteCustomer(email);
             }else{
                 System.out.println("User does not exist");
             }
@@ -162,8 +152,8 @@ public class TestDB {
             ArrayList<Customer> customers = db.fetchCustomer();
             System.out.println("Customer Table:");
             customers.stream().forEach((customer) -> {
-                System.out.printf("%-40s %-40s %-40s %-40s %-40s %-40s %-40s %-40s %-40s\n", 
-                 customer.getName(), customer.getDob(), customer.getGender(), customer.getNumber(), customer.getEmail(), customer.getAddress(), customer.getPassword(), customer.getPromo(), customer.getReward());
+                System.out.printf("%-40s %-40s %-40s %-40s %-40s\n", 
+                 customer.getId(), customer.getName(), customer.getNumber(), customer.getEmail(), customer.getAddress());
             });
             System.out.println();        
         }catch (SQLException ex) {
