@@ -71,8 +71,6 @@ public class TestDB {
         
         System.out.print("User name: ");
         String name = in.nextLine();
-       
-        
         System.out.print("User number: ");
         String number = in.nextLine();
         System.out.print("User email: ");
