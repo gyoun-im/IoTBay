@@ -3,12 +3,22 @@ import java.io.Serializable;
 
 public class Staff implements Serializable{
     
-    private String name;
-    private String dob;
-    private String email;
-    private String number;
-    private String address;
-    private String password;
+   private int staffid;
+   private String name;
+   private String email;
+   private String number;
+   private String address;
+   private String type;
+   private String history;
+   private int accid;
+
+    public int getStaffid() {
+        return staffid;
+    }
+
+    public void setStaffid(int staffid) {
+        this.staffid = staffid;
+    }
 
     public String getName() {
         return name;
@@ -16,14 +26,6 @@ public class Staff implements Serializable{
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDob() {
-        return dob;
-    }
-
-    public void setDob(String dob) {
-        this.dob = dob;
     }
 
     public String getEmail() {
@@ -50,21 +52,38 @@ public class Staff implements Serializable{
         this.address = address;
     }
 
-    public String getPassword() {
-        return password;
+    public String getType() {
+        return type;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Staff(String name, String dob, String email, String number, String address, String password) {
+    public String getHistory() {
+        return history;
+    }
+
+    public void setHistory(String history) {
+        this.history = history;
+    }
+
+    public int getAccid() {
+        return accid;
+    }
+
+    public void setAccid(int accid) {
+        this.accid = accid;
+    }
+
+    public Staff(int staffid, String name, String email, String number, String address, String type, String history, int accid) {
+        this.staffid = staffid;
         this.name = name;
-        this.dob = dob;
         this.email = email;
         this.number = number;
         this.address = address;
-        this.password = password;
+        this.type = type;
+        this.history = history;
+        this.accid = accid;
     }
- 
 }
