@@ -22,7 +22,6 @@ Values
 ('lizlips@gmail.com', 'boxes', '19/08/1995', 'Female', true, 0),
 ('shanebran@gmail.com', 'keys', '14/07/1996', 'Male', false, 0),
 ('philbranson@gmail.com', 'rakes', '15/08/1990', 'Female', false, 20),
-
 ('sarahgrant@gmail.com', 'leaves', '04/05/1985', 'Female', null, null),
 ('benmalik@gmail.com', 'hands', '26/07/1985', 'Male', null, null),
 ('philipsaw@gmail.com', 'heads', '09/08/1985', 'Male', null, null),
