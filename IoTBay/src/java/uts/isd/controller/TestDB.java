@@ -84,11 +84,11 @@ public class TestDB {
         
 
         try{
-<<<<<<< HEAD
-            db.addCustomer(id, name, dob, gender, number, email, address, password, Boolean.TRUE, Integer.SIZE, Boolean.TRUE);
-=======
+
+           
+
             db.addCustomer(name, number, email, address, true);
->>>>>>> Gabriel
+
         } catch (SQLException ex){
             Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE,null, ex);
         }

@@ -46,18 +46,10 @@ public class AcessDBManager {
     }
 
     //Add a customer-data into the database   
-<<<<<<< HEAD:IoTBay/src/java/uts/isd/model/dao/AcessDBManager.java
-    public void addCustomer(Integer Id, String name, String dob, String gender, String number, String email, String address, String password, Boolean promo, Integer reward, Boolean reg) throws SQLException {                   //code for add-operation       
-       st.executeUpdate("INSERT INTO IOTBAY.CUSTOMER " + "VALUES ('" 
-               + Id + "','" + name + "', '" + dob + "', '" 
-               + gender + "', '" + number + "', '" 
-               + email + "', '" + address + "', '" 
-               + password + "', '" + promo + "', '"+ reward + "', '"+ reg               
-               + "')");
-=======
+
     public void addCustomer(String name, String number, String email, String address, boolean register) throws SQLException {                   //code for add-operation       
       st.executeUpdate("INSERT INTO IOTBAY.CUSTOMER " + "VALUES ('" + name + "','"+number+"', '" + email + "', '" + address + "', '" + register + "')");
->>>>>>> Gabriel:IoTBay/src/java/uts/isd/model/dao/DBManager_Access.java
+
 
     }
     
