@@ -84,9 +84,6 @@ public class TestDB {
         
 
         try{
-
-           
-
             db.addCustomer(name, number, email, address, true);
 
         } catch (SQLException ex){
