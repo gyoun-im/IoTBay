@@ -15,7 +15,10 @@
                         <a href="login.jsp"><button class="bttn">Login</button></a>
                     </td>
                     <td>
-                        <a href="register.jsp"><button class="bttn">Register</button></a>
+                        <a href="customer_register.jsp"><button class="bttn">Register as customer</button></a>
+                    </td>
+                    <td>
+                        <a href="staff_register.jsp"><button class="bttn">Register as staff</button></a>
                     </td>
                 </tr>
             </table>

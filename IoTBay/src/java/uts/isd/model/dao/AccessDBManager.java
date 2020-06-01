@@ -3,6 +3,7 @@ package uts.isd.model.dao;
 import uts.isd.model.Customer;
 import uts.isd.model.Staff;
 import uts.isd.model.Access_Log;
+import uts.isd.model.User_Account;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -273,7 +274,7 @@ public class AccessDBManager {
     }
 
     //get all rows in the ACCESS_LOG table
-     public ArrayList<Access_Log> fetchLog() throws SQLException
+    public ArrayList<Access_Log> fetchLog() throws SQLException
     {
         String fetch = "select * from ACCESS_LOG";
         ResultSet rs = st.executeQuery(fetch);
@@ -291,6 +292,32 @@ public class AccessDBManager {
         }
         return temp;
     }
+
+
+    public User_Account findUser(String username) throws SQLException {
+        //Find if the user exists in the USER_ACCOUNT table
+        String fetch ="select * from IOTBAY.CUSTOMER where USERNAME='" + username +  "'";
+        ResultSet rs = st.executeQuery(fetch);
+        
+        while(rs.next()){
+            String userName = rs.getString(2);
+                if (userName.equals(username)){
+                    //number corresponds to the columns of the user table
+                    Integer userId=rs.getInt(1);
+                    String userPassword = rs.getString(3);
+                    String userDob = rs.getString(4);
+                    String userGender = rs.getString(5);
+                    Boolean userNews = rs.getBoolean(6);        
+                    int userPoints = rs.getInt(7);
+                    return new User_Account (userId, userName, userPassword, userDob, userGender, userNews, userPoints);
+                }
+        }
+        return null;
+    }
+
+
+
+
      
 }
 
