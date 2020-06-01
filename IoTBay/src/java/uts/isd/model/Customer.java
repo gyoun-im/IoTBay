@@ -62,7 +62,7 @@ public class Customer implements Serializable{
         this.number = number;
         this.email = email;
         this.address = address;
-        this.register = register;
+        this.register = true;
     }
     private String address;
     private boolean register;

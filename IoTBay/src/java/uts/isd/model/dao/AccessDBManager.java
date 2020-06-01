@@ -5,6 +5,7 @@ import uts.isd.model.Staff;
 import uts.isd.model.Access_Log;
 import uts.isd.model.User_Account;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /* 
@@ -237,39 +238,57 @@ public class AccessDBManager {
 
 /*
 
-    The following code are for the access log CRUD
+    The following functions are for the access log CRUD
     Since a user cannot delete or update any access logs
     no code is created for update and deleting logs
 
 */
 
+     
+     public boolean checkLog(int id) throws SQLException
+    {
+        String fetch = "select * from IOTBAY.ACCESS_LOG where USERACCOUNTID =" + id;
+        ResultSet rs = st.executeQuery(fetch);
+        //Find if there is an Id matching in the Access_Log table
+        while (rs.next())
+        {
+            int logId = rs.getInt(1);
+            if (logId == id )
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
         //Find log using LogId in the database 
-        public Access_Log findLog(int logId) throws SQLException {
+        public Access_Log findLog(int userId) throws SQLException {
         //Find if the log exists in the ACCESS_LOG table
-        String fetch ="select * from IOTBAY.ACCESS_LOG where ACCESSLOGID=" + logId ;
+        String fetch ="select * from IOTBAY.ACCESS_LOG where USERACCOUNTID=" + userId ;
         ResultSet rs = st.executeQuery(fetch);
         
         while(rs.next()){    
             int lognum = rs.getInt(1);
             
-                if (lognum == logId){
+                if (lognum == userId){
                     //number corresponds to the columns of the ACCESS_LOG table
                     String logDate = rs.getString(3);
                     String logTime = rs.getString(4);
-                    Integer userId =rs.getInt(2);
+                    Integer logId =rs.getInt(1);
                     return new Access_Log (lognum, userId, logDate, logTime);
                 }
         }
         return null;
     }
 
-    //Add a staff-data into the database   
+    //Add a log-data into the database   
     public void addLog(String date, String time) 
             throws SQLException { 
         //Add staff in the USER_ACCOUNT table
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");   //Format the date to 31/12/2000
+        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa");     //Format the time to 11:59 pm
         st.executeUpdate("INSERT INTO IOTBAY.ACCESS_LOG (DATE, TIME) " 
-              + "VALUES ('" + date +"','" + time + "')");
+              + "VALUES ('" + dateFormat.format(date) +"','" + timeFormat.format(time) + "')");
        
     }
 
@@ -293,18 +312,21 @@ public class AccessDBManager {
         return temp;
     }
 
+    /*
+        User account function is used in the login Servlet
+    */
 
-    public User_Account findUser(String username) throws SQLException {
+    public User_Account findUser(String username, String password) throws SQLException {
         //Find if the user exists in the USER_ACCOUNT table
-        String fetch ="select * from IOTBAY.CUSTOMER where USERNAME='" + username +  "'";
+        String fetch = "select * from IOTBAY.USER_ACCOUNT where USERNAME ='" + username + "' and PASSWORD = '" + password + "'";         
         ResultSet rs = st.executeQuery(fetch);
         
         while(rs.next()){
             String userName = rs.getString(2);
-                if (userName.equals(username)){
+            String userPassword = rs.getString(3);
+                if (userName.equals(username) && userPassword.equals(password)){
                     //number corresponds to the columns of the user table
-                    Integer userId=rs.getInt(1);
-                    String userPassword = rs.getString(3);
+                    Integer userId=rs.getInt(1);     
                     String userDob = rs.getString(4);
                     String userGender = rs.getString(5);
                     Boolean userNews = rs.getBoolean(6);        
