@@ -46,9 +46,7 @@ public class LogsTestDB {
         
         while ((c = readChoice()) != '*'){
             switch (c){
-                case 'C':
-                    testAdd();
-                    break;
+               
                 case 'R':
                     testRead();
                     break;
@@ -63,21 +61,7 @@ public class LogsTestDB {
         }
     }
     
-    private void testAdd(){
-        
-        System.out.print("Log date: ");
-        String date = in.nextLine();
-        System.out.print("Log Time: ");
-        String time = in.nextLine();
-
-        try{
-            db.addLog(date, time);
-        } catch (SQLException ex){
-            Logger.getLogger(LogsTestDB.class.getName()).log(Level.SEVERE,null, ex);
-        }
-        System.out.println("Log is added to the database.");
-        
-    }
+    
     
     private void testRead() throws SQLException{
         System.out.print("Log Id:");

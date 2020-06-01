@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="uts.isd.model.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,5 +27,6 @@
         <div class="center">
             <a href="mainPage.jsp"><button class="bttn">Continue to IoTBay</button></a>
         </div>
+        <jsp:include page="/ConnServlet" flush="true"/>
     </body>
 </html>

@@ -60,9 +60,8 @@ public class CustomerRegisterServlet extends HttpServlet {
                     User_Account user = new User_Account(accid, email, password, dob, gender, Boolean.valueOf(news), id);
                     session.setAttribute("customer", customer);
                     session.setAttribute("user", user);
-                    LocalDate date = LocalDate.now();                                   //Get local date
-                    LocalTime time = LocalTime.now();                                   //Get local time
-                    manager.addLog(String.valueOf(date), String.valueOf(time));         //Add a row to the Access_Log table
+                   
+                    //manager.addLog();                                                               //Add a row to the Access_Log table
                     request.getRequestDispatcher("main.jsp").include(request, response);
                 }
                 

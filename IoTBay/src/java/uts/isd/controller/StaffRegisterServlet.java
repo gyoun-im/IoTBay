@@ -59,9 +59,8 @@ public class StaffRegisterServlet extends HttpServlet {
                     manager.addStaff(name, email, number, address, type, password, password, dob, gender, Boolean.TRUE, id);
                     Staff staff = new Staff(id, name, email, number, address, type, history, accid);
                     session.setAttribute("customer", staff);
-                    LocalDate date = LocalDate.now();                               //Get local date
-                    LocalTime time = LocalTime.now();                               //Get local time
-                    manager.addLog(String.valueOf(date), String.valueOf(time));     //Add a row to the Access_Log table
+                    
+                    //manager.addLog();                                                           //Add a row to the Access_Log table
                     request.getRequestDispatcher("main.jsp").include(request, response);
                 }
                 
