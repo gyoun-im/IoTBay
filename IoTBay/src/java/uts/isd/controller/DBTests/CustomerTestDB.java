@@ -13,11 +13,7 @@ public class CustomerTestDB {
     private static Scanner in = new Scanner(System.in);
     private DBConnector connector;
     private Connection conn;
-
-    private AcessDBManager db;
-
-    
-
+    private AccessDBManager db;
     
     public static void main(String[] args) throws SQLException {
         (new CustomerTestDB()).runQueries();
@@ -31,7 +27,6 @@ public class CustomerTestDB {
             connector = new DBConnector();
             conn = connector.openConnection();
             db = new AccessDBManager(conn);
-
         }catch (ClassNotFoundException | SQLException ex)
         {
             Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,13 +69,7 @@ public class CustomerTestDB {
     
     private void testAdd(){
         
-<<<<<<< HEAD:IoTBay/src/java/uts/isd/controller/TestDB.java
-        System.out.print("User id: ");
-        String id = in.nextLine();
-        System.out.print("User name: ");
-=======
         System.out.print("Customer name: ");
->>>>>>> Gabriel:IoTBay/src/java/uts/isd/controller/CustomerTestDB.java
         String name = in.nextLine();
         System.out.print("Customer number: ");
         String number = in.nextLine();
@@ -98,12 +87,7 @@ public class CustomerTestDB {
        
 
         try{
-<<<<<<< HEAD:IoTBay/src/java/uts/isd/controller/TestDB.java
-            db.addCustomer(name, number, email, address, true);
-
-=======
             db.addCustomer(name, number, email, address, true, password, dob, gender, true, 0 );
->>>>>>> Gabriel:IoTBay/src/java/uts/isd/controller/CustomerTestDB.java
         } catch (SQLException ex){
             Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE,null, ex);
         }
