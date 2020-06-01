@@ -86,7 +86,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>\r\n");
       out.write("        \r\n");
       out.write("        <div class=\"center\">\r\n");
-      out.write("            <p>Don't have account? <a href=\"register.jsp\">Sign up</a></p>\r\n");
+      out.write("            <p>Don't have account? Sign up. Are you a <a href=\"customer_register.jsp\">customer</a> or a <a href =\"staff_register.jsp\">staff</a></p>\r\n");
       out.write("            <p>or continue as guest <a href=\"mainPage.jsp\">click here</a> </p>\r\n");
       out.write("        </div>\r\n");
       out.write("    </body>\r\n");
