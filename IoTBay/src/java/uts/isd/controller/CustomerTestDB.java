@@ -8,28 +8,28 @@ import uts.isd.model.*;
 import uts.isd.model.dao.DBConnector;
 import uts.isd.model.dao.*;
 
-public class TestDB {
+public class CustomerTestDB {
 
     private static Scanner in = new Scanner(System.in);
     private DBConnector connector;
     private Connection conn;
-    private DBManager_Access db;
+    private AccessDBManager db;
     
     public static void main(String[] args) throws SQLException {
-        (new TestDB()).runQueries();
+        (new CustomerTestDB()).runQueries();
         
     }
     
-    public TestDB()
+    public CustomerTestDB()
     {
         try
         {
             connector = new DBConnector();
             conn = connector.openConnection();
-            db = new DBManager_Access(conn);
+            db = new AccessDBManager(conn);
         }catch (ClassNotFoundException | SQLException ex)
         {
-            Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -69,61 +69,76 @@ public class TestDB {
     
     private void testAdd(){
         
-        System.out.print("User name: ");
+        System.out.print("Customer name: ");
         String name = in.nextLine();
-        System.out.print("User number: ");
+        System.out.print("Customer number: ");
         String number = in.nextLine();
-        System.out.print("User email: ");
+        System.out.print("Customer email: ");
         String email = in.nextLine();
-        System.out.print("User address: ");
+        System.out.print("Customer address: ");
         String address = in.nextLine();
-        
+        System.out.print("Customer password: ");
+        String password = in.nextLine();
+        System.out.print("Customer dob: ");
+        String dob = in.nextLine();
+        System.out.print("Customer gender: ");
+        String gender = in.nextLine();
+       
+       
 
         try{
-            db.addCustomer(name, number, email, address, true);
+            db.addCustomer(name, number, email, address, true, password, dob, gender, true, 0 );
         } catch (SQLException ex){
-            Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE,null, ex);
         }
-        System.out.println("User is added to the database.");
+        System.out.println("Customer is added to the database.");
         
     }
     
     private void testRead() throws SQLException{
-        System.out.print("User email:");
+        System.out.print("Customer email:");
         String email = in.nextLine();   
         Customer customer = db.findCustomer(email);
         
         if(customer != null){
-            System.out.println("User " + customer.getName() + " exists in the database.");
+            System.out.println("Customer " + customer.getName() + " exists in the database.");
         }else{
-            System.out.println("User does not exist in the database.");
+            System.out.println("Customer does not exist in the database.");
         }
     }
     
     private void testUpdate() {
         
-        System.out.print("User email:");
+        System.out.print("Customer email:");
         String email = in.nextLine();
         
         try{
             if(db.checkCustomer(email)){
-                System.out.print("User name: ");
+                System.out.print("Customer name: ");
                 String name = in.nextLine();
-                System.out.print("User number: ");
+                System.out.print("Customer number: ");
                 String number = in.nextLine();
-                System.out.print("User address: ");
-                String address = in.nextLine();     
-                db.updateCustomer(name, number, email, address);
+                System.out.print("Customer address: ");
+                String address = in.nextLine();  
+                System.out.print("Customer password: ");
+                String password = in.nextLine();  
+                System.out.print("Customer gender: ");
+                String gender = in.nextLine();  
+                System.out.print("Customer dob: ");
+                String dob = in.nextLine();  
+                               
+                
+                db.updateCustomer(name, number, email, address, password, dob, gender, Boolean.TRUE);
             }else{
-                System.out.println("User does not exist");
+                System.out.println("Customer does not exist");
             }
         }catch (SQLException ex) {
-            Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE,null, ex);
         }     
     }
     
     private void testDelete(){
-        System.out.print("User email:");
+        System.out.print("Customer email:");
         String email = in.nextLine();
        
         
@@ -131,10 +146,10 @@ public class TestDB {
             if(db.checkCustomer(email)){
                 db.deleteCustomer(email);
             }else{
-                System.out.println("User does not exist");
+                System.out.println("Customer does not exist");
             }
         }catch (SQLException ex) {
-            Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE,null, ex);
         }     
         
     }
@@ -149,7 +164,7 @@ public class TestDB {
             });
             System.out.println();        
         }catch (SQLException ex) {
-            Logger.getLogger(TestDB.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE,null, ex);
         }      
     
     }

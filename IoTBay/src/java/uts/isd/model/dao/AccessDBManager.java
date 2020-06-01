@@ -9,11 +9,11 @@ import java.util.ArrayList;
 * DBManager is the primary DAO class to interact with the database. 
 * Complete the existing methods of this classes to perform CRUD operations with the db.
  */
-public class DBManager_Access {
+public class AccessDBManager {
 
     private Statement st;
 
-    public DBManager_Access(Connection conn) throws SQLException {
+    public AccessDBManager(Connection conn) throws SQLException {
         st = conn.createStatement();
     }
     
@@ -46,28 +46,31 @@ public class DBManager_Access {
     }
 
     //Add a customer-data into the database   
-    public void addCustomer(String name, String number, String email, String address, boolean register) throws SQLException {                   //code for add-operation       
-      st.executeUpdate("INSERT INTO IOTBAY.CUSTOMER " + "VALUES ('" + name + "','"+number+"', '" + email + "', '" + address + "', '" + register + "')");
+    public void addCustomer(String name, String number, String email, String address, Boolean register, String password, String dob, 
+            String gender, Boolean promo, int reward) throws SQLException {                   //code for add-operation   
+        
+      st.executeUpdate("INSERT INTO IOTBAY.CUSTOMER (NAME, CONTACTNUMBER, EMAIL, BILLINGADDRESS, ISREGISTERED) " 
+              + "VALUES ('" + name + "','"+number+"', '" + email + "', '" + address + "' , "+register+ ")");
+      
+      st.executeUpdate("INSERT INTO IOTBAY.USER_ACCOUNT (USERNAME, PASSWORD, DATEOFBIRTH, GENDER, PROMOTIONALNEWSLETTER, REWARDPOINTS) "
+              + "VALUES ('" + email +"','" + password + "','" + dob + "','" + gender + "'," + promo + "," + reward + ")");
 
     }
     
-    public int customerId() throws SQLException{
-        ArrayList list = fetchCustomer();
-        
-        int i = list.size();
-        
-        return i+1;
-    }
-
+    
 //update a customer details in the database   
-    public void updateCustomer( String name, String number, String email, String address) throws SQLException {
+    public void updateCustomer( String name, String number, String email, String address, String password, String dob, String gender, Boolean promo) throws SQLException {
       st.executeUpdate("UPDATE IOTBAY.CUSTOMER SET NAME ='" + name + "', BILLINGADDRESS = '" + address + "', CONTACTNUMBER='" + number + "' WHERE EMAIL='" + email + "'" );
-
+      
+      st.executeUpdate("UPDATE IOTBAY.USER_ACCOUNT SET PASSWORD = '" + password + "', DATEOFBIRTH = '" + dob + "', GENDER = '" + gender + "', PROMOTIONALNEWSLETTER = " +promo 
+              +" WHERE USERNAME ='"+email+"'");
     }
 
     //delete a customer from the database   
     public void deleteCustomer(String email) throws SQLException {
         st.executeUpdate("DELETE FROM IOTBAY.CUSTOMER WHERE EMAIL='" + email + "'");
+        st.executeUpdate("DELETE FROM IOTBAY.USER_ACCOUNT WHERE USERNAME='" + email + "'");
+        
 
     }
     
