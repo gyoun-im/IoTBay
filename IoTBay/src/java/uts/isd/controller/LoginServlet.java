@@ -2,6 +2,8 @@ package uts.isd.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -34,9 +36,12 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("login.jsp").include(request, response);   //go back to login.jsp
         }else{        
         try {
-            user = manager.findUser(email);
+            user = manager.findUser(email, password);
             if(user != null){   //if user exists in the database, send them to the main dashboard
                 session.setAttribute("user", user);
+                LocalDate date = LocalDate.now();                               //Get local date
+                LocalTime time = LocalTime.now();                               //Get local time
+                manager.addLog(String.valueOf(date), String.valueOf(time));     //Add a row to the Access_Log table
                 request.getRequestDispatcher("main.jsp").include(request, response);
             }else{              //if they are not in the database, send them back to the login screen
                 session.setAttribute("existErr", "User does not exist in the database");

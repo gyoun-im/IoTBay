@@ -16,6 +16,22 @@
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>uts.isd.controller.LoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>uts.isd.controller.EditServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateServlet</servlet-name>
+        <servlet-class>uts.isd.controller.CustomerUpdateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffUpdateServlet</servlet-name>
+        <servlet-class>uts.isd.controller.StaffUpdateServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AccessLogServlet</servlet-name>
+        <servlet-class>uts.isd.controller.StaffAccessLogServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -31,6 +47,22 @@
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/LoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/EditServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateServlet</servlet-name>
+        <url-pattern>/UpdateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffUpdateServlet</servlet-name>
+        <url-pattern>/StaffUpdateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AccessLogServlet</servlet-name>
+        <url-pattern>/AccessLogServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

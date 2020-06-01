@@ -3,6 +3,8 @@ package uts.isd.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import javax.servlet.ServletException;
 import java.util.logging.*;
 import javax.servlet.http.HttpServlet;
@@ -57,6 +59,9 @@ public class StaffRegisterServlet extends HttpServlet {
                     manager.addStaff(name, email, number, address, type, password, password, dob, gender, Boolean.TRUE, id);
                     Staff staff = new Staff(id, name, email, number, address, type, history, accid);
                     session.setAttribute("customer", staff);
+                    LocalDate date = LocalDate.now();                               //Get local date
+                    LocalTime time = LocalTime.now();                               //Get local time
+                    manager.addLog(String.valueOf(date), String.valueOf(time));     //Add a row to the Access_Log table
                     request.getRequestDispatcher("main.jsp").include(request, response);
                 }
                 

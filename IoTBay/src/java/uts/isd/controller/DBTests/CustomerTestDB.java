@@ -1,4 +1,4 @@
-package uts.isd.controller;
+package uts.isd.controller.DBTests;
 
 import java.sql.*;
 
@@ -7,9 +7,8 @@ import java.util.logging.*;
 import uts.isd.model.*;
 import uts.isd.model.dao.DBConnector;
 import uts.isd.model.dao.*;
-import uts.isd.model.Staff;
 
-public class StaffTestDB {
+public class CustomerTestDB {
 
     private static Scanner in = new Scanner(System.in);
     private DBConnector connector;
@@ -17,11 +16,11 @@ public class StaffTestDB {
     private AccessDBManager db;
     
     public static void main(String[] args) throws SQLException {
-        (new StaffTestDB()).runQueries();
+        (new CustomerTestDB()).runQueries();
         
     }
     
-    public StaffTestDB()
+    public CustomerTestDB()
     {
         try
         {
@@ -30,7 +29,7 @@ public class StaffTestDB {
             db = new AccessDBManager(conn);
         }catch (ClassNotFoundException | SQLException ex)
         {
-            Logger.getLogger(StaffTestDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -70,104 +69,102 @@ public class StaffTestDB {
     
     private void testAdd(){
         
-        System.out.print("Staff name: ");
+        System.out.print("Customer name: ");
         String name = in.nextLine();
-        System.out.print("Staff number: ");
+        System.out.print("Customer number: ");
         String number = in.nextLine();
-        System.out.print("Staff email: ");
+        System.out.print("Customer email: ");
         String email = in.nextLine();
-        System.out.print("Staff address: ");
+        System.out.print("Customer address: ");
         String address = in.nextLine();
-        System.out.print("Staff password: ");
+        System.out.print("Customer password: ");
         String password = in.nextLine();
-        System.out.print("Staff dob: ");
+        System.out.print("Customer dob: ");
         String dob = in.nextLine();
-        System.out.print("Staff gender: ");
+        System.out.print("Customer gender: ");
         String gender = in.nextLine();
-        System.out.print("Staff type: ");
-        String type = in.nextLine();
        
        
 
         try{
-            db.addStaff(name, email, number, address, type, "null", password, dob, gender, Boolean.FALSE, 0);
+            db.addCustomer(name, number, email, address, true, password, dob, gender, true, 0 );
         } catch (SQLException ex){
-            Logger.getLogger(StaffTestDB.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE,null, ex);
         }
-        System.out.println("Staff is added to the database.");
+        System.out.println("Customer is added to the database.");
         
     }
     
     private void testRead() throws SQLException{
-        System.out.print("Staff email:");
+        System.out.print("Customer email:");
         String email = in.nextLine();   
-        Staff staff = db.findStaff(email);
+        Customer customer = db.findCustomer(email);
         
-        if(staff != null){
-            System.out.println("Staff " + staff.getName() + " exists in the database.");
+        if(customer != null){
+            System.out.println("Customer " + customer.getName() + " exists in the database.");
         }else{
-            System.out.println("Staff does not exist in the database.");
+            System.out.println("Customer does not exist in the database.");
         }
     }
     
     private void testUpdate() {
         
-        System.out.print("Staff email:");
+        System.out.print("Customer email:");
         String email = in.nextLine();
         
         try{
-            if(db.checkStaff(email)){
-                System.out.print("Staff name: ");
+            if(db.checkCustomer(email)){
+                System.out.print("Customer name: ");
                 String name = in.nextLine();
-                System.out.print("Staff number: ");
+                System.out.print("Customer number: ");
                 String number = in.nextLine();
-                System.out.print("Staff address: ");
+                System.out.print("Customer address: ");
                 String address = in.nextLine();  
-                System.out.print("Staff password: ");
+                System.out.print("Customer password: ");
                 String password = in.nextLine();  
-                System.out.print("Staff gender: ");
+                System.out.print("Customer gender: ");
                 String gender = in.nextLine();  
-                System.out.print("Staff dob: ");
+                System.out.print("Customer dob: ");
                 String dob = in.nextLine();  
                                
                 
-                db.updateStaff(name, email, number, address, name, password, dob, gender);
+                db.updateCustomer(name, number, email, address, password, dob, gender, Boolean.TRUE);
             }else{
                 System.out.println("Customer does not exist");
             }
         }catch (SQLException ex) {
-            Logger.getLogger(StaffTestDB.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE,null, ex);
         }     
     }
     
     private void testDelete(){
-        System.out.print("Staff email:");
+        System.out.print("Customer email:");
         String email = in.nextLine();
        
         
         try{
-            if(db.checkStaff(email)){
-                db.deleteStaff(email);
+            if(db.checkCustomer(email)){
+                db.deleteCustomer(email);
             }else{
-                System.out.println("Staff does not exist");
+                System.out.println("Customer does not exist");
             }
         }catch (SQLException ex) {
-            Logger.getLogger(StaffTestDB.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE,null, ex);
         }     
         
     }
     
     private void showAll(){
         try{
-            ArrayList<Staff> staffs = db.fetchStaff();
-            System.out.println("Staff Table:");
-            staffs.stream().forEach((staff) ->{
-                System.out.printf("%-30s %-30s %-30s %-30s %-30s %-30s %-30s\n", 
-                 staff.getStaffid(), staff.getName(), staff.getEmail(), staff.getAddress(), staff.getType(), staff.getHistory(), staff.getAccid());
+            ArrayList<Customer> customers = db.fetchCustomer();
+            System.out.println("Customer Table:");
+            customers.stream().forEach((customer) -> {
+                System.out.printf("%-40s %-40s %-40s %-40s %-40s\n", 
+                 customer.getId(), customer.getName(), customer.getNumber(), customer.getEmail(), customer.getAddress());
             });
             System.out.println();        
         }catch (SQLException ex) {
-            Logger.getLogger(StaffTestDB.class.getName()).log(Level.SEVERE,null, ex);
+            Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE,null, ex);
         }      
     
     }
