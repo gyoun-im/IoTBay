@@ -13,11 +13,11 @@ public class CustomerTestDB {
     private static Scanner in = new Scanner(System.in);
     private DBConnector connector;
     private Connection conn;
-<<<<<<< HEAD:IoTBay/src/java/uts/isd/controller/TestDB.java
+
     private AcessDBManager db;
-=======
-    private AccessDBManager db;
->>>>>>> Gabriel:IoTBay/src/java/uts/isd/controller/CustomerTestDB.java
+
+    
+
     
     public static void main(String[] args) throws SQLException {
         (new CustomerTestDB()).runQueries();
@@ -30,11 +30,8 @@ public class CustomerTestDB {
         {
             connector = new DBConnector();
             conn = connector.openConnection();
-<<<<<<< HEAD:IoTBay/src/java/uts/isd/controller/TestDB.java
-            db = new AcessDBManager(conn);
-=======
             db = new AccessDBManager(conn);
->>>>>>> Gabriel:IoTBay/src/java/uts/isd/controller/CustomerTestDB.java
+
         }catch (ClassNotFoundException | SQLException ex)
         {
             Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE, null, ex);
