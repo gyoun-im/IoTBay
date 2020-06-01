@@ -6,6 +6,9 @@ import uts.isd.model.Access_Log;
 import uts.isd.model.User_Account;
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /* 
@@ -56,7 +59,7 @@ public class AccessDBManager {
         //Add into the USER_ACCOUNT table
       st.executeUpdate("INSERT INTO IOTBAY.USER_ACCOUNT (USERNAME, PASSWORD, DATEOFBIRTH, GENDER, PROMOTIONALNEWSLETTER, REWARDPOINTS) " 
               + "VALUES ('" + email +"','" + password + "','" + dob + "','" + gender + "'," + promo + "," + reward + ")");
-
+      
     }
     
     
@@ -280,15 +283,19 @@ public class AccessDBManager {
         }
         return null;
     }
-
+        
     //Add a log-data into the database   
-    public void addLog(String date, String time) 
+    public void addLog() 
             throws SQLException { 
-        //Add staff in the USER_ACCOUNT table
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");   //Format the date to 31/12/2000
-        SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm aa");     //Format the time to 11:59 pm
-        st.executeUpdate("INSERT INTO IOTBAY.ACCESS_LOG (DATE, TIME) " 
-              + "VALUES ('" + dateFormat.format(date) +"','" + timeFormat.format(time) + "')");
+        //Add staff in the USER_ACCOUNT 
+        LocalDate date1 = LocalDate.now();                                      //Get local date
+        LocalTime time1 = LocalTime.now();                                      //Get local time
+                
+        String date = date1.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));    //Format date to day/month/year    
+        String time = time1.format(DateTimeFormatter.ofPattern("hh:mm a"));       //Format time to 12 hour clock
+        
+        st.executeUpdate("INSERT INTO IOTBAY.ACCESS_LOG (USERACCOUNTID, DATE, TIME) SELECT  "          
+              + "VALUES ('" + date +"','" + time + "')");                           //Insert current time
        
     }
 

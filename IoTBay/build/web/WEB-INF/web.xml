@@ -32,6 +32,10 @@
         <servlet-name>AccessLogServlet</servlet-name>
         <servlet-class>uts.isd.controller.StaffAccessLogServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CancelServlet</servlet-name>
+        <servlet-class>uts.isd.controller.CancelServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>AccessLogServlet</servlet-name>
         <url-pattern>/AccessLogServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CancelServlet</servlet-name>
+        <url-pattern>/CancelServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

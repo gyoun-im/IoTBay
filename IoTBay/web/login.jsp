@@ -7,36 +7,34 @@
         <title>Login Page</title>
     </head>
     <body>
+        <%
+            String existErr = (String) session.getAttribute("existErr");
+            String emailErr = (String) session.getAttribute("emailErr");
+            String passErr = (String) session.getAttribute("passErr");
+        %>
          <div class="container">
             <img src="css/IoTBay_Logo.png">
         </div>
-        <h1>Login</h1>
+         <h1>Login </h1>
+         <p><span><%=(existErr != null ? existErr : "")%></span></p>
         <div class="center">
-        <form method="post" action="welcome.jsp">
+        <form method="post" action="LoginServlet">
             <table class="center">
                 <tr>
-                    <td>
-                        <input class="tb" type="text" placeholder="Enter your email" name="email" >
-                    </td>
+                    <td><input class="tb" type="text" placeholder="<%=(emailErr != null ? emailErr : "Enter email")%>" name="email" ></td>
                 </tr>
                 <tr>
-                    <td>
-                        Username
-                    </td>
+                    <td>Username</td>
                 </tr>
                 <tr>
-                    <td>
-                        <input class="tb" type="text" placeholder="Enter your password" name="password" >
-                    </td>
+                    <td><input class="tb" type="text" placeholder="<%=(passErr != null ? emailErr : "Enter password")%>" name="password" ></td>
                 </tr>
                 <tr>
-                    <td>
-                        Password
-                    </td>
+                    <td>Password</td>
                 </tr>
             </table>
             <div class="center">
-                <a><button class="bttn" formaction="index.jsp" class="a">Cancel</button></a>
+                <a href="CancelServlet" class="bttn" class="a">Cancel</button></a>
                 <a><input class="bttn" type="submit" value="Login"></a>
             </div>
         </form>
