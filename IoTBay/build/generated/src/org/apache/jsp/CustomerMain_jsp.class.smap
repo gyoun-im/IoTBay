@@ -1,12 +1,11 @@
 SMAP
-CustomerMain_jsp.java
+customerMain_jsp.java
 JSP
 *S JSP
 *F
-+ 0 CustomerMain.jsp
-CustomerMain.jsp
++ 0 customerMain.jsp
+customerMain.jsp
 *L
-1,13:46
-14,3:60
-16,34:63
+1,11:45
+16,40:56
 *E

@@ -1,7 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="uts.isd.model.*" %>
-<%@page import="uts.isd.controller.*" %>
-<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" href="css/main.css">
@@ -10,11 +8,12 @@
     </head>
     <body>
         
+        <%--
         <%
             Customer customer = (Customer)session.getAttribute("customer");
             
         %>
-        
+        --%>
        
             <img src="css/IoTBay_Logo.png" class="logo">
         
@@ -25,7 +24,7 @@
             
             <div class="user">
                 
-                <p>You're logged in as <%=customer.getName()%></p>
+                <p>You're logged in as</p>
                 <p>You're not signed in <a href='register.jsp'>register</a> or <a href="login.jsp"> login</a></p>
            
         </div>
