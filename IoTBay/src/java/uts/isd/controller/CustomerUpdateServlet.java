@@ -64,15 +64,15 @@ public class CustomerUpdateServlet extends HttpServlet {
             else if(user != null){
                 session.setAttribute("user", user);
                 session.setAttribute("customer", customer);
-                manager.updateCustomer(name, number, email, address, password, dob, gender, Boolean.TRUE);
-                session.setAttribute("updated", "Update was successful");
+                manager.updateCustomer(name, number, email, address, password, dob, gender, Boolean.TRUE);  //Update both CUSTOMER and USER_ACCOUNT table
+                session.setAttribute("updated", "Update was successful");                                   //Displays a message to the user if update is successful
                 request.getRequestDispatcher("edit.jsp").include(request, response);
             }else{
                 session.setAttribute("updated", "Update was not successful");
                 request.getRequestDispatcher("edit.jsp").include(request, response);
             }
         }catch(SQLException ex){
-            Logger.getLogger(EditServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerEditServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
             response.sendRedirect("edit.jsp");
         }
