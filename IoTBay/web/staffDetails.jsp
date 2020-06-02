@@ -31,14 +31,14 @@
         </div>
         <form method="post" action="StaffUpdateServlet">
         <table>
-                <tr><td>Full name: </td><td><input class="tb" type="text" name="name"value=<%=staff.getName()%> ></td><td> <%=(nameErr != null ? nameErr : "")%></td></tr>                
-                <tr><td>Date of birth: </td><td><input class="tb" type="date" name="dob" value=<%=user.getDob()%>></td></tr>
-                <tr><td>Email: </td><td><input class="tb" type="text" name="email" value=<%=staff.getNumber()%>></td></tr>
-                <tr><td>Contact number: </td><td><input class="tb" type="text" name="number" value=<%=staff.getEmail()%>></td><td> <%=(numErr != null ? numErr : "")%></td></tr>
-                <tr><td>Address: </td><td><input class="tb" type="text" name="address" value=<%=staff.getAddress()%>></td></tr>   
+                <tr><td>Full name: </td><td><input class="tb" type="text" name="name"value="<%=staff.getName()%>" ></td><td> <%=(nameErr != null ? nameErr : "")%></td></tr>                
+                <tr><td>Date of birth: </td><td><input class="tb" type="date" name="dob" value=""<%=user.getDob()%>"></td></tr>
+                <tr><td>Email: </td><td><input class="tb" type="text" name="email" value="<%=staff.getNumber()%>"></td></tr>
+                <tr><td>Contact number: </td><td><input class="tb" type="text" name="number" value="<%=staff.getEmail()%>"></td><td> <%=(numErr != null ? numErr : "")%></td></tr>
+                <tr><td>Address: </td><td><input class="tb" type="text" name="address" value="<%=staff.getAddress()%>"></td></tr>   
                 <tr><td>Staff type</td>
                     <td>
-                        <select name="type"value=<%=staff.getType()%>>
+                        <select name="type"value="<%=staff.getType()%>">
                             <option value="manager">Manager</option>
                             <option value="supervisor">Supervisor</option>
                             <option value="normal staff">Normal staff</option>
@@ -47,14 +47,14 @@
                 </tr>
                 <tr><td>Gender</td>
                     <td>
-                        <select name="gender"value=<%=user.getGender()%>>
+                        <select name="gender"value="<%=user.getGender()%>">
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="Prefer not to say">Prefer not to say</option>
                         </select>
                     </td>
                 </tr>
-                <tr><td>Password: </td><td><input class="tb" type="password" name="password"value=<%=user.getPassword()%> ></td><td> <%=(passErr != null ? passErr : "")%></td></tr>             
+                <tr><td>Password: </td><td><input class="tb" type="password" name="password"value="<%=user.getPassword()%>" ></td><td> <%=(passErr != null ? passErr : "")%></td></tr>             
             </table>
         <div class="center">
                 <a><input class="bttn" type="submit" value="Update"></a>

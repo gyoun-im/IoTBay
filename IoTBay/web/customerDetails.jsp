@@ -16,6 +16,7 @@
             String numErr = (String) session.getAttribute("numErr");
             String passErr = (String) session.getAttribute("passErr");
             String empErr = (String) session.getAttribute("empErr");
+            
         %>
         <div class="topRight">
             <a href="AccessCustomerMainServlet"><button class="bttn">Go back to main dashboard</button></a>
@@ -31,22 +32,23 @@
         </div>
         <form method="post" action="CustomerUpdateServlet">
         <table>
-            <tr><td>Full name: </td><td><input class="tb" type="text" name="name" value=<%=customer.getName()%> ></td><td> <%=(nameErr != null ? nameErr : "")%></td></tr>                
-            <tr><td>Date of birth: </td><td><input class="tb" type="date" name="dob" value=<%=user.getDob()%>></td></tr>
-            <tr><td>Email: </td><td><input class="tb" type="text" name="email" value=<%=customer.getEmail()%> ></td></tr>
-            <tr><td>Contact number: </td><td><input class="tb" type="text" name="number" value=<%=customer.getNumber()%>></td><td> <%=(numErr != null ? numErr : "")%></td></tr>
+            <tr><td>Full name: </td><td><input class="tb" type="text" name="name" value="<%=customer.getName()%>"></td><td> <%=(nameErr != null ? nameErr : "")%></td></tr>                
+            <tr><td>Date of birth: </td><td><input class="tb" type="date" name="dob" value="<%=user.getDob()%>"></td></tr>
+            <tr><td>Email: </td><td><input class="tb" type="text" name="email" value="<%=customer.getEmail()%>" ></td></tr>
+            <tr><td>Contact number: </td><td><input class="tb" type="text" name="number" value="<%=customer.getNumber()%>"></td><td> <%=(numErr != null ? numErr : "")%></td></tr>
             <tr><td>Gender</td>
                     <td>
-                        <select name="gender">
+                        <select name="gender" value="<%=user.getGender()%>">
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="Prefer not to say">Prefer not to say</option>
                         </select>
                     </td>
             </tr>
-            <tr><td>Address: </td><td><input class="tb" type="text" name="address" value=<%=customer.getAddress()%>></td></tr>
-            <tr><td>Password: </td><td><input class="tb" type="password" name="password" value=<%=user.getPassword()%></td><td> <%=(passErr != null ? passErr : "")%></td></tr>
-            <tr><td>Would you like to receive a promotional newsletter?</td><td><input type="checkbox" name="news" value=<%=user.isNews()%>></td></tr>
+            <tr><td>Address: </td><td><input class="tb" type="text" name="address" value="<%=customer.getAddress()%>"></td></tr>
+            <tr><td>Password: </td><td><input class="tb" type="password" name="password" value="<%=user.getPassword()%>"</td><td> <%=(passErr != null ? passErr : "")%></td></tr>
+            <tr><td>Would you like to receive a promotional newsletter?</td><td><input type="checkbox" name="news" value="<%=user.isNews()%>"></td></tr>
+            <tr><td>Reward points: </td><td><%=user.getPoints()%></td></tr>
         </table>
         <div class="center">
                 <a><input class="bttn" type="submit" value="Update"></a>
