@@ -285,17 +285,16 @@ public class AccessDBManager {
     }
         
     //Add a log-data into the database   
-    public void addLog() 
-            throws SQLException { 
-        //Add staff in the USER_ACCOUNT 
+    public void addLog(int id) throws SQLException { 
+        
         LocalDate date1 = LocalDate.now();                                      //Get local date
         LocalTime time1 = LocalTime.now();                                      //Get local time
                 
         String date = date1.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));    //Format date to day/month/year    
         String time = time1.format(DateTimeFormatter.ofPattern("hh:mm a"));       //Format time to 12 hour clock
         
-        st.executeUpdate("INSERT INTO IOTBAY.ACCESS_LOG (USERACCOUNTID, DATE, TIME) SELECT  "          
-              + "VALUES ('" + date +"','" + time + "')");                           //Insert current time
+        st.executeUpdate("INSERT INTO IOTBAY.ACCESS_LOG (USERACCOUNTID, DATE, TIME) "          
+              + "VALUES ("+ id + ",'" + date +"','" + time + "')");                           //Insert current time
        
     }
 
@@ -320,7 +319,7 @@ public class AccessDBManager {
     }
 
     /*
-        User account function is used in the login Servlet
+        User account function is used in the LoginServlet
     */
 
     public User_Account findUser(String username, String password) throws SQLException {

@@ -41,5 +41,7 @@ import javax.servlet.http.HttpSession;
        session.setAttribute("passErr", "Enter password");
        session.setAttribute("existErr", "");
        session.setAttribute("nameErr", "Enter name");
+       session.setAttribute("userName", "You're logged in as");
+       
    }
 }

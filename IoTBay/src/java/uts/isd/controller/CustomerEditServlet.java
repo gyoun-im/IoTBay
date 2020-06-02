@@ -9,7 +9,7 @@ import javax.servlet.http.*;
 import uts.isd.model.*;
 import uts.isd.model.dao.AccessDBManager;
 
-public class EditServlet extends HttpServlet {
+public class CustomerEditServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -25,16 +25,16 @@ public class EditServlet extends HttpServlet {
             user = manager.findUser(email, password);
             if(user != null){
                 session.setAttribute("user", user);
-                request.getRequestDispatcher("edit.jsp").include(request, response);
+                request.getRequestDispatcher("customerDetails.jsp").include(request, response);
             }else{
                 session.setAttribute("existErr", "User does not exist in the Database");
-                request.getRequestDispatcher("edit.jsp").include(request, response);
+                request.getRequestDispatcher("customerDetails.jsp").include(request, response);
             }
         }catch (SQLException ex){
-            Logger.getLogger(EditServlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CustomerEditServlet.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
         }
-        request.getRequestDispatcher("edit.jsp").include(request, response);
+        request.getRequestDispatcher("customerDetails.jsp").include(request, response);
         
         
     }

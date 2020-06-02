@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="uts.isd.model.*" %>
-<%@page import="uts.isd.controller.LogoutController" %>
+<%@page import="uts.isd.controller.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,8 +11,8 @@
     <body>
         
         <%
-            Customer customer = (Customer)session.getAttribute("name");
-
+            Customer customer = (Customer)session.getAttribute("customer");
+            
         %>
         
        
@@ -20,7 +20,14 @@
         
         
         <div class="topRight">
-            <a class="bttn" href="LogoutController">Logout</a>
+            <a class="bttn" href="LogoutServlet">Logout</a>
+        </div>
+            
+            <div class="user">
+                
+                <p>You're logged in as <%=customer.getName()%></p>
+                <p>You're not signed in <a href='register.jsp'>register</a> or <a href="login.jsp"> login</a></p>
+           
         </div>
                       
         
