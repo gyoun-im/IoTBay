@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.Staff;
 import uts.isd.model.dao.AccessDBManager;
 import uts.isd.controller.AccessValidator;
+import uts.isd.model.User_Account;
 
 public class StaffRegisterServlet extends HttpServlet {
 
@@ -38,31 +39,35 @@ public class StaffRegisterServlet extends HttpServlet {
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         validator.clear(session);
         
-        if(!validator.validateEmail(email)){
+        if(validator.registerCheckEmpty(email, password, name, dob, number, gender, address)){
+            session.setAttribute("empErr", "Please fill in every textfield");
+            request.getRequestDispatcher("staffRegister.jsp").include(request, response);
+        }
+        else if(!validator.validateEmail(email)){
             session.setAttribute("emailErr", "Error: Email format is incorrect");
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            request.getRequestDispatcher("staffRegister.jsp").include(request, response);
         }else if(!validator.validateName(name)){
             session.setAttribute("nameErr", "Error: Name format is incorrect");
-            request.getRequestDispatcher("register.jsp").include(request, response);
-        }else if(!validator.validateName(type)){
-            session.setAttribute("nameErr", "Error: Staff type format is incorrect");
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            request.getRequestDispatcher("staffRegister.jsp").include(request, response);
         }else if(!validator.validatePassword(password)){
             session.setAttribute("passErr", "Error: Password format is incorrect");
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            request.getRequestDispatcher("staffRegister.jsp").include(request, response);
         }else{
             try{
                 Staff exist = manager.findStaff(email);
                 if(exist != null){  //Check if staff email already exists in the database
                     session.setAttribute("existErr", "Staff already exists in the database");
-                    request.getRequestDispatcher("staff_register.jsp").include(request, response);
+                    request.getRequestDispatcher("staffRegister.jsp").include(request, response);
                 }else{  //add the staff in the STAFF and USER_ACCOUNT table
-                    manager.addStaff(name, email, number, address, type, password, password, dob, gender, Boolean.TRUE, id);
+                    manager.addStaff(name, email, number, address, type, history, password, dob, gender, Boolean.FALSE, id);
                     Staff staff = new Staff(id, name, email, number, address, type, history, accid);
-                    session.setAttribute("customer", staff);
+                    User_Account user = new User_Account(accid, email, password, dob, gender, Boolean.FALSE, id);
+                    session.setAttribute("staff", staff);
+                    session.setAttribute("user", user);
                     
-                    //manager.addLog();                                                           //Add a row to the Access_Log table
-                    request.getRequestDispatcher("main.jsp").include(request, response);
+                    int ids = user.getAccid();                                                       //get userId of the user
+                    manager.addLog(ids);   
+                    request.getRequestDispatcher("staffMain.jsp").include(request, response);
                 }
                 
             }catch(SQLException ex){

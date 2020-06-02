@@ -45,7 +45,12 @@ public class CustomerUpdateServlet extends HttpServlet {
         User_Account user = new User_Account(accid, email, password, dob, gender, Boolean.valueOf(news), id);
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         
-         if(!validator.validateNumber(number)){                                        //Check if email is valid
+        if(validator.registerCheckEmpty(email, password, name, dob, number, gender, address)){
+            session.setAttribute("empErr", "Please fill in every textfield");
+            request.getRequestDispatcher("customerRegister.jsp").include(request, response);
+        }
+        
+        else if(!validator.validateNumber(number)){                                        //Check if email is valid
             session.setAttribute("numErr", "Error: Number format incorrect");      //If not show error msg
             request.getRequestDispatcher("customerDetails.jsp").include(request, response);   //Go back to login.jsp
         }else if(!validator.validatePassword(password)){                            //Check pw

@@ -24,6 +24,16 @@ package uts.isd.controller;
    public boolean checkEmpty(String email, String password){       
       return  email.isEmpty() || password.isEmpty();   
    }
+   
+   //function to check for empty textfield in the customerRegister.jsp
+   public boolean registerCheckEmpty(String email, String password, String name, String dob, String number, String gender, String address){       
+      return  email.isEmpty() || password.isEmpty() || name.isEmpty()|| dob.isEmpty()|| number.isEmpty()|| gender.isEmpty()|| address.isEmpty();
+   }
+   
+   //function to check for empty textfield in the staffRegister.jsp
+   public boolean registerStaffCheckEmpty(String email, String password, String name, String dob, String number, String gender, String address, String type){       
+      return  email.isEmpty() || password.isEmpty() || name.isEmpty()|| dob.isEmpty()|| number.isEmpty()|| gender.isEmpty()|| address.isEmpty() || type.isEmpty();
+   }
   
    public boolean validateEmail(String email){                       
       return validate(emailPattern,email);   
@@ -47,6 +57,7 @@ package uts.isd.controller;
        session.setAttribute("existErr", "");
        session.setAttribute("nameErr", "");
        session.setAttribute("numErr", "");
+       session.setAttribute("empErr", "");
        
        
    }

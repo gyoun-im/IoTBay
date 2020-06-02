@@ -4,21 +4,41 @@
     <head>
         <link rel="stylesheet" href="css/index.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Customer Register Page</title>
+        <title>Staff Register Page</title>
     </head>
     <body>
+        
+         <%
+            String existErr = (String) session.getAttribute("existErr");
+            String emailErr = (String) session.getAttribute("emailErr");
+            String passErr = (String) session.getAttribute("passErr");
+            String nameErr = (String) session.getAttribute("nameErr");
+            String numErr = (String) session.getAttribute("numErr");
+            String empErr = (String) session.getAttribute("empErr");
+        %>
         <div class="container">
             <img src="css/IoTBay_Logo.png">
         </div>
-        <h1>Staff Register</h1>   
-        <form method="post" action="welcome.jsp">
+        <h1>Staff Register</h1>
+         <div class="center">
+         <p><span><%=(existErr != null ? existErr : "")%></span><span><%=(empErr != null ? empErr : "")%></span></p>
+         </div>
+        <form method="post" action="StaffRegisterServlet">
             <table>
-                <tr><td>Full name: </td><td><input class="tb" type="text" name="name" ></td></tr>                
+                <tr><td>Full name: </td><td><input class="tb" type="text" name="name" ></td><td> <%=(nameErr != null ? nameErr : "")%></td></tr>                
                 <tr><td>Date of birth: </td><td><input class="tb" type="date" name="dob" ></td></tr>
-                <tr><td>Email: </td><td><input class="tb" type="text" name="email" ></td></tr>
-                <tr><td>Contact number: </td><td><input class="tb" type="text" name="number" ></td></tr>
-                <tr><td>Address: </td><td><input class="tb" type="text" name="address" ></td></tr>
-                <tr><td>Staff type </td><td><input class="tb" type="text" name="type" ></td></tr>
+                <tr><td>Email: </td><td><input class="tb" type="text" name="email" ></td><td> <%=(emailErr != null ? emailErr : "")%></td></tr>
+                <tr><td>Contact number: </td><td><input class="tb" type="text" name="number" ></td><td> <%=(numErr != null ? numErr : "")%></td></tr>
+                <tr><td>Address: </td><td><input class="tb" type="text" name="address" ></td></tr>   
+                <tr><td>Staff type</td>
+                    <td>
+                        <select name="type">
+                            <option value="manager">Manager</option>
+                            <option value="supervisor">Supervisor</option>
+                            <option value="normal staff">Normal staff</option>
+                        </select>
+                    </td>
+                </tr>
                 <tr><td>Gender</td>
                     <td>
                         <select name="gender">
@@ -28,7 +48,7 @@
                         </select>
                     </td>
                 </tr>
-                <tr><td>Password: </td><td><input class="tb" type="password" name="password" ></td></tr>             
+                <tr><td>Password: </td><td><input class="tb" type="password" name="password" ></td><td> <%=(passErr != null ? passErr : "")%></td></tr>             
             </table>
             <div class="center">
                 <a><button class="bttn" formaction="index.jsp" class="a">Cancel</button></a>

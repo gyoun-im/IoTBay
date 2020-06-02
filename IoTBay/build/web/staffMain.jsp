@@ -19,7 +19,7 @@
         
         
         <div class="topRight">
-            <a class="bttn" href="LogoutController">Logout</a>
+            <a class="bttn" href="LogoutServlet">Logout</a>
         </div>
                       
         

@@ -57,13 +57,13 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <table class=\"center\">\r\n");
       out.write("                <tr>\r\n");
       out.write("                    <td><a href=\"login.jsp\"><button class=\"bttn\">Login</button></a></td>\r\n");
-      out.write("                    <td><a href=\"customer_register.jsp\"><button class=\"bttn\">Register as customer</button></a></td>\r\n");
-      out.write("                    <td><a href=\"staff_register.jsp\"><button class=\"bttn\">Register as staff</button></a></td>\r\n");
+      out.write("                    <td><a href=\"customerRegister.jsp\"><button class=\"bttn\">Register as customer</button></a></td>\r\n");
+      out.write("                    <td><a href=\"staffRegister.jsp\"><button class=\"bttn\">Register as staff</button></a></td>\r\n");
       out.write("                </tr>\r\n");
       out.write("            </table>\r\n");
       out.write("        </div>\r\n");
       out.write("        <div class=\"center\">\r\n");
-      out.write("            <a href=\"customerMain.jsp\"><button class=\"bttn\">Continue to IoTBay</button></a>\r\n");
+      out.write("            <a href=\"AccessCustomerMainServlet\"><button class=\"bttn\">Continue to IoTBay</button></a>\r\n");
       out.write("        </div>\r\n");
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/ConnServlet", out, true);
