@@ -15,6 +15,7 @@
             String nameErr = (String) session.getAttribute("nameErr");
             String numErr = (String) session.getAttribute("numErr");
             String passErr = (String) session.getAttribute("passErr");
+            String empErr = (String) session.getAttribute("empErr");
         %>
         <div class="topRight">
             <a href="AccessCustomerMainServlet"><button class="bttn">Go back to main dashboard</button></a>
@@ -26,7 +27,7 @@
         <h1>Personal details </h1>
         <div class="center">
             <p>Enter the new details in the textbox and click update if you would like to change your details</p>
-            <span><%=(updated != null ? updated: "")%></span>
+            <span><%=(updated != null ? updated: "")%></span><span><%=(empErr != null ? empErr : "")%></span>
         </div>
         <form method="post" action="CustomerUpdateServlet">
         <table>

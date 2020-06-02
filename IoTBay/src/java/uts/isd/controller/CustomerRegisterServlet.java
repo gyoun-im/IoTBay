@@ -37,22 +37,28 @@ public class CustomerRegisterServlet extends HttpServlet {
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         validator.clear(session);
         
-        //Check if all the textfields are valid
-        if(!validator.validateEmail(email)){
+        if(validator.registerCheckEmpty(email, password, name, dob, number, gender, address)){
+            session.setAttribute("empErr", "Please fill in every textfield");
+            request.getRequestDispatcher("customerRegister.jsp").include(request, response);
+        }
+        else if(!validator.validateEmail(email)){
             session.setAttribute("emailErr", "Error: Email format is incorrect");
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            request.getRequestDispatcher("customerRegister.jsp").include(request, response);
         }else if(!validator.validateName(name)){
             session.setAttribute("nameErr", "Error: Name format is incorrect");
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            request.getRequestDispatcher("customerRegister.jsp").include(request, response);
         }else if(!validator.validatePassword(password)){
             session.setAttribute("passErr", "Error: Password format is incorrect");
-            request.getRequestDispatcher("register.jsp").include(request, response);
+            request.getRequestDispatcher("customerRegister.jsp").include(request, response);
+        }else if(!validator.validateNumber(number)){
+            session.setAttribute("numErr", "Error: Number format is incorrect");
+            request.getRequestDispatcher("customerRegister.jsp").include(request, response);
         }else{
             try{
                 Customer exist = manager.findCustomer(email);
                 if(exist != null){                                                          //if the customer is already registered
-                    session.setAttribute("existErr", "Customer already exists in the database");
-                    request.getRequestDispatcher("customer_register.jsp").include(request, response);
+                    session.setAttribute("existErr", "Email already exists in the database");
+                    request.getRequestDispatcher("customerRegister.jsp").include(request, response);
                 }else{
                     //if customer does not exist in the CUSTOMER table, add it to CUSTOMER and USER_ACCOUNT table
                     manager.addCustomer(name, number, email, address, Boolean.FALSE, password, dob, gender, Boolean.TRUE, 0);
@@ -60,9 +66,10 @@ public class CustomerRegisterServlet extends HttpServlet {
                     User_Account user = new User_Account(accid, email, password, dob, gender, Boolean.valueOf(news), id);
                     session.setAttribute("customer", customer);
                     session.setAttribute("user", user);
-                   
-                    //manager.addLog();                                                               //Add a row to the Access_Log table
-                    request.getRequestDispatcher("main.jsp").include(request, response);
+                    
+                    int ids = user.getAccid();                                                       //get userId of the user
+                    manager.addLog(ids);     
+                    request.getRequestDispatcher("customerMain.jsp").include(request, response);
                 }
                 
             }catch(SQLException ex){
