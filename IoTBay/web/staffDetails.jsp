@@ -60,7 +60,7 @@
                 <a><input class="bttn" type="submit" value="Update"></a>
         </div>
         </form>
-        <p>If you wish to delete your account click <input class="sbttn" type="submit" value="Delete"></p>
+         <p>If you wish to delete your account click <a href="StaffDeleteServlet"><button class="bttn">Delete</button></a></p>
         
     </body>
 </html>

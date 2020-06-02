@@ -56,6 +56,14 @@
         <servlet-name>StaffEditServlet</servlet-name>
         <servlet-class>uts.isd.controller.StaffEditServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>StaffDeleteServlet</servlet-name>
+        <servlet-class>uts.isd.controller.StaffDeleteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AccessCustomerMainServlet</servlet-name>
         <url-pattern>/AccessCustomerMainServlet</url-pattern>
@@ -111,6 +119,14 @@
     <servlet-mapping>
         <servlet-name>StaffEditServlet</servlet-name>
         <url-pattern>/StaffEditServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteServlet</servlet-name>
+        <url-pattern>/DeleteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffDeleteServlet</servlet-name>
+        <url-pattern>/StaffDeleteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
