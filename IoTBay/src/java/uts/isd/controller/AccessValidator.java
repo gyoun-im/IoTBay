@@ -45,8 +45,8 @@ package uts.isd.controller;
        session.setAttribute("emailErr", "");
        session.setAttribute("passErr", "");
        session.setAttribute("existErr", "");
-       session.setAttribute("nameErr", "Enter name");
-       session.setAttribute("numErr", "Enter number");
+       session.setAttribute("nameErr", "");
+       session.setAttribute("numErr", "");
        
        
    }

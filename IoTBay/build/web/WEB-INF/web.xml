@@ -48,6 +48,10 @@
         <servlet-name>StaffUpdateServlet</servlet-name>
         <servlet-class>uts.isd.controller.StaffUpdateServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>uts.isd.controller.RegisterServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AccessCustomerMainServlet</servlet-name>
         <url-pattern>/AccessCustomerMainServlet</url-pattern>
@@ -95,6 +99,10 @@
     <servlet-mapping>
         <servlet-name>StaffUpdateServlet</servlet-name>
         <url-pattern>/StaffUpdateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/RegisterServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

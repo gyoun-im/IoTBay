@@ -38,13 +38,23 @@ public class CustomerUpdateServlet extends HttpServlet {
         String number = request.getParameter("number");
         String address = request.getParameter("address");
         String news = request.getParameter(String.valueOf("news"));
+        
+        validator.clear(session);
                 
         Customer customer = new Customer(id, name, number, email, address, Boolean.valueOf(news));
         User_Account user = new User_Account(accid, email, password, dob, gender, Boolean.valueOf(news), id);
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         
-        
-         //Check if all the textfields are valid
+         if(!validator.validateNumber(number)){                                        //Check if email is valid
+            session.setAttribute("numErr", "Error: Number format incorrect");      //If not show error msg
+            request.getRequestDispatcher("customerDetails.jsp").include(request, response);   //Go back to login.jsp
+        }else if(!validator.validatePassword(password)){                            //Check pw
+            session.setAttribute("passErr", "Error: Password format incorrect");    //If not, show error msg
+            request.getRequestDispatcher("customerDetails.jsp").include(request, response);   //go back to login.jsp
+        }else if(!validator.validateName(name)){                            //Check pw
+            session.setAttribute("nameErr", "Error: Name format incorrect");    //If not, show error msg
+            request.getRequestDispatcher("customerDetails.jsp").include(request, response);   //go back to login.jsp
+        }else{  
        
         try{                                                                                 
             if(user != null){
@@ -63,4 +73,4 @@ public class CustomerUpdateServlet extends HttpServlet {
             response.sendRedirect("customerDetails.jsp");
         }
     }
-
+}
