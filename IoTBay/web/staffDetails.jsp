@@ -5,11 +5,11 @@
     <head>
         <link rel="stylesheet" href="css/index.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Personal Details Page</title>
+        <title>Staff Details Page</title>
     </head>
     <body>
         <%
-            Customer customer = (Customer) session.getAttribute("customer");
+            Staff staff = (Staff) session.getAttribute("staff");
             String updated = (String) session.getAttribute("updated");
             User_Account user = (User_Account) session.getAttribute("user");
             String nameErr = (String) session.getAttribute("nameErr");
@@ -24,30 +24,38 @@
         <div class="container">
             <img src="css/IoTBay_Logo.png">
         </div>
-        <h1>Personal details </h1>
+        <h1>Staff Personal details </h1>
         <div class="center">
             <p>Enter the new details in the textbox and click update if you would like to change your details</p>
             <span><%=(updated != null ? updated: "")%></span><span><%=(empErr != null ? empErr : "")%></span>
         </div>
-        <form method="post" action="CustomerUpdateServlet">
+        <form method="post" action="StaffUpdateServlet">
         <table>
-            <tr><td>Full name: </td><td><input class="tb" type="text" name="name" value=<%=customer.getName()%> ></td><td> <%=(nameErr != null ? nameErr : "")%></td></tr>                
-            <tr><td>Date of birth: </td><td><input class="tb" type="date" name="dob" value=<%=user.getDob()%>></td></tr>
-            <tr><td>Email: </td><td><input class="tb" type="text" name="email" value=<%=customer.getEmail()%> ></td></tr>
-            <tr><td>Contact number: </td><td><input class="tb" type="text" name="number" value=<%=customer.getNumber()%>></td><td> <%=(numErr != null ? numErr : "")%></td></tr>
-            <tr><td>Gender</td>
+                <tr><td>Full name: </td><td><input class="tb" type="text" name="name"value=<%=staff.getName()%> ></td><td> <%=(nameErr != null ? nameErr : "")%></td></tr>                
+                <tr><td>Date of birth: </td><td><input class="tb" type="date" name="dob" value=<%=user.getDob()%>></td></tr>
+                <tr><td>Email: </td><td><input class="tb" type="text" name="email" value=<%=staff.getNumber()%>></td></tr>
+                <tr><td>Contact number: </td><td><input class="tb" type="text" name="number" value=<%=staff.getEmail()%>></td><td> <%=(numErr != null ? numErr : "")%></td></tr>
+                <tr><td>Address: </td><td><input class="tb" type="text" name="address" value=<%=staff.getAddress()%>></td></tr>   
+                <tr><td>Staff type</td>
                     <td>
-                        <select name="gender">
+                        <select name="type"value=<%=staff.getType()%>>
+                            <option value="manager">Manager</option>
+                            <option value="supervisor">Supervisor</option>
+                            <option value="normal staff">Normal staff</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr><td>Gender</td>
+                    <td>
+                        <select name="gender"value=<%=user.getGender()%>>
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                             <option value="Prefer not to say">Prefer not to say</option>
                         </select>
                     </td>
-            </tr>
-            <tr><td>Address: </td><td><input class="tb" type="text" name="address" value=<%=customer.getAddress()%>></td></tr>
-            <tr><td>Password: </td><td><input class="tb" type="password" name="password" value=<%=user.getPassword()%></td><td> <%=(passErr != null ? passErr : "")%></td></tr>
-            <tr><td>Would you like to receive a promotional newsletter?</td><td><input type="checkbox" name="news" value=<%=user.isNews()%>></td></tr>
-        </table>
+                </tr>
+                <tr><td>Password: </td><td><input class="tb" type="password" name="password"value=<%=user.getPassword()%> ></td><td> <%=(passErr != null ? passErr : "")%></td></tr>             
+            </table>
         <div class="center">
                 <a><input class="bttn" type="submit" value="Update"></a>
         </div>

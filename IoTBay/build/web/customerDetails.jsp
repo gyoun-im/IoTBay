@@ -19,7 +19,7 @@
         %>
         <div class="topRight">
             <a href="AccessCustomerMainServlet"><button class="bttn">Go back to main dashboard</button></a>
-            <a href="index.jsp"><button class="bttn">Logout</button></a>
+            <a class="bttn" href="LogoutServlet">Logout</a>
         </div>
         <div class="container">
             <img src="css/IoTBay_Logo.png">

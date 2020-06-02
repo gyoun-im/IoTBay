@@ -11,7 +11,7 @@
         
         <%
            Staff staff = (Staff)session.getAttribute("name");
-
+           User_Account user = (User_Account) session.getAttribute("user");  
         %>
         
        
@@ -35,7 +35,7 @@
         
         <table class="dashboardTable">
             <tr>
-                <th class="tabBorder">Profile</th>
+                <th class="tabBorder"><a href="StaffEditServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'">   Profile</th>
                 <th class="tabBorder">Categories</th>
                 <th class="tabBorder">Sales</th>
                 <th class="tabBorder">About us</th>

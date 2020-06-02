@@ -52,6 +52,10 @@
         <servlet-name>RegisterServlet</servlet-name>
         <servlet-class>uts.isd.controller.RegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StaffEditServlet</servlet-name>
+        <servlet-class>uts.isd.controller.StaffEditServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AccessCustomerMainServlet</servlet-name>
         <url-pattern>/AccessCustomerMainServlet</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StaffEditServlet</servlet-name>
+        <url-pattern>/StaffEditServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
