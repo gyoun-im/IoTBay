@@ -19,10 +19,10 @@ public class CustomerEditServlet extends HttpServlet {
         String password = request.getParameter("password");
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         
-        User_Account user = null;
+        
         
         try{
-            user = manager.findUser(email, password);
+            User_Account user = manager.findUser(email, password);
             if(user != null){
                 session.setAttribute("user", user);
                 request.getRequestDispatcher("customerDetails.jsp").include(request, response);

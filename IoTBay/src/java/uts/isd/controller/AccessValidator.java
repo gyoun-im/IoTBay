@@ -43,7 +43,7 @@ package uts.isd.controller;
    
    public void clear(HttpSession session){
        session.setAttribute("emailErr", "");
-       session.setAttribute("passErr", "Enter password");
+       session.setAttribute("passErr", "");
        session.setAttribute("existErr", "");
        session.setAttribute("nameErr", "Enter name");
        session.setAttribute("numErr", "Enter number");

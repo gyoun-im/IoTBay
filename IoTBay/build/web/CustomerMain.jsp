@@ -11,8 +11,7 @@
       
         <%
             Customer customer = (Customer)session.getAttribute("customer");
-            User_Account user = (User_Account) session.getAttribute("user");
-            
+            User_Account user = (User_Account) session.getAttribute("user");  
         %>
         
        
