@@ -15,7 +15,7 @@ import uts.isd.model.Access_Log;
 import uts.isd.model.User_Account;
 import uts.isd.model.dao.AccessDBManager;
 
-public class StaffAccessLogServlet extends HttpServlet {
+public class CustomerAccessLogServlet extends HttpServlet {
 
     @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -31,7 +31,7 @@ public class StaffAccessLogServlet extends HttpServlet {
            
             ArrayList<Access_Log> lists = manager.fetchLog(id);
             request.setAttribute("list", lists);
-           request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response);
+           request.getRequestDispatcher("customerAccessLog.jsp").forward(request, response);
        } catch (SQLException ex) {
            Logger.getLogger(CustomerAccessLogServlet.class.getName()).log(Level.SEVERE, null, ex);
        }
