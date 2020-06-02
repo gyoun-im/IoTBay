@@ -97,11 +97,16 @@ public class CustomerTestDB {
     
     private void testRead() throws SQLException{
         System.out.print("Customer email:");
-        String email = in.nextLine();   
-        Customer customer = db.findCustomer(email);
+        String email = in.nextLine(); 
+        System.out.print("Customer email:");
+        String password = in.nextLine(); 
         
-        if(customer != null){
-            System.out.println("Customer " + customer.getName() + " exists in the database.");
+        User_Account user = db.findUser(email, password);
+        
+         
+        
+        if(user != null){
+            System.out.println("Customer " + user.getEmail() + " exists in the database.");
         }else{
             System.out.println("Customer does not exist in the database.");
         }

@@ -27,8 +27,8 @@ public class CustomerUpdateServlet extends HttpServlet {
             throws ServletException, IOException{
         HttpSession session = request.getSession();
         AccessValidator validator = new AccessValidator();
-        int id=0;       //id is auto-generated
-        int accid =0;   //id is auto-generated
+        int id=0;                                               //id is auto-generated
+        int accid =0;                                           //id is auto-generated
         
         String name = request.getParameter("name");
         String email = request.getParameter("email");
@@ -45,25 +45,9 @@ public class CustomerUpdateServlet extends HttpServlet {
         
         
          //Check if all the textfields are valid
-        if(!validator.validateEmail(email)){
-            session.setAttribute("emailErr", "Error: Email format is incorrect");
-            request.getRequestDispatcher("customerDetails.jsp").include(request, response);
-        }else if(!validator.validateName(name)){
-            session.setAttribute("nameErr", "Error: Name format is incorrect");
-            request.getRequestDispatcher("customerDetails.jsp").include(request, response);
-        }else if(!validator.validatePassword(password)){
-            session.setAttribute("passErr", "Error: Password format is incorrect");
-            request.getRequestDispatcher("customerDetails.jsp").include(request, response);
-        }else if(!validator.validateNumber(number)){
-            session.setAttribute("numErr", "Error: number must be between 8 and 10 numbers");
-            request.getRequestDispatcher("customerDetails.jsp").include(request, response);
-        }else{
-        try{
-            if(manager.checkCustomer(email)){                                                   //each email is unique
-            session.setAttribute("emailErr", "Error: Email already exists");                    //is a user were to change their email to an email
-            request.getRequestDispatcher("customerDetails.jsp").include(request, response);    //that already exists in the database
-            }                                                                                   //It will give an error
-            else if(user != null){
+       
+        try{                                                                                 
+            if(user != null){
                 session.setAttribute("user", user);
                 session.setAttribute("customer", customer);
                 manager.updateCustomer(name, number, email, address, password, dob, gender, Boolean.TRUE);  //Update both CUSTOMER and USER_ACCOUNT table
@@ -79,4 +63,4 @@ public class CustomerUpdateServlet extends HttpServlet {
             response.sendRedirect("customerDetails.jsp");
         }
     }
-}
+
