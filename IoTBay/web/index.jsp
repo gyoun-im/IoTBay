@@ -12,20 +12,14 @@
         <div>
             <table class="center">
                 <tr>
-                    <td>
-                        <a href="login.jsp"><button class="bttn">Login</button></a>
-                    </td>
-                    <td>
-                        <a href="customer_register.jsp"><button class="bttn">Register as customer</button></a>
-                    </td>
-                    <td>
-                        <a href="staff_register.jsp"><button class="bttn">Register as staff</button></a>
-                    </td>
+                    <td><a href="login.jsp"><button class="bttn">Login</button></a></td>
+                    <td><a href="customer_register.jsp"><button class="bttn">Register as customer</button></a></td>
+                    <td><a href="staff_register.jsp"><button class="bttn">Register as staff</button></a></td>
                 </tr>
             </table>
         </div>
         <div class="center">
-            <a href="mainPage.jsp"><button class="bttn">Continue to IoTBay</button></a>
+            <a href="customerMain.jsp"><button class="bttn">Continue to IoTBay</button></a>
         </div>
         <jsp:include page="/ConnServlet" flush="true"/>
     </body>

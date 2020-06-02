@@ -27,7 +27,7 @@ public class StaffUpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException{
         HttpSession session = request.getSession();
-        Validator validator = new Validator();
+        AccessValidator validator = new AccessValidator();
         int id=0;               //Id us auto-generated
         int accid =0;           //userId is auto-generated
         String history ="";     //no history

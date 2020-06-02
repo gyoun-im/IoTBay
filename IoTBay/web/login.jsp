@@ -16,7 +16,9 @@
             <img src="css/IoTBay_Logo.png">
         </div>
          <h1>Login </h1>
+         <div class="center">
          <p><span><%=(existErr != null ? existErr : "")%></span></p>
+         </div>
         <div class="center">
         <form method="post" action="LoginServlet">
             <table class="center">
@@ -27,7 +29,7 @@
                     <td>Username</td>
                 </tr>
                 <tr>
-                    <td><input class="tb" type="text" placeholder="<%=(passErr != null ? emailErr : "Enter password")%>" name="password" ></td>
+                    <td><input class="tb" type="password" placeholder="<%=(passErr != null ? passErr : "Enter password")%>" name="password" ></td>
                 </tr>
                 <tr>
                     <td>Password</td>

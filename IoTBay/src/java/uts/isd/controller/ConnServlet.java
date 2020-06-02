@@ -16,25 +16,25 @@ import uts.isd.model.dao.*;
 
 public class ConnServlet extends HttpServlet {
 
-    private DBConnector db;     //Create database connection
-    private AccessDBManager accessManager;  //Share database manager
-    private Connection conn;    //close database connection
+    private DBConnector db;                             //Create database connection
+    private AccessDBManager accessManager;              //Share database manager
+    private Connection conn;                            //close database connection
 
-    @Override //Create and instance of DBConnector for the deployment session
-
-    public void init() {        //Starts as soon as index.jsp is loaded
+    @Override                                                       
+    //Create and instance of DBConnector for the deployment session
+    public void init() {                                            
         try {                   
-            db = new DBConnector();//creates an instance of DBConnector (from model.DAO)
+            db = new DBConnector();                                                  //creates an instance of DBConnector (from model.DAO)
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    @Override //Add the DBConnector, DBManager, Connection instances to the session
-
+    @Override 
+    //Add the DBConnector, AccessDBManager, Connection instances to the session
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {  //Captures the current session from request and opens the connection with usersdb
-        response.setContentType("text/html;charset=UTF-8");
+            throws ServletException, IOException {                              //Captures the current session from request and                          
+        response.setContentType("text/html;charset=UTF-8");                     //opens the connection with usersdb
         HttpSession session = request.getSession();
         conn = db.openConnection();     //Create a DB connection
         try {

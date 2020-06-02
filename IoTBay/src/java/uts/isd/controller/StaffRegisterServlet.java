@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.Staff;
 import uts.isd.model.dao.AccessDBManager;
-import uts.isd.controller.Validator;
+import uts.isd.controller.AccessValidator;
 
 public class StaffRegisterServlet extends HttpServlet {
 
@@ -26,7 +26,7 @@ public class StaffRegisterServlet extends HttpServlet {
         int accid=0;                //Default value due to id is auto-generated
         
         HttpSession session = request.getSession();
-        Validator validator = new Validator();
+        AccessValidator validator = new AccessValidator();
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String password = request.getParameter("password");

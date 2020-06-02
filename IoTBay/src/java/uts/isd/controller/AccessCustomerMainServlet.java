@@ -20,7 +20,7 @@ public class AccessCustomerMainServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();                         //1- retrieve the current session
-        Validator validator = new Validator();  
+        AccessValidator validator = new AccessValidator();  
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");

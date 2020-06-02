@@ -12,6 +12,9 @@
             Customer customer = (Customer) session.getAttribute("customer");
             String updated = (String) session.getAttribute("updated");
             User_Account user = (User_Account) session.getAttribute("user");
+            String nameErr = (String) session.getAttribute("nameErr");
+            String emailErr = (String) session.getAttribute("emailErr");
+            String passErr = (String) session.getAttribute("passErr");
         %>
         <div class="topRight">
             <a href="AccessCustomerMainServlet"><button class="bttn">Go back to main dashboard</button></a>
@@ -27,9 +30,9 @@
         </div>
         <form method="post" action="CustomerUpdateServlet">
         <table>
-            <tr><td>Full name: </td><td><input class="tb" type="text" name="name" value=<%=customer.getName()%> ></td></tr>                
-            <tr><td>Date of birth: </td><td><input class="tb" type="date" name="dob" value=<%=user.getDob()%>>></td></tr>
-            <tr><td>Email: </td><td><input class="tb" type="text" name="email" value=<%=customer.getEmail()%> ></td></tr>
+            <tr><td>Full name: </td><td><input class="tb" type="text" name="name" value=<%=customer.getName()%> ></td><td> <%=(nameErr != null ? emailErr : "")%></td></tr>                
+            <tr><td>Date of birth: </td><td><input class="tb" type="date" name="dob" value=<%=user.getDob()%>></td></tr>
+            <tr><td>Email: </td><td><input class="tb" type="text" name="email" value=<%=customer.getEmail()%> ></td><td> <%=(emailErr != null ? emailErr : "")%></td></tr>
             <tr><td>Contact number: </td><td><input class="tb" type="text" name="number" value=<%=customer.getNumber()%>></td></tr>
             <tr><td>Gender</td>
                     <td>
@@ -41,8 +44,8 @@
                     </td>
             </tr>
             <tr><td>Address: </td><td><input class="tb" type="text" name="address" value=<%=customer.getAddress()%>></td></tr>
-            <tr><td>Password: </td><td><input class="tb" type="password" name="password" value=<%=user.getPassword()%>></td></tr>
-            <tr><td>Would you like to receive a promotional newsletter?</td><td><input type="checkbox" name="news" value="yes"></td></tr>
+            <tr><td>Password: </td><td><input class="tb" type="password" name="password" value=<%=user.getPassword()%></td><td> <%=(passErr != null ? passErr : "")%></td></tr>
+            <tr><td>Would you like to receive a promotional newsletter?</td><td><input type="checkbox" name="news" value=<%=user.isNews()%>></td></tr>
         </table>
         <div class="center">
                 <a><input class="bttn" type="submit" value="Update"></a>

@@ -27,7 +27,7 @@ public class StaffAccessLogServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException{
         HttpSession session = request.getSession();
-        Validator validator = new Validator();
+        AccessValidator validator = new AccessValidator();
        
         String id = request.getParameter("id");
         Access_Log log;

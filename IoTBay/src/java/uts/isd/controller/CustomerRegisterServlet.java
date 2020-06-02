@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.*;
 import uts.isd.model.dao.AccessDBManager;
-import uts.isd.controller.Validator;
+import uts.isd.controller.AccessValidator;
 
 public class CustomerRegisterServlet extends HttpServlet {
 
@@ -23,7 +23,7 @@ public class CustomerRegisterServlet extends HttpServlet {
         
         //get session
         HttpSession session = request.getSession();
-        Validator validator = new Validator();
+        AccessValidator validator = new AccessValidator();
         
         //all the textfields in the customer_register.jsp
         String name = request.getParameter("name");

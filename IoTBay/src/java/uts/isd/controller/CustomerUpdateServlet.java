@@ -6,7 +6,6 @@
 package uts.isd.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
 import java.util.logging.*;
@@ -27,7 +26,7 @@ public class CustomerUpdateServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) 
             throws ServletException, IOException{
         HttpSession session = request.getSession();
-        Validator validator = new Validator();
+        AccessValidator validator = new AccessValidator();
         int id=0;       //id is auto-generated
         int accid =0;   //id is auto-generated
         
@@ -48,33 +47,36 @@ public class CustomerUpdateServlet extends HttpServlet {
          //Check if all the textfields are valid
         if(!validator.validateEmail(email)){
             session.setAttribute("emailErr", "Error: Email format is incorrect");
-            request.getRequestDispatcher("personal_details.jsp").include(request, response);
+            request.getRequestDispatcher("customerDetails.jsp").include(request, response);
         }else if(!validator.validateName(name)){
             session.setAttribute("nameErr", "Error: Name format is incorrect");
-            request.getRequestDispatcher("personal_details.jsp").include(request, response);
+            request.getRequestDispatcher("customerDetails.jsp").include(request, response);
         }else if(!validator.validatePassword(password)){
             session.setAttribute("passErr", "Error: Password format is incorrect");
-            request.getRequestDispatcher("personal_details.jsp").include(request, response);
+            request.getRequestDispatcher("customerDetails.jsp").include(request, response);
+        }else if(!validator.validateNumber(number)){
+            session.setAttribute("numErr", "Error: number must be between 8 and 10 numbers");
+            request.getRequestDispatcher("customerDetails.jsp").include(request, response);
         }else{
         try{
             if(manager.checkCustomer(email)){                                                   //each email is unique
             session.setAttribute("emailErr", "Error: Email already exists");                    //is a user were to change their email to an email
-            request.getRequestDispatcher("personal_details.jsp").include(request, response);    //that already exists in the database
+            request.getRequestDispatcher("customerDetails.jsp").include(request, response);    //that already exists in the database
             }                                                                                   //It will give an error
             else if(user != null){
                 session.setAttribute("user", user);
                 session.setAttribute("customer", customer);
                 manager.updateCustomer(name, number, email, address, password, dob, gender, Boolean.TRUE);  //Update both CUSTOMER and USER_ACCOUNT table
                 session.setAttribute("updated", "Update was successful");                                   //Displays a message to the user if update is successful
-                request.getRequestDispatcher("edit.jsp").include(request, response);
+                request.getRequestDispatcher("customerDetails.jsp").include(request, response);
             }else{
                 session.setAttribute("updated", "Update was not successful");
-                request.getRequestDispatcher("edit.jsp").include(request, response);
+                request.getRequestDispatcher("customerDetails.jsp").include(request, response);
             }
         }catch(SQLException ex){
             Logger.getLogger(CustomerEditServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
-            response.sendRedirect("edit.jsp");
+            response.sendRedirect("customerDetails.jsp");
         }
     }
 }

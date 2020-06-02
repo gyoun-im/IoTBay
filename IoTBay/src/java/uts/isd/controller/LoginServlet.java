@@ -2,10 +2,6 @@ package uts.isd.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +16,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         HttpSession session = request.getSession();                         //1- retrieve the current session
-        Validator validator = new Validator();                              //2- create an instance of the Validator class    
+        AccessValidator validator = new AccessValidator();                              //2- create an instance of the AccessValidator class    
         String email = request.getParameter("email");                       //3- capture the posted email      
         String password = request.getParameter("password");                 //4- capture the posted password    
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");    //5- retrieve the manager instance from session      

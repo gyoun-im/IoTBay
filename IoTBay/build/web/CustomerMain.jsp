@@ -8,12 +8,13 @@
     </head>
     <body>
         
-        <%--
+      
         <%
             Customer customer = (Customer)session.getAttribute("customer");
+            User_Account user = (User_Account) session.getAttribute("user");
             
         %>
-        --%>
+        
        
             <img src="css/IoTBay_Logo.png" class="logo">
         
@@ -42,7 +43,7 @@
         
         <table class="dashboardTable">
             <tr>
-                <th class="tabBorder">Profile</th>
+                <th class="tabBorder"><a href="CustomerEditServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'">   Profile</th>
                 <th class="tabBorder">Categories</th>
                 <th class="tabBorder">Sales</th>
                 <th class="tabBorder">About us</th>
