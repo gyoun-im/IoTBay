@@ -68,11 +68,11 @@ public class AccessDBManager {
     public void updateCustomer( String name, String number, String email, String address, String password, String dob, String gender, Boolean promo)
             throws SQLException {
         //Update CUSTOMER table
-      st.executeUpdate("UPDATE IOTBAY.CUSTOMER SET NAME ='" + name + "', BILLINGADDRESS = '" + address + "', CONTACTNUMBER='" + number
+      st.executeUpdate("UPDATE IOTBAY.CUSTOMER SET NAME='" + name + "', BILLINGADDRESS= '" + address + "', CONTACTNUMBER='" + number
               + "' WHERE EMAIL='" + email + "'" );
         //Update USER_ACCOUNT table
-      st.executeUpdate("UPDATE IOTBAY.USER_ACCOUNT SET PASSWORD = '" + password + "', DATEOFBIRTH = '" + dob + "', GENDER = '" + gender + "', PROMOTIONALNEWSLETTER = " +promo
-              +" WHERE USERNAME ='"+email+"'");
+      st.executeUpdate("UPDATE IOTBAY.USER_ACCOUNT SET PASSWORD= '" + password + "', DATEOFBIRTH= '" + dob + "', GENDER= '" + gender + "', PROMOTIONALNEWSLETTER= " +promo
+              +" WHERE USERNAME='"+email+"'");
     }
 
     //delete a customer from the database

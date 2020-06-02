@@ -23,8 +23,10 @@ public class CustomerEditServlet extends HttpServlet {
         
         try{
             User_Account user = manager.findUser(email, password);
+            Customer customer = manager.findCustomer(email);
             if(user != null){
                 session.setAttribute("user", user);
+                session.setAttribute("customer", customer);
                 request.getRequestDispatcher("customerDetails.jsp").include(request, response);
             }else{
                 session.setAttribute("existErr", "User does not exist in the Database");
