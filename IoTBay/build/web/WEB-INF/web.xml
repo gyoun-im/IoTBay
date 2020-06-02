@@ -64,6 +64,14 @@
         <servlet-name>StaffDeleteServlet</servlet-name>
         <servlet-class>uts.isd.controller.StaffDeleteServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CustomerAccessLogServlet</servlet-name>
+        <servlet-class>uts.isd.controller.CustomerAccessLogServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FilterDateServlet</servlet-name>
+        <servlet-class>uts.isd.controller.FilterDateServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AccessCustomerMainServlet</servlet-name>
         <url-pattern>/AccessCustomerMainServlet</url-pattern>
@@ -127,6 +135,14 @@
     <servlet-mapping>
         <servlet-name>StaffDeleteServlet</servlet-name>
         <url-pattern>/StaffDeleteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CustomerAccessLogServlet</servlet-name>
+        <url-pattern>/CustomerAccessLogServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FilterDateServlet</servlet-name>
+        <url-pattern>/FilterDateServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

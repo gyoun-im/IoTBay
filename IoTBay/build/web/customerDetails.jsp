@@ -5,7 +5,7 @@
     <head>
         <link rel="stylesheet" href="css/index.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Personal Details Page</title>
+        <title>Customer Personal Details Page</title>
     </head>
     <body>
         <%
@@ -19,7 +19,7 @@
             
         %>
         <div class="topRight">
-            <a href="AccessCustomerMainServlet"><button class="bttn">Go back to main dashboard</button></a>
+            <a href="customerMain.jsp"><button class="bttn">Go back to main dashboard</button></a>
             <a class="bttn" href="LogoutServlet">Logout</a>
         </div>
         <div class="container">

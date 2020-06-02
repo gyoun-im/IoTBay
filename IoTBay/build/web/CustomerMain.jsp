@@ -43,7 +43,7 @@
         <table class="dashboardTable">
             <tr>
                 <th class="tabBorder"><a href="CustomerEditServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'">   Profile</th>
-                <th class="tabBorder">Categories</th>
+                <th class="tabBorder"><a href="CustomerAccessLogServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'">   Logs</th>
                 <th class="tabBorder">Sales</th>
                 <th class="tabBorder">About us</th>
                 <th class="tabBorder">Contact us</th>                

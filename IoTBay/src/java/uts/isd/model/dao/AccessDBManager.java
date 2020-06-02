@@ -266,7 +266,7 @@ public class AccessDBManager {
     }
 
         //Find log using LogId in the database
-        public Access_Log findLog(int userId) throws SQLException {
+        public Access_Log findLogId(int userId) throws SQLException {
         //Find if the log exists in the ACCESS_LOG table
         String fetch ="select * from IOTBAY.ACCESS_LOG where USERACCOUNTID=" + userId ;
         ResultSet rs = st.executeQuery(fetch);
@@ -280,6 +280,24 @@ public class AccessDBManager {
                     String logTime = rs.getString(4);
                     Integer logId =rs.getInt(1);
                     return new Access_Log (lognum, userId, logDate, logTime);
+                }
+        }
+        return null;
+    }
+        public Access_Log findLogDate(String date) throws SQLException {
+        //Find if the log exists in the ACCESS_LOG table
+        String fetch ="select * from IOTBAY.ACCESS_LOG where DATE='" + date +"'";
+        ResultSet rs = st.executeQuery(fetch);
+
+        while(rs.next()){
+            String logDate = rs.getString(3);
+
+                if (logDate.equals(date)){
+                    //number corresponds to the columns of the ACCESS_LOG table
+                    int userId = rs.getInt(2);
+                    String logTime = rs.getString(4);
+                    Integer logId =rs.getInt(1);
+                    return new Access_Log (logId, userId, logDate, logTime);
                 }
         }
         return null;
@@ -300,7 +318,7 @@ public class AccessDBManager {
     }
 
     //get all rows in the ACCESS_LOG table
-    public ArrayList<Access_Log> fetchLog() throws SQLException
+    public ArrayList<Access_Log> fetchLog(int id) throws SQLException
     {
         String fetch = "select * from ACCESS_LOG";
         ResultSet rs = st.executeQuery(fetch);
@@ -312,9 +330,29 @@ public class AccessDBManager {
             String logDate = rs.getString(3);
             String logTime = rs.getString(4);
             int userId= rs.getInt(2);
+            
+            if(userId == id){
+                temp.add(new Access_Log (logId, userId, logDate, logTime));
+            }
+        }
+        return temp;
+    }
+    public ArrayList<Access_Log> fetchLogDate(String date, int id) throws SQLException
+    {
+        String fetch = "select * from ACCESS_LOG";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Access_Log> temp = new ArrayList();
 
-            temp.add(new Access_Log (logId, userId, logDate, logTime));
-
+        while (rs.next())
+        {
+            Integer logId=rs.getInt(1);
+            String logDate = rs.getString(3);
+            String logTime = rs.getString(4);
+            int userId= rs.getInt(2);
+            
+            if(userId == id && date.equals(logDate)){
+                temp.add(new Access_Log (logId, userId, logDate, logTime));
+            }
         }
         return temp;
     }
