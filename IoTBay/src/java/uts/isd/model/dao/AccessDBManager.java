@@ -405,6 +405,27 @@ public class AccessDBManager {
         }
         return null;
     }
+    public User findUserEmail(String username) throws SQLException {
+        //Find if the user exists in the USER_ACCOUNT table
+        String fetch = "SELECT * FROM IOTBAY.USER_ACCOUNT WHERE USERNAME='"+username+"'";
+        ResultSet rs = st.executeQuery(fetch);
+
+        while(rs.next()){
+            String userName = rs.getString(2);
+            
+                if (userName.equals(username) ){
+                    //number corresponds to the columns of the user table
+                    Integer userId=rs.getInt(1);
+                    String userDob = rs.getString(4);
+                    String userGender = rs.getString(5);
+                    Boolean userNews = rs.getBoolean(6);
+                    int userPoints = rs.getInt(7);
+                    String userPassword = rs.getString(3);
+                    return new User (userId, userName, userPassword, userDob, userGender, userNews, userPoints);
+                }
+        }
+        return null;
+    }
 
 
 }

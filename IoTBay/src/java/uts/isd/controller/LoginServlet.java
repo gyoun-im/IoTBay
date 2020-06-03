@@ -25,8 +25,11 @@ public class LoginServlet extends HttpServlet {
         Staff staff = null;
         validator.clear(session);
         
-        
-        if(!validator.validateEmail(email)){                                        //Check if email is valid
+         if(validator.checkEmpty(email, password)){
+            session.setAttribute("empErr", "Please fill in every textfield");
+            request.getRequestDispatcher("login.jsp").include(request, response);
+        }
+         else if(!validator.validateEmail(email)){                                        //Check if email is valid
             session.setAttribute("emailErr", "Error: Email format incorrect");      //If not show error msg
             request.getRequestDispatcher("login.jsp").include(request, response);   //Go back to login.jsp
         }else if(!validator.validatePassword(password)){                            //Check pw
