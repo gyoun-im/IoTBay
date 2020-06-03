@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.Customer;
 import uts.isd.model.Staff;
-import uts.isd.model.User_Account;
+import uts.isd.model.User;
 import uts.isd.model.dao.AccessDBManager;
 
 public class DeleteServlet extends HttpServlet{
@@ -22,7 +22,7 @@ public class DeleteServlet extends HttpServlet{
        
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager"); 
         try {
-            User_Account user = (User_Account) session.getAttribute("user");
+            User user = (User) session.getAttribute("user");
             Customer customer = (Customer) session.getAttribute("customer");
             String custEmail = customer.getEmail();            
             manager.deleteCustomer(custEmail);

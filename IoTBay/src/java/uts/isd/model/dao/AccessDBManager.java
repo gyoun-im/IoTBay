@@ -3,7 +3,7 @@ package uts.isd.model.dao;
 import uts.isd.model.Customer;
 import uts.isd.model.Staff;
 import uts.isd.model.Access_Log;
-import uts.isd.model.User_Account;
+import uts.isd.model.User;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -361,7 +361,7 @@ public class AccessDBManager {
         User account function is used in the LoginServlet
     */
 
-    public User_Account findUser(String username, String password) throws SQLException {
+    public User findUser(String username, String password) throws SQLException {
         //Find if the user exists in the USER_ACCOUNT table
         String fetch = "SELECT * FROM IOTBAY.USER_ACCOUNT WHERE USERNAME='"+username+"' AND PASSWORD='"+password+"'";
         ResultSet rs = st.executeQuery(fetch);
@@ -376,7 +376,7 @@ public class AccessDBManager {
                     String userGender = rs.getString(5);
                     Boolean userNews = rs.getBoolean(6);
                     int userPoints = rs.getInt(7);
-                    return new User_Account (userId, userName, userPassword, userDob, userGender, userNews, userPoints);
+                    return new User (userId, userName, userPassword, userDob, userGender, userNews, userPoints);
                 }
         }
         return null;

@@ -22,7 +22,7 @@ public class CustomerEditServlet extends HttpServlet {
         
         
         try{
-            User_Account user = manager.findUser(email, password);
+            User user = manager.findUser(email, password);
             Customer customer = manager.findCustomer(email);
             if(user != null){
                 session.setAttribute("user", user);

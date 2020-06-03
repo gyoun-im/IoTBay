@@ -1,179 +1,31 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 01/05/2020, 11:00:27 AM
-    Author     : test
-*/
 
-        body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+            td {
+                font-family:Arial;
+                font-size:15px;
+                font-weight:normal;
+                padding: 0px;
+                text-align:left;
+                vertical-align: middle;
 
-h1{
-    text-align:center;
-    font-size:20px;
-    font-family:Arial;
-}
-table, tr {
+            }
 
-    border: 2.5px solid black;
-
-    text-align:center;
-    padding:0px;
-   
-    border-bottom-color:orangered;
-    border-top: 0pt;
-    border-right: 0pt;
-    border-left: 0pt;
-    
-}
-
-th
-{
-    font-family:Arial;
-    font-size:15px;
-    font-weight:normal;
-    padding: 11px;
-    
-    text-align:center;
-    vertical-align: middle;
-    
-
-}
-
-th img{
- 
-   margin-top:auto;
-   margin-bottom:auto;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.center{
-    position: absolute;
-
-}
-
-.dropdown {
-  position: relative;
-  display: block;
-  cursor:pointer;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  width:100%;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-
-}
-
-.dropdown:hover .dropdown-content {
-  margin-top:12px;
-  margin-right: 300px;
-  display: block;
-  background-color:white;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-th:hover{
-    background-color:orangered;
-}
-
- .centerz {
-  display: block;
- 
-  margin-left: auto;
-  margin-right: auto;
+            ul {
+                list-style: none;
+                padding-left: 0px;
+                color:#3e88ff;
+                
+            }
+            
+            li {
+                margin-bottom: 15px;
+            }
+            
+            li a:hover{
+                color: tomato;
+                cursor: pointer;
+            }
+            
+            li a {
+                color:#3e88ff;
+            }
   
-}
-
-.dropdown-content a:hover {background-color: #ddd;}
-
-th:hover
-{
-    cursor:pointer;
-}
-a.home {
-  
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
-}
-
-th a { 
-  
-  width: 100%;
-  display: block;
-
-}
-a:hover
-{
-    text-decoration:none;
-    color:white;
-}
-
-a{
-    text-decoration:none;
-    color:black;
-}
-
-table.viewprofile{
-    
-    border:0px;
-    border-bottom: 0px;
-    margin-left:auto;
-    margin-right:auto;
-    width:10%;
-    
-}
-
-td
-{
-    font-family:arial;
-    font-size:18px;
-    color:darkgray;
-    text-align: left;
-}
-
-td.title
-{
-        font-family:arial;
-    font-size:14px;
-    color:gray;
-    text-align: left;
-    font-weight: bold;
-}
-button {
-  
-  background-color: #ffffff;
-  color: orangered;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border-collapse: collapse;
-  border-color: orangered;
-  cursor: pointer;
-  width: 10%;
-}
-
-.buttonposition
-{
-    margin-left:45%;
-    
-
-}
-
-button:hover{
-    background-color:orangered;
-    color:white;
-}

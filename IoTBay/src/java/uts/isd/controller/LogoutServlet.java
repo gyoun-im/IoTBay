@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.User_Account;
+import uts.isd.model.User;
 import uts.isd.model.dao.AccessDBManager;
 
 public class LogoutServlet extends HttpServlet{
@@ -20,7 +20,7 @@ public class LogoutServlet extends HttpServlet{
        
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager"); 
         try {
-            User_Account user = (User_Account) session.getAttribute("user");
+            User user = (User) session.getAttribute("user");
             int id = user.getAccid();
             manager.addLog(id);
         } catch (SQLException ex) {

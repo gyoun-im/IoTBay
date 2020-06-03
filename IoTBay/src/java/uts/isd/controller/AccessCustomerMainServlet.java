@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.User_Account;
+import uts.isd.model.User;
 import uts.isd.model.dao.AccessDBManager;
 
 public class AccessCustomerMainServlet extends HttpServlet {
@@ -24,7 +24,7 @@ public class AccessCustomerMainServlet extends HttpServlet {
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         
         try {
-            User_Account user = manager.findUser(email, password);
+            User user = manager.findUser(email, password);
             if(user != null){
                 session.setAttribute("user", user);
                 request.getRequestDispatcher("customerMain.jsp").include(request, response);

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.Customer;
 import uts.isd.model.Staff;
-import uts.isd.model.User_Account;
+import uts.isd.model.User;
 import uts.isd.model.dao.AccessDBManager;
 
 public class StaffDeleteServlet extends HttpServlet{

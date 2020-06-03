@@ -240,3 +240,34 @@ button:hover{
   
 }
 
+
+            td {
+                font-family:Arial;
+                font-size:15px;
+                font-weight:normal;
+                padding: 0px;
+                text-align:left;
+                vertical-align: middle;
+
+            }
+
+            ul {
+                list-style: none;
+                padding-left: 0px;
+                color:#3e88ff;
+                
+            }
+            
+            li {
+                margin-bottom: 15px;
+            }
+            
+            li a:hover{
+                color: tomato;
+                cursor: pointer;
+            }
+            
+            li a {
+                color:#3e88ff;
+            }
+  

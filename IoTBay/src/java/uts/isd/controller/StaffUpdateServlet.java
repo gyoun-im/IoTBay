@@ -44,7 +44,7 @@ public class StaffUpdateServlet extends HttpServlet {
         String type = request.getParameter("type");
         
         Staff staff = new Staff(id, name, email, number, address, type, history, accid);
-        User_Account user = new User_Account(accid, email, password, dob, gender, news, id);
+        User user = new User(accid, email, password, dob, gender, news, id);
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         
         if(validator.registerCheckEmpty(email, password, name, dob, number, gender, address)){

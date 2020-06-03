@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.Access_Log;
-import uts.isd.model.User_Account;
+import uts.isd.model.User;
 import uts.isd.model.dao.AccessDBManager;
 
 public class StaffAccessLogServlet extends HttpServlet {
@@ -25,7 +25,7 @@ public class StaffAccessLogServlet extends HttpServlet {
         
         
        try {
-            User_Account user = (User_Account) session.getAttribute("user");
+            User user = (User) session.getAttribute("user");
             
             int id = user.getAccid();
            

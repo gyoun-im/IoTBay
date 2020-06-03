@@ -22,7 +22,7 @@ public class StaffEditServlet extends HttpServlet {
         
         
         try{
-            User_Account user = manager.findUser(email, password);
+            User user = manager.findUser(email, password);
             Staff staff = manager.findStaff(email);
             if(user != null){
                 session.setAttribute("user", user);

@@ -9,7 +9,7 @@
     <body>
         
       <%      
-            User_Account user = (User_Account) session.getAttribute("user");
+            User user = (User) session.getAttribute("user");
       %>
        
         
