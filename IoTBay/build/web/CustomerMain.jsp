@@ -8,17 +8,12 @@
     </head>
     <body>
         
-<<<<<<< HEAD
-      <%      
-            User user = (User) session.getAttribute("user");
-      %>
-       
-=======
+
       <%          
             User user = (User) session.getAttribute("user");  
       %>
        <%if (user != null){%>
->>>>>>> Gabriel
+
         
        
             <img src="css/IoTBay_Logo.png" class="logo">

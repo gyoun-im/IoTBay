@@ -25,9 +25,6 @@ public class StaffAccessLogServlet extends HttpServlet {
         
        try {
 
-           
-
-            
            ArrayList<Access_Log> lists = manager.fetchAllLog();
            request.setAttribute("list", lists);
            request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response);
