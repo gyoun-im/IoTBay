@@ -24,10 +24,9 @@ public class StaffAccessLogServlet extends HttpServlet {
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         
        try {
-<<<<<<< HEAD
-            User user = (User) session.getAttribute("user");
-=======
->>>>>>> Gabriel
+
+           
+
             
            ArrayList<Access_Log> lists = manager.fetchAllLog();
            request.setAttribute("list", lists);
