@@ -22,10 +22,13 @@
         <table>
             <tr> 
                 <td>
+                    <form action="FilterDateServlet" method="post">
                     <div class="center">
-                        <input type="Search" placeholder="Search Date" name="date">
-                         <a class="bttn" href="FilterDateServlet">Filter</a>
+                        <input type="text" placeholder="Search Date" name="date">
+                        <input type="text" placeholder="Search user Id" name="userId">
+                        <a><input class="sbttn" type="submit" value="Filter"></a>
                     </div>
+                    </form>
                 </td>
             </tr>
         </table>
