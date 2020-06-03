@@ -47,7 +47,7 @@ public class CustomerUpdateServlet extends HttpServlet {
         
         if(validator.registerCheckEmpty(email, password, name, dob, number, gender, address)){
             session.setAttribute("empErr", "Please fill in every textfield");
-            request.getRequestDispatcher("customerRegister.jsp").include(request, response);
+            request.getRequestDispatcher("customerDetails.jsp").include(request, response);
         }
         
         else if(!validator.validateNumber(number)){                                        //Check if email is valid
