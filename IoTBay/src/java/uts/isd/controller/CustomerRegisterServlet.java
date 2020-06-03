@@ -63,7 +63,7 @@ public class CustomerRegisterServlet extends HttpServlet {
                     //if customer does not exist in the CUSTOMER table, add it to CUSTOMER and USER_ACCOUNT table
                     manager.addCustomer(name, number, email, address, Boolean.FALSE, password, dob, gender, Boolean.TRUE, 0);
                     Customer customer = new Customer(id, name, number, email, address, Boolean.valueOf(news));
-                    User_Account user = new User_Account(accid, email, password, dob, gender, Boolean.valueOf(news), id);
+                    User user = new User(accid, email, password, dob, gender, Boolean.valueOf(news), id);
                     session.setAttribute("customer", customer);
                     session.setAttribute("user", user);
                     

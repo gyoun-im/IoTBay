@@ -42,7 +42,7 @@ public class CustomerUpdateServlet extends HttpServlet {
         validator.clear(session);
                 
         Customer customer = new Customer(id, name, number, email, address, Boolean.valueOf(news));
-        User_Account user = new User_Account(accid, email, password, dob, gender, Boolean.valueOf(news), id);
+        User user = new User(accid, email, password, dob, gender, Boolean.valueOf(news), id);
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         
         if(validator.registerCheckEmpty(email, password, name, dob, number, gender, address)){

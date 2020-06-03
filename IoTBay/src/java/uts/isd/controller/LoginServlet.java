@@ -20,7 +20,7 @@ public class LoginServlet extends HttpServlet {
         String email = request.getParameter("email");                       //3- capture the posted email      
         String password = request.getParameter("password");                 //4- capture the posted password    
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");    //5- retrieve the manager instance from session      
-        User_Account user = null;                                                   //null values to determine whether       
+        User user = null;                                                   //null values to determine whether       
         Customer customer = null;                                                   //a customer or a staff is logging in
         Staff staff = null;
         validator.clear(session);

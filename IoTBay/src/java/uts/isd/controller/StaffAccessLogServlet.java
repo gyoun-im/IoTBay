@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.Access_Log;
-import uts.isd.model.User_Account;
+import uts.isd.model.User;
 import uts.isd.model.dao.AccessDBManager;
 
 public class StaffAccessLogServlet extends HttpServlet {
@@ -20,17 +20,13 @@ public class StaffAccessLogServlet extends HttpServlet {
     @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
-
+        
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         
-        
        try {
-            User_Account user = (User_Account) session.getAttribute("user");
             
-            int id = user.getAccid();
-           
-            ArrayList<Access_Log> lists = manager.fetchLog(id);
-            request.setAttribute("list", lists);
+           ArrayList<Access_Log> lists = manager.fetchAllLog();
+           request.setAttribute("list", lists);
            request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response);
        } catch (SQLException ex) {
            Logger.getLogger(CustomerAccessLogServlet.class.getName()).log(Level.SEVERE, null, ex);

@@ -34,7 +34,7 @@ public class FilterDateServlet extends HttpServlet {
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         
         try{                                                                                 
-            User_Account user = (User_Account) session.getAttribute("user");
+            User user = (User) session.getAttribute("user");
             
             int id = user.getAccid();
            

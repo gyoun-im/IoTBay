@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.Staff;
 import uts.isd.model.dao.AccessDBManager;
 import uts.isd.controller.AccessValidator;
-import uts.isd.model.User_Account;
+import uts.isd.model.User;
 
 public class StaffRegisterServlet extends HttpServlet {
 
@@ -61,7 +61,7 @@ public class StaffRegisterServlet extends HttpServlet {
                 }else{  //add the staff in the STAFF and USER_ACCOUNT table
                     manager.addStaff(name, email, number, address, type, history, password, dob, gender, Boolean.FALSE, id);
                     Staff staff = new Staff(id, name, email, number, address, type, history, accid);
-                    User_Account user = new User_Account(accid, email, password, dob, gender, Boolean.FALSE, id);
+                    User user = new User(accid, email, password, dob, gender, Boolean.FALSE, id);
                     session.setAttribute("staff", staff);
                     session.setAttribute("user", user);
                     

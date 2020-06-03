@@ -8,6 +8,7 @@ public class Access_Log implements Serializable{
     private int accid;
     private String date;
     private String time;
+    private String action;
     
     public Access_Log(int accessid, int accid, String date, String time) {
         this.accessid = accessid;

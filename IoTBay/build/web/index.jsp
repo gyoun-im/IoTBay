@@ -19,7 +19,7 @@
             </table>
         </div>
         <div class="center">
-            <a href="nonRegMain.jsp"><button class="bttn">Continue to IoTBay</button></a>
+            <a href="customerMain.jsp"><button class="bttn">Continue to IoTBay</button></a>
         </div>
         <jsp:include page="/ConnServlet" flush="true"/>
     </body>
