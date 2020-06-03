@@ -380,6 +380,26 @@ public class AccessDBManager {
         }
         return temp;
     }
+    public ArrayList<Access_Log> fetchLogOnlyDate(String date) throws SQLException
+    {
+        String fetch = "select * from ACCESS_LOG";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Access_Log> temp = new ArrayList();
+
+        while (rs.next())
+        {
+            Integer logId=rs.getInt(1);
+            String logDate = rs.getString(3);
+            String logTime = rs.getString(4);
+            String logAction = rs.getString(5);
+            int userId= rs.getInt(2);
+            
+            if(date.equals(logDate)){
+                temp.add(new Access_Log (logId, userId, logDate, logTime, logAction));
+            }
+        }
+        return temp;
+    }
 
     /*
         User account function is used in the LoginServlet
