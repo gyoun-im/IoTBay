@@ -63,7 +63,7 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </table>\r\n");
       out.write("        </div>\r\n");
       out.write("        <div class=\"center\">\r\n");
-      out.write("            <a href=\"AccessCustomerMainServlet\"><button class=\"bttn\">Continue to IoTBay</button></a>\r\n");
+      out.write("            <a href=\"nonRegMain.jsp\"><button class=\"bttn\">Continue to IoTBay</button></a>\r\n");
       out.write("        </div>\r\n");
       out.write("        ");
       org.apache.jasper.runtime.JspRuntimeLibrary.include(request, response, "/ConnServlet", out, true);

@@ -51,7 +51,7 @@
                 <tr><td>Password: </td><td><input class="tb" type="password" name="password" ></td><td> <%=(passErr != null ? passErr : "")%></td></tr>             
             </table>
             <div class="center">
-                <a><button class="bttn" formaction="index.jsp" class="a">Cancel</button></a>
+                   <a class="bttn" href="CancelServlet">Cancel</a>
                 <a><input class="bttn" type="submit" value="Register"></a>
             </div>
         </form>

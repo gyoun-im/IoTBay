@@ -8,11 +8,12 @@
     </head>
     <body>
         
-      
-        <%
-            Customer customer = (Customer)session.getAttribute("customer");
-            User_Account user = (User_Account) session.getAttribute("user");  
+      <%
+            
+            User_Account user = (User_Account) session.getAttribute("user");
+           
         %>
+       
         
        
             <img src="css/IoTBay_Logo.png" class="logo">
@@ -24,8 +25,7 @@
             
             <div class="user">
                 
-                <p>You're logged in as</p>
-                <p>You're not signed in <a href='register.jsp'>register</a> or <a href="login.jsp"> login</a></p>
+                <p>You're logged in as <%=user.getEmail()%></p>
            
         </div>
                       
