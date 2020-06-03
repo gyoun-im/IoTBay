@@ -22,7 +22,7 @@ public class LogoutServlet extends HttpServlet{
         try {
             User user = (User) session.getAttribute("user");
             int id = user.getAccid();
-            manager.addLog(id);
+            manager.addLog(id,"LOGOUT");
         } catch (SQLException ex) {
             Logger.getLogger(LogoutServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

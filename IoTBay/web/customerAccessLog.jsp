@@ -21,17 +21,7 @@
         <h1>Access Logs</h1>
             
         <table>
-            <tr>
-                <td>
-                   <div class="center">
-                        Logged in as:
-                    </div> 
-                </td>          
-                <td>
-                    <div class="center">
-                        Access logs of:
-                    </div>
-                </td>
+            <tr> 
                 <td>
                     <div class="center">
                         <input type="Search" placeholder="Search Date" name="date">
@@ -44,11 +34,13 @@
             <tr>
                 <th>Date</th>
                 <th>Time</th>
+                <th>Action</th>
             </tr>
             <c:forEach items="${list}" var="logs" >
             <tr>
                 <td class="tabBorder"><c:out value="${logs.date}"/></td>                
                 <td class="tabBorder"><c:out value="${logs.time}"/></td>                
+                <td class="tabBorder"><c:out value="${logs.action}"/></td>                
             </tr>
         </c:forEach>
         </table>

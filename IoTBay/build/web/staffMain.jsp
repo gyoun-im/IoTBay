@@ -21,7 +21,11 @@
         <div class="topRight">
             <a class="bttn" href="LogoutServlet">Logout</a>
         </div>
-                      
+              <div class="user">
+                
+                <p>You're logged in as <%=user.getEmail()%></p>
+           
+        </div>            
         
         
         <div class="center">

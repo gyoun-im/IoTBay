@@ -41,13 +41,13 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("user", user);  
                 session.setAttribute("customer", customer);
                 int id = user.getAccid();                                                       //get userId of the user
-                manager.addLog(id);                                                             //Add a row to the Access_Log table
+                manager.addLog(id,"LOGIN");                                                             //Add a row to the Access_Log table
                 request.getRequestDispatcher("customerMain.jsp").include(request, response);
             }else if(user != null && staff != null && customer == null){                        //if staff is the one logging in
                 session.setAttribute("user", user);
                 session.setAttribute("staff", staff);
                 int id = user.getAccid();                                                       //get userId of the user
-                manager.addLog(id);                                                             //Add a row to the Access_Log table
+                manager.addLog(id,"LOGIN");                                                             //Add a row to the Access_Log table
                 request.getRequestDispatcher("staffMain.jsp").include(request, response);
             }else{                                                                              //if they are not in the database, clear the textfield
                 session.setAttribute("existErr", "User does not exist in the database");

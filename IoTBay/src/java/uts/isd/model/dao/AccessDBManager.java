@@ -278,8 +278,9 @@ public class AccessDBManager {
                     //number corresponds to the columns of the ACCESS_LOG table
                     String logDate = rs.getString(3);
                     String logTime = rs.getString(4);
+                    String logAction = rs.getString(5);
                     Integer logId =rs.getInt(1);
-                    return new Access_Log (lognum, userId, logDate, logTime);
+                    return new Access_Log (lognum, userId, logDate, logTime, logAction);
                 }
         }
         return null;
@@ -297,14 +298,15 @@ public class AccessDBManager {
                     int userId = rs.getInt(2);
                     String logTime = rs.getString(4);
                     Integer logId =rs.getInt(1);
-                    return new Access_Log (logId, userId, logDate, logTime);
+                    String logAction = rs.getString(5);
+                    return new Access_Log (logId, userId, logDate, logTime, logAction);
                 }
         }
         return null;
     }
 
     //Add a log-data into the database
-    public void addLog(int id) throws SQLException {
+    public void addLog(int id, String action) throws SQLException {
 
         LocalDate date1 = LocalDate.now();                                      //Get local date
         LocalTime time1 = LocalTime.now();                                      //Get local time
@@ -312,8 +314,8 @@ public class AccessDBManager {
         String date = date1.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));    //Format date to day/month/year
         String time = time1.format(DateTimeFormatter.ofPattern("hh:mm a"));       //Format time to 12 hour clock
 
-        st.executeUpdate("INSERT INTO IOTBAY.ACCESS_LOG (USERACCOUNTID, DATE, TIME) "
-              + "VALUES ("+ id + ",'" + date +"','" + time + "')");                           //Insert current time
+        st.executeUpdate("INSERT INTO IOTBAY.ACCESS_LOG (USERACCOUNTID, DATE, TIME, ACTION) "
+              + "VALUES ("+ id + ",'" + date +"','" + time + "','"+action+"')");                           //Insert current time
 
     }
 
@@ -329,10 +331,11 @@ public class AccessDBManager {
             Integer logId=rs.getInt(1);
             String logDate = rs.getString(3);
             String logTime = rs.getString(4);
+            String logAction = rs.getString(5);
             int userId= rs.getInt(2);
             
             
-                temp.add(new Access_Log (logId, userId, logDate, logTime));
+                temp.add(new Access_Log (logId, userId, logDate, logTime, logAction));
             
         }
         return temp;
@@ -348,10 +351,11 @@ public class AccessDBManager {
             Integer logId=rs.getInt(1);
             String logDate = rs.getString(3);
             String logTime = rs.getString(4);
+            String logAction = rs.getString(5);
             int userId= rs.getInt(2);
             
             if(userId == id){
-                temp.add(new Access_Log (logId, userId, logDate, logTime));
+                temp.add(new Access_Log (logId, userId, logDate, logTime, logAction));
             }
         }
         return temp;
@@ -367,10 +371,11 @@ public class AccessDBManager {
             Integer logId=rs.getInt(1);
             String logDate = rs.getString(3);
             String logTime = rs.getString(4);
+            String logAction = rs.getString(5);
             int userId= rs.getInt(2);
             
             if(userId == id && date.equals(logDate)){
-                temp.add(new Access_Log (logId, userId, logDate, logTime));
+                temp.add(new Access_Log (logId, userId, logDate, logTime, logAction));
             }
         }
         return temp;

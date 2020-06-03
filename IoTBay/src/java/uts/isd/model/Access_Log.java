@@ -9,13 +9,24 @@ public class Access_Log implements Serializable{
     private String date;
     private String time;
     private String action;
-    
-    public Access_Log(int accessid, int accid, String date, String time) {
+
+    public Access_Log(int accessid, int accid, String date, String time, String action) {
         this.accessid = accessid;
         this.accid = accid;
         this.date = date;
         this.time = time;
+        this.action = action;
     }
+
+    public String getAction() {
+        return action;
+    }
+
+    public void setAction(String action) {
+        this.action = action;
+    }
+    
+    
 
     public int getAccessid() {
         return accessid;

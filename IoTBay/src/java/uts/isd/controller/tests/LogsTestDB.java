@@ -107,7 +107,7 @@ public class LogsTestDB {
        
 
         try{
-            db.addLog(id);
+            db.addLog(id, "LOGIN");
         } catch (SQLException ex){
             Logger.getLogger(CustomerTestDB.class.getName()).log(Level.SEVERE,null, ex);
         }

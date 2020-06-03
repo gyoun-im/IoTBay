@@ -31,13 +31,17 @@
         </table>
         <table class="accessTable">
             <tr>
+                <th>Id</th>
                 <th>Date</th>
                 <th>Time</th>
+                <th>Action</th>
             </tr>
             <c:forEach items="${list}" var="logs" >
             <tr>
+                <td class="tabBorder">${logs.accid}</td>     
                 <td class="tabBorder"><c:out value="${logs.date}"/></td>                
                 <td class="tabBorder"><c:out value="${logs.time}"/></td>                
+                <td class="tabBorder"><c:out value="${logs.action}"/></td>                
             </tr>
         </c:forEach>
         </table>

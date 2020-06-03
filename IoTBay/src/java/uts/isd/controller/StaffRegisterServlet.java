@@ -66,7 +66,7 @@ public class StaffRegisterServlet extends HttpServlet {
                     session.setAttribute("user", user);
                     
                     int ids = user.getAccid();                                                       //get userId of the user
-                    manager.addLog(ids);   
+                    manager.addLog(ids, "LOGIN");   
                     request.getRequestDispatcher("staffMain.jsp").include(request, response);
                 }
                 
