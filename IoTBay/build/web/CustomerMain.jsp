@@ -8,11 +8,9 @@
     </head>
     <body>
         
-      <%
-            
+      <%      
             User_Account user = (User_Account) session.getAttribute("user");
-           
-        %>
+      %>
        
         
        
