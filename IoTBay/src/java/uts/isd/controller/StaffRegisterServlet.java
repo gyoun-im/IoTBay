@@ -52,11 +52,14 @@ public class StaffRegisterServlet extends HttpServlet {
         }else if(!validator.validatePassword(password)){
             session.setAttribute("passErr", "Error: Password format is incorrect");
             request.getRequestDispatcher("staffRegister.jsp").include(request, response);
+        } else if(!validator.validateNumber(number)){
+            session.setAttribute("numErr", "Error: Number format is incorrect");
+            request.getRequestDispatcher("staffRegister.jsp").include(request, response);
         }else{
             try{
-                Staff exist = manager.findStaff(email);
+                User exist = manager.findUserEmail(email);
                 if(exist != null){  //Check if staff email already exists in the database
-                    session.setAttribute("existErr", "Staff already exists in the database");
+                    session.setAttribute("existErr", "User email already exists in the database");
                     request.getRequestDispatcher("staffRegister.jsp").include(request, response);
                 }else{  //add the staff in the STAFF and USER_ACCOUNT table
                     manager.addStaff(name, email, number, address, type, history, password, dob, gender, Boolean.FALSE, id);

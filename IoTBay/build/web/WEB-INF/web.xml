@@ -45,10 +45,6 @@
         <servlet-class>uts.isd.controller.StaffUpdateServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>uts.isd.controller.RegisterServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>StaffEditServlet</servlet-name>
         <servlet-class>uts.isd.controller.StaffEditServlet</servlet-class>
     </servlet>
@@ -111,10 +107,6 @@
     <servlet-mapping>
         <servlet-name>StaffUpdateServlet</servlet-name>
         <url-pattern>/StaffUpdateServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>RegisterServlet</servlet-name>
-        <url-pattern>/RegisterServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StaffEditServlet</servlet-name>

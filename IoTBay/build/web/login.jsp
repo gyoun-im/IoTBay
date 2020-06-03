@@ -11,13 +11,14 @@
             String existErr = (String) session.getAttribute("existErr");
             String emailErr = (String) session.getAttribute("emailErr");
             String passErr = (String) session.getAttribute("passErr");
+            String empErr = (String) session.getAttribute("empErr");
         %>
          <div class="container">
             <img src="css/IoTBay_Logo.png">
         </div>
          <h1>Login </h1>
          <div class="center">
-         <p><span><%=(existErr != null ? existErr : "")%></span></p>
+         <p><span><%=(existErr != null ? existErr : "")%></span><span><%=(empErr != null ? empErr : "")%></span></p>
          </div>
         <div class="center">
         <form method="post" action="LoginServlet">
