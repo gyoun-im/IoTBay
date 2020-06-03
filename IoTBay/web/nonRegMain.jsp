@@ -8,28 +8,13 @@
     </head>
     <body>
         
-      <%
-            
-            User_Account user = (User_Account) session.getAttribute("user");
-           
-        %>
-       
-        
-       
             <img src="css/IoTBay_Logo.png" class="logo">
         
         
-        <div class="topRight">
-            <a class="bttn" href="LogoutServlet">Logout</a>
+        <div class="user">
+            <p>You're not signed in <a href='customerRegister.jsp'>register</a> or <a href="login.jsp"> login</a></p>
         </div>
             
-            <div class="user">
-                
-                <p>You're logged in as <%=user.getEmail()%></p>
-           
-        </div>
-                      
-        
         
         <div class="center">
             <form method="post">
@@ -42,8 +27,8 @@
         
         <table class="dashboardTable">
             <tr>
-                <th class="tabBorder"><a href="CustomerEditServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'">   Profile</th>
-                <th class="tabBorder"><a href="CustomerAccessLogServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'">   Logs</th>
+                <th class="tabBorder">Profile</th>
+                <th class="tabBorder">Logs</th>
                 <th class="tabBorder">Sales</th>
                 <th class="tabBorder">About us</th>
                 <th class="tabBorder">Contact us</th>                

@@ -43,7 +43,7 @@
                 <tr><td>Would you like to receive a promotional newsletter?</td><td><input type="checkbox" name="news" value="yes"></td></tr>
             </table>
             <div class="center">
-                <a href="CancelServlet" class="bttn" class="a">Cancel</button></a>
+                <a class="bttn" href="CancelServlet">Cancel</a>
                 <a><input class="bttn" type="submit" value="Register"></a>
             </div>
         </form>
