@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="uts.isd.model.Access_Log" %>
 <%@page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
@@ -21,17 +20,7 @@
         <h1>Access Logs</h1>
             
         <table>
-            <tr>
-                <td>
-                   <div class="center">
-                        Logged in as:
-                    </div> 
-                </td>          
-                <td>
-                    <div class="center">
-                        Access logs of:
-                    </div>
-                </td>
+            <tr> 
                 <td>
                     <div class="center">
                         <input type="Search" placeholder="Search Date" name="date">

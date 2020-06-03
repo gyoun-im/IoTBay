@@ -20,17 +20,17 @@ public class StaffAccessLogServlet extends HttpServlet {
     @Override
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         HttpSession session = request.getSession();
-
+        
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         
-        
        try {
+<<<<<<< HEAD
             User user = (User) session.getAttribute("user");
+=======
+>>>>>>> Gabriel
             
-            int id = user.getAccid();
-           
-            ArrayList<Access_Log> lists = manager.fetchLog(id);
-            request.setAttribute("list", lists);
+           ArrayList<Access_Log> lists = manager.fetchAllLog();
+           request.setAttribute("list", lists);
            request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response);
        } catch (SQLException ex) {
            Logger.getLogger(CustomerAccessLogServlet.class.getName()).log(Level.SEVERE, null, ex);

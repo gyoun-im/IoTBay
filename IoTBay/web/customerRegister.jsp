@@ -49,8 +49,8 @@
         </form>
         <div class="center">
             <p>Already have an account? <a href="login.jsp">Login here</a></p>
-            <p>or continue as guest <a href="mainPage.jsp">click here</a> </p>
-            <p>Registering as a staff? <a href="staff_register.jsp">click here</a> </p>
+            <p>or continue as guest <a href="customerMain.jsp">click here</a> </p>
+            <p>Registering as a staff? <a href="staffRegister.jsp">click here</a> </p>
         </div>
     </body>
 </html>

@@ -318,6 +318,25 @@ public class AccessDBManager {
     }
 
     //get all rows in the ACCESS_LOG table
+    public ArrayList<Access_Log> fetchAllLog() throws SQLException
+    {
+        String fetch = "select * from ACCESS_LOG";
+        ResultSet rs = st.executeQuery(fetch);
+        ArrayList<Access_Log> temp = new ArrayList();
+
+        while (rs.next())
+        {
+            Integer logId=rs.getInt(1);
+            String logDate = rs.getString(3);
+            String logTime = rs.getString(4);
+            int userId= rs.getInt(2);
+            
+            
+                temp.add(new Access_Log (logId, userId, logDate, logTime));
+            
+        }
+        return temp;
+    }
     public ArrayList<Access_Log> fetchLog(int id) throws SQLException
     {
         String fetch = "select * from ACCESS_LOG";

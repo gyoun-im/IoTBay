@@ -43,8 +43,8 @@
         </div>
         
         <div class="center">
-            <p>Don't have account? Sign up. Are you a <a href="customer_register.jsp">customer</a> or a <a href ="staff_register.jsp">staff</a></p>
-            <p>or continue as guest <a href="mainPage.jsp">click here</a> </p>
+            <p>Don't have account? Sign up. Are you a <a href="customeRegister.jsp">customer</a> or a <a href ="staffRegister.jsp">staff</a></p>
+            <p>or continue as guest <a href="customerMain.jsp">click here</a> </p>
         </div>
     </body>
 </html>
