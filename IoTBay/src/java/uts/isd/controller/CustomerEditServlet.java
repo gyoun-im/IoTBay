@@ -34,7 +34,7 @@ public class CustomerEditServlet extends HttpServlet {
             }
         }catch (SQLException ex){
             Logger.getLogger(CustomerEditServlet.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println(ex.getErrorCode() + " and " + ex.getMessage());
+            
         }
         request.getRequestDispatcher("customerDetails.jsp").include(request, response);
         
