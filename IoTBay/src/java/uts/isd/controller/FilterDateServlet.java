@@ -21,9 +21,8 @@ public class FilterDateServlet extends HttpServlet {
         String date = request.getParameter("date");
         String userId = request.getParameter("userId");
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
-        User user = (User) session.getAttribute("user");
         Staff staff = (Staff) session.getAttribute("staff");
-
+      
         try {
                 //Filter by date and userId
             if (staff != null && !userId.isEmpty() && !date.isEmpty()) {
@@ -38,18 +37,11 @@ public class FilterDateServlet extends HttpServlet {
                 request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response);
                 
                 //Filter by userId
-            } else if (staff != null && date.isEmpty()) {
+            } else if (date.isEmpty() && staff != null){
                 ArrayList<Access_Log> lists = manager.fetchLog(Integer.parseInt(userId));
                 request.setAttribute("list", lists);
-                request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response);
-                
-                //Filter by the current session's userId. Used for customerAccessLog.jsp only
-            } else {
-                int id = user.getAccid();
-                ArrayList<Access_Log> lists = manager.fetchLogDate(date, id);
-                request.setAttribute("list", lists);
-                request.getRequestDispatcher("customerAccessLog.jsp").forward(request, response);
-            }
+                request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response);                             
+            }             
         } catch (SQLException ex) {
             Logger.getLogger(FilterDateServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

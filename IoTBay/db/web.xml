@@ -76,10 +76,6 @@
         <servlet-name>OrderDetailServlet</servlet-name>
         <servlet-class>uts.isd.controller.OrderDetailServlet</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>CustomerFilterDateServlet</servlet-name>
-        <servlet-class>uts.isd.controller.CustomerFilterDateServlet</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>CancelServlet</servlet-name>
         <url-pattern>/CancelServlet</url-pattern>
@@ -155,10 +151,6 @@
     <servlet-mapping>
         <servlet-name>OrderDetailServlet</servlet-name>
         <url-pattern>/OrderDetailServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CustomerFilterDateServlet</servlet-name>
-        <url-pattern>/CustomerFilterDateServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

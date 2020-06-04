@@ -23,7 +23,7 @@
         <table>
             <tr> 
                 <td>
-                    <form action="FilterDateServlet" method="post">
+                    <form action="CustomerFilterDateServlet" method="post">
                     <div class="center">
                         <input type="text" placeholder="Search Date" name="date">
                         <a><input class="sbttn" type="submit" value="Filter by date"></a>
