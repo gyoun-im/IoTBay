@@ -1,9 +1,9 @@
 package uts.isd.model;
+
 import java.io.Serializable;
 
+public class Access_Log implements Serializable {
 
-public class Access_Log implements Serializable{
-    
     private int accessid;
     private int accid;
     private String date;
@@ -25,8 +25,6 @@ public class Access_Log implements Serializable{
     public void setAction(String action) {
         this.action = action;
     }
-    
-    
 
     public int getAccessid() {
         return accessid;
@@ -59,6 +57,5 @@ public class Access_Log implements Serializable{
     public void setTime(String time) {
         this.time = time;
     }
-    
-    
+
 }

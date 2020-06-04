@@ -1,8 +1,9 @@
 package uts.isd.model;
+
 import java.io.Serializable;
 
-public class User implements Serializable{
-    
+public class User implements Serializable {
+
     private int accid;
     private String email;
     private String password;
@@ -10,6 +11,16 @@ public class User implements Serializable{
     private String gender;
     private boolean news;
     private int points;
+
+    public User(int accid, String email, String password, String dob, String gender, boolean news, int points) {
+        this.accid = accid;
+        this.email = email;
+        this.password = password;
+        this.dob = dob;
+        this.gender = gender;
+        this.news = news;
+        this.points = points;
+    }
 
     public int getAccid() {
         return accid;
@@ -67,14 +78,4 @@ public class User implements Serializable{
         this.points = points;
     }
 
-    public User(int accid, String email, String password, String dob, String gender, boolean news, int points) {
-        this.accid = accid;
-        this.email = email;
-        this.password = password;
-        this.dob = dob;
-        this.gender = gender;
-        this.news = news;
-        this.points = points;
-    }
-    
 }

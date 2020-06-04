@@ -9,7 +9,6 @@
         <title>Staff Access Log Page</title>
     </head>
     <body>
-       
         <div class="topRight">
             <a href="staffMain.jsp"><button class="bttn">Go back to main dashboard</button></a>
             <a class="bttn" href="LogoutServlet">Logout</a>
@@ -18,16 +17,15 @@
             <img src="css/IoTBay_Logo.png">
         </div>
         <h1>Access Logs</h1>
-            
         <table>
             <tr> 
                 <td>
                     <form action="FilterDateServlet" method="post">
-                    <div class="center">
-                        <input type="text" placeholder="Search Date" name="date">
-                        <input type="text" placeholder="Search user Id" name="userId">
-                        <a><input class="sbttn" type="submit" value="Filter"></a>
-                    </div>
+                        <div class="center">
+                            <input type="text" placeholder="Search Date" name="date">
+                            <input type="text" placeholder="Search user Id" name="userId">
+                            <a><input class="sbttn" type="submit" value="Filter"></a>
+                        </div>
                     </form>
                 </td>
             </tr>
@@ -40,14 +38,13 @@
                 <th>Action</th>
             </tr>
             <c:forEach items="${list}" var="logs" >
-            <tr>
-                <td class="tabBorder">${logs.accid}</td>     
-                <td class="tabBorder"><c:out value="${logs.date}"/></td>                
-                <td class="tabBorder"><c:out value="${logs.time}"/></td>                
-                <td class="tabBorder"><c:out value="${logs.action}"/></td>                
-            </tr>
-        </c:forEach>
+                <tr>
+                    <td class="tabBorder">${logs.accid}</td>     
+                    <td class="tabBorder"><c:out value="${logs.date}"/></td>                
+                    <td class="tabBorder"><c:out value="${logs.time}"/></td>                
+                    <td class="tabBorder"><c:out value="${logs.action}"/></td>                
+                </tr>
+            </c:forEach>
         </table>
-        
     </body>
 </html>

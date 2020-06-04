@@ -12,25 +12,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.dao.*;
 
-
-
 public class ConnServlet extends HttpServlet {
 
     private DBConnector db;                             //Create database connection
     private AccessDBManager accessManager;              //Share database manager
     private Connection conn;                            //close database connection
 
-    @Override                                                       
+    @Override
     //Create and instance of DBConnector for the deployment session
-    public void init() {                                            
-        try {                   
+    public void init() {
+        try {
             db = new DBConnector();                                                  //creates an instance of DBConnector (from model.DAO)
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    @Override 
+    @Override
     //Add the DBConnector, AccessDBManager, Connection instances to the session
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {                              //Captures the current session from request and                          
@@ -38,7 +36,7 @@ public class ConnServlet extends HttpServlet {
         HttpSession session = request.getSession();
         conn = db.openConnection();     //Create a DB connection
         try {
-            accessManager = new AccessDBManager(conn);  //Creates an instance of DBManager (from model.dao) and adds it to current session
+            accessManager = new AccessDBManager(conn);  //Creates an instance of AccessDBManager (from model.dao) and adds it to current session
         } catch (SQLException ex) {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
         }

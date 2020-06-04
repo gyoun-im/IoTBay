@@ -1,12 +1,24 @@
 package uts.isd.model;
+
 import java.io.Serializable;
 
-public class Customer implements Serializable{
-    
+public class Customer implements Serializable {
+
     private int id;
     private String name;
     private String number;
     private String email;
+    private String address;
+    private boolean register;
+
+    public Customer(int id, String name, String number, String email, String address, boolean register) {
+        this.id = id;
+        this.name = name;
+        this.number = number;
+        this.email = email;
+        this.address = address;
+        this.register = true;
+    }
 
     public int getId() {
         return id;
@@ -56,15 +68,4 @@ public class Customer implements Serializable{
         this.register = register;
     }
 
-    public Customer(int id, String name, String number, String email, String address, boolean register) {
-        this.id = id;
-        this.name = name;
-        this.number = number;
-        this.email = email;
-        this.address = address;
-        this.register = true;
-    }
-    private String address;
-    private boolean register;
-    
 }

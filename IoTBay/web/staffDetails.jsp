@@ -27,10 +27,10 @@
         <h1>Staff Personal details </h1>
         <div class="center">
             <p>Enter the new details in the textbox and click update if you would like to change your details</p>
-            <span><%=(updated != null ? updated: "")%></span><span><%=(empErr != null ? empErr : "")%></span>
+            <span><%=(updated != null ? updated : "")%></span><span><%=(empErr != null ? empErr : "")%></span>
         </div>
         <form method="post" action="StaffUpdateServlet">
-        <table>
+            <table>
                 <tr><td>Full name: </td><td><input class="tb" type="text" name="name"value="<%=staff.getName()%>" ></td><td> <%=(nameErr != null ? nameErr : "")%></td></tr>                
                 <tr><td>Date of birth: </td><td><input class="tb" type="date" name="dob" value=""<%=user.getDob()%>"></td></tr>
                 <tr><td>Email: </td><td><input class="tb" type="text" name="email" value="<%=staff.getNumber()%>"></td></tr>
@@ -56,11 +56,10 @@
                 </tr>
                 <tr><td>Password: </td><td><input class="tb" type="password" name="password"value="<%=user.getPassword()%>" ></td><td> <%=(passErr != null ? passErr : "")%></td></tr>             
             </table>
-        <div class="center">
+            <div class="center">
                 <a><input class="bttn" type="submit" value="Update"></a>
-        </div>
+            </div>
         </form>
-         <p>If you wish to delete your account click <a href="StaffDeleteServlet"><button class="bttn">Delete</button></a></p>
-        
+        <p>If you wish to delete your account click <a href="StaffDeleteServlet"><button class="bttn">Delete</button></a></p>
     </body>
 </html>

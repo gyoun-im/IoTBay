@@ -2,8 +2,6 @@ package uts.isd.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import javax.servlet.ServletException;
 import java.util.logging.*;
 import javax.servlet.http.HttpServlet;
@@ -17,14 +15,14 @@ import uts.isd.controller.AccessValidator;
 public class CustomerRegisterServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        int id =0;                                              //default value because id is auto-generated
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int id = 0;                                              //default value because id is auto-generated
         int accid = 0;                                          //default value because userid is auto-generated
-        
+
         //get session
         HttpSession session = request.getSession();
         AccessValidator validator = new AccessValidator();
-        
+
         //all the textfields in the customer_register.jsp
         String name = request.getParameter("name");
         String email = request.getParameter("email");
@@ -36,50 +34,47 @@ public class CustomerRegisterServlet extends HttpServlet {
         String news = request.getParameter(String.valueOf("news"));
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         validator.clear(session);
-        
-        if(validator.registerCheckEmpty(email, password, name, dob, number, gender, address)){
+
+        //Input validations
+        if (validator.registerCheckEmpty(email, password, name, dob, number, gender, address)) {
             session.setAttribute("empErr", "Please fill in every textfield");
             request.getRequestDispatcher("customerRegister.jsp").include(request, response);
-        }
-        else if(!validator.validateEmail(email)){
+        } else if (!validator.validateEmail(email)) {
             session.setAttribute("emailErr", "Error: Email format is incorrect");
             request.getRequestDispatcher("customerRegister.jsp").include(request, response);
-        }else if(!validator.validateName(name)){
+        } else if (!validator.validateName(name)) {
             session.setAttribute("nameErr", "Error: Name format is incorrect");
             request.getRequestDispatcher("customerRegister.jsp").include(request, response);
-        }else if(!validator.validatePassword(password)){
+        } else if (!validator.validatePassword(password)) {
             session.setAttribute("passErr", "Error: Password format is incorrect");
             request.getRequestDispatcher("customerRegister.jsp").include(request, response);
-        }else if(!validator.validateNumber(number)){
+        } else if (!validator.validateNumber(number)) {
             session.setAttribute("numErr", "Error: Number format is incorrect");
             request.getRequestDispatcher("customerRegister.jsp").include(request, response);
-        }else{
-            try{
+        } else {
+            try {
                 User exist = manager.findUserEmail(email);
-                if(exist != null){                                                          //if the customer is already registered
+                if (exist != null) {                                                          //if the customer is already registered
                     session.setAttribute("existErr", "User email already exists in the database");
                     request.getRequestDispatcher("customerRegister.jsp").include(request, response);
-                }else{
-                    //if customer does not exist in the CUSTOMER table, add it to CUSTOMER and USER_ACCOUNT table
+                } else {
+                    //if customer does not exist in the CUSTOMER and USER_ACCOUNT table, add it to CUSTOMER and USER_ACCOUNT table
                     manager.addCustomer(name, number, email, address, Boolean.FALSE, password, dob, gender, Boolean.TRUE, 0);
                     Customer customer = new Customer(id, name, number, email, address, Boolean.valueOf(news));
                     User user = new User(accid, email, password, dob, gender, Boolean.valueOf(news), id);
                     session.setAttribute("customer", customer);
                     session.setAttribute("user", user);
-                    
-                    int ids = user.getAccid();                                                       //get userId of the user
-                    manager.addLog(ids,"LOGIN");     
+                    //get userId of the user
+                    int ids = user.getAccid();
+                    //Add a LOGIN log to the ACCESS_LOG Table
+                    manager.addLog(ids, "LOGIN");
                     request.getRequestDispatcher("customerMain.jsp").include(request, response);
                 }
-                
-            }catch(SQLException ex){
+
+            } catch (SQLException ex) {
                 Logger.getLogger(CustomerRegisterServlet.class.getName()).log(Level.SEVERE, null, ex);
-                
+
             }
         }
-        
-        
     }
-    
-   
 }

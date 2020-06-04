@@ -21,10 +21,6 @@
         <servlet-class>uts.isd.controller.CustomerUpdateServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>IndexServlet</servlet-name>
-        <servlet-class>uts.isd.controller.IndexServlet</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>uts.isd.controller.LoginServlet</servlet-class>
     </servlet>
@@ -83,10 +79,6 @@
     <servlet-mapping>
         <servlet-name>CustomerUpdateServlet</servlet-name>
         <url-pattern>/CustomerUpdateServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>IndexServlet</servlet-name>
-        <url-pattern>/IndexServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>

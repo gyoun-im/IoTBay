@@ -7,7 +7,7 @@
         <title>Customer Register Page</title>
     </head>
     <body>
-        
+
         <%
             String existErr = (String) session.getAttribute("existErr");
             String emailErr = (String) session.getAttribute("emailErr");
@@ -20,9 +20,9 @@
             <img src="css/IoTBay_Logo.png">
         </div>
         <h1>Customer Register</h1>
-         <div class="center">
-         <p><span><%=(existErr != null ? existErr : "")%></span><span><%=(empErr != null ? empErr : "")%></span></p>
-         </div>
+        <div class="center">
+            <p><span><%=(existErr != null ? existErr : "")%></span><span><%=(empErr != null ? empErr : "")%></span></p>
+        </div>
         <form method="post" action="CustomerRegisterServlet">
             <table>
                 <tr><td>Full name: </td><td><input class="tb" type="text" name="name" ></td><td> <%=(nameErr != null ? nameErr : "")%></td></tr>                

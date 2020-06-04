@@ -7,13 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class CancelServlet extends HttpServlet{
-    
+//Servlet for the cancel button
+public class CancelServlet extends HttpServlet {
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        session.invalidate();   //delete the session
-        request.getRequestDispatcher("index.jsp").include(request, response);   //direct user back to the index page
+        //delete the session
+        session.invalidate();
+        //direct user back to the index page
+        request.getRequestDispatcher("index.jsp").include(request, response);
     }
-    
+
 }

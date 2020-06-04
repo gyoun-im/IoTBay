@@ -12,26 +12,21 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.User;
 import uts.isd.model.dao.AccessDBManager;
 
-public class LogoutServlet extends HttpServlet{
-    
+public class LogoutServlet extends HttpServlet {
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-       
-        AccessDBManager manager = (AccessDBManager) session.getAttribute("manager"); 
+
+        AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         try {
             User user = (User) session.getAttribute("user");
-            int id = user.getAccid();
-            manager.addLog(id,"LOGOUT");
+            int id = user.getAccid();       //get the current session's userId
+            manager.addLog(id, "LOGOUT");    //Add a logout row into the ACCESS_LOG Table
         } catch (SQLException ex) {
             Logger.getLogger(LogoutServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
         session.invalidate();   //delete the session
-        
-        
         request.getRequestDispatcher("index.jsp").include(request, response);   //direct user back to the index page
     }
-    
 }

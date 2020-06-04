@@ -1,7 +1,6 @@
 package uts.isd.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -18,23 +17,21 @@ import uts.isd.model.dao.AccessDBManager;
 public class CustomerAccessLogServlet extends HttpServlet {
 
     @Override
-   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
-        
-        
-       try {
+
+        try {
             User user = (User) session.getAttribute("user");
-            
             int id = user.getAccid();
-           
+            //Get all logs related to the user that is logged in the current session
             ArrayList<Access_Log> lists = manager.fetchLog(id);
             request.setAttribute("list", lists);
-           request.getRequestDispatcher("customerAccessLog.jsp").forward(request, response);
-       } catch (SQLException ex) {
-           Logger.getLogger(CustomerAccessLogServlet.class.getName()).log(Level.SEVERE, null, ex);
-       }
-        
-   }
+            request.getRequestDispatcher("customerAccessLog.jsp").forward(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerAccessLogServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 }

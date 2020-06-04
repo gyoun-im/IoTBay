@@ -1,16 +1,28 @@
 package uts.isd.model;
+
 import java.io.Serializable;
 
-public class Staff implements Serializable{
-    
-   private int staffid;
-   private String name;
-   private String email;
-   private String number;
-   private String address;
-   private String type;
-   private String history;
-   private int accid;
+public class Staff implements Serializable {
+
+    private int staffid;
+    private String name;
+    private String email;
+    private String number;
+    private String address;
+    private String type;
+    private String history;
+    private int accid;
+
+    public Staff(int staffid, String name, String email, String number, String address, String type, String history, int accid) {
+        this.staffid = staffid;
+        this.name = name;
+        this.email = email;
+        this.number = number;
+        this.address = address;
+        this.type = type;
+        this.history = history;
+        this.accid = accid;
+    }
 
     public int getStaffid() {
         return staffid;
@@ -76,14 +88,4 @@ public class Staff implements Serializable{
         this.accid = accid;
     }
 
-    public Staff(int staffid, String name, String email, String number, String address, String type, String history, int accid) {
-        this.staffid = staffid;
-        this.name = name;
-        this.email = email;
-        this.number = number;
-        this.address = address;
-        this.type = type;
-        this.history = history;
-        this.accid = accid;
-    }
 }

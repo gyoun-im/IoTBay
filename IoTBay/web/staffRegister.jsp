@@ -7,8 +7,8 @@
         <title>Staff Register Page</title>
     </head>
     <body>
-        
-         <%
+
+        <%
             String existErr = (String) session.getAttribute("existErr");
             String emailErr = (String) session.getAttribute("emailErr");
             String passErr = (String) session.getAttribute("passErr");
@@ -20,9 +20,9 @@
             <img src="css/IoTBay_Logo.png">
         </div>
         <h1>Staff Register</h1>
-         <div class="center">
-         <p><span><%=(existErr != null ? existErr : "")%></span><span><%=(empErr != null ? empErr : "")%></span></p>
-         </div>
+        <div class="center">
+            <p><span><%=(existErr != null ? existErr : "")%></span><span><%=(empErr != null ? empErr : "")%></span></p>
+        </div>
         <form method="post" action="StaffRegisterServlet">
             <table>
                 <tr><td>Full name: </td><td><input class="tb" type="text" name="name" ></td><td> <%=(nameErr != null ? nameErr : "")%></td></tr>                
@@ -51,7 +51,7 @@
                 <tr><td>Password: </td><td><input class="tb" type="password" name="password" ></td><td> <%=(passErr != null ? passErr : "")%></td></tr>             
             </table>
             <div class="center">
-                   <a class="bttn" href="CancelServlet">Cancel</a>
+                <a class="bttn" href="CancelServlet">Cancel</a>
                 <a><input class="bttn" type="submit" value="Register"></a>
             </div>
         </form>

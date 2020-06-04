@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package uts.isd.controller;
 
 import java.io.IOException;
@@ -17,59 +12,46 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.*;
 import uts.isd.model.dao.AccessDBManager;
 
-/**
- *
- * @author Gabriel
- */
 public class FilterDateServlet extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException{
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        
-        
+
         String date = request.getParameter("date");
         String userId = request.getParameter("userId");
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         User user = (User) session.getAttribute("user");
         Staff staff = (Staff) session.getAttribute("staff");
-        
-        try{                                                                                 
-           if(staff != null && !userId.isEmpty() && !date.isEmpty()){
-               
-           ArrayList<Access_Log> lists = manager.fetchLogDate(date, Integer.parseInt(userId));
-           request.setAttribute("list", lists);
-           request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response);
-           
-           }
-           else if (userId.isEmpty() && staff != null){
-               
-               
-               ArrayList<Access_Log> lists = manager.fetchLogOnlyDate(date);
+
+        try {
+                //Filter by date and userId
+            if (staff != null && !userId.isEmpty() && !date.isEmpty()) {
+                ArrayList<Access_Log> lists = manager.fetchLogDate(date, Integer.parseInt(userId));
                 request.setAttribute("list", lists);
-                request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response); 
-               
-            
-            
-           }else if (staff != null && date.isEmpty()){
+                request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response);
+                
+                //Filter by date
+            } else if (userId.isEmpty() && staff != null) {
+                ArrayList<Access_Log> lists = manager.fetchLogOnlyDate(date);
+                request.setAttribute("list", lists);
+                request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response);
+                
+                //Filter by userId
+            } else if (staff != null && date.isEmpty()) {
                 ArrayList<Access_Log> lists = manager.fetchLog(Integer.parseInt(userId));
                 request.setAttribute("list", lists);
-                request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response); 
-           
-           }
-           else{
+                request.getRequestDispatcher("staffAccessLog.jsp").forward(request, response);
+                
+                //Filter by the current session's userId. Used for customerAccessLog.jsp only
+            } else {
                 int id = user.getAccid();
                 ArrayList<Access_Log> lists = manager.fetchLogDate(date, id);
                 request.setAttribute("list", lists);
-                request.getRequestDispatcher("customerAccessLog.jsp").forward(request, response); 
-           }
-           
-        }catch(SQLException ex){
-            Logger.getLogger(FilterDateServlet.class.getName()).log(Level.SEVERE, null, ex);
+                request.getRequestDispatcher("customerAccessLog.jsp").forward(request, response);
             }
-            //response.sendRedirect("customerAccessLog.jsp");
+        } catch (SQLException ex) {
+            Logger.getLogger(FilterDateServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+    }
 }
-

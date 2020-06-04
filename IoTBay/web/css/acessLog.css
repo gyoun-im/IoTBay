@@ -5,7 +5,6 @@
 
 .left{
     text-align: left;
-    
 }
 
 .searchTb
@@ -16,25 +15,21 @@
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    
 }
 
 h1 {
-  font-family: 'Raleway', sans-serif;
-
-
- font-size: 30px;
- font-weight: 800; 
- line-height: 12px; 
- margin: 0 0 24px; 
- text-align: center; 
-
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+    font-weight: 800; 
+    line-height: 12px; 
+    margin: 0 0 24px; 
+    text-align: center; 
 }
 
 .center {
-  margin-left:auto; 
-  margin-right:auto;
-  text-align: center;
+    margin-left:auto; 
+    margin-right:auto;
+    text-align: center;
 }
 
 .logo{    
@@ -52,7 +47,7 @@ table{
 
 .right{
     text-align: right;
-    
+
 }
 
 .accessTable{
@@ -73,22 +68,22 @@ th{
 }
 
 .bttn {
-  background-color: Red;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
+    background-color: Red;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
 }
 
 a.test{
-  color: blue;
-  text-decoration:none;
-  
+    color: blue;
+    text-decoration:none;
+
 }
 a:hover{
-  opacity:0.8;
-  color:#47B9DE;
+    opacity:0.8;
+    color:#47B9DE;
 }
 
 .topRight{
@@ -98,10 +93,10 @@ a:hover{
 }
 
 .sbttn{
-   background-color: Red;
-  color: white;
-  padding: 4px 5px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer; 
+    background-color: Red;
+    color: white;
+    padding: 4px 5px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer; 
 }

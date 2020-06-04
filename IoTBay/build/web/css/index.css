@@ -5,28 +5,28 @@
 }
 
 .bttn {
-  background-color: Red;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
+    background-color: Red;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
 }
 
 a.test{
-  color: blue;
-  text-decoration:none;
-  
+    color: blue;
+    text-decoration:none;
+
 }
 a:hover{
-  opacity:0.8;
-  color:#47B9DE;
+    opacity:0.8;
+    color:#47B9DE;
 }
 
 .center {
-  margin-left:auto; 
-  margin-right:auto;
-  text-align: center;
+    margin-left:auto; 
+    margin-right:auto;
+    text-align: center;
 }
 
 .tb
@@ -35,12 +35,12 @@ a:hover{
 }
 
 h1 {
- font-family: 'Raleway', sans-serif;
- font-size: 30px;
- font-weight: 800; 
- line-height: 12px; 
- margin: 0 0 24px; 
- text-align: center; 
+    font-family: 'Raleway', sans-serif;
+    font-size: 30px;
+    font-weight: 800; 
+    line-height: 12px; 
+    margin: 0 0 24px; 
+    text-align: center; 
 
 }
 
@@ -53,7 +53,7 @@ h1 {
 
 table{
     margin: 0 auto;
-    
+
 }
 
 .container img {
@@ -63,7 +63,7 @@ table{
 
 .left{
     text-align: left;
-    
+
 }
 
 .searchTb
@@ -74,7 +74,7 @@ table{
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
-    
+
 }
 
 .topRight{
@@ -84,10 +84,10 @@ table{
 }
 
 .sbttn{
-   background-color: Red;
-  color: white;
-  padding: 4px 5px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer; 
+    background-color: Red;
+    color: white;
+    padding: 4px 5px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer; 
 }
