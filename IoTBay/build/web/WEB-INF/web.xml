@@ -68,6 +68,14 @@
         <servlet-name>editDeviceServlet</servlet-name>
         <servlet-class>uts.isd.controller.EditDeviceServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <servlet-class>uts.isd.controller.OrderHistoryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderDetailServlet</servlet-name>
+        <servlet-class>uts.isd.controller.OrderDetailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CancelServlet</servlet-name>
         <url-pattern>/CancelServlet</url-pattern>
@@ -135,6 +143,14 @@
     <servlet-mapping>
         <servlet-name>editDeviceServlet</servlet-name>
         <url-pattern>/editDevice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <url-pattern>/OrderHistoryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderDetailServlet</servlet-name>
+        <url-pattern>/OrderDetailServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

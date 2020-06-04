@@ -91,3 +91,11 @@ table{
     border: none;
     cursor: pointer; 
 }
+
+.center-container {
+    margin: 10px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 800px;
+}
