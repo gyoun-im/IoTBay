@@ -21,7 +21,7 @@
         %>
 
         <div class="topRight">
-            <a href="customerMain.jsp"><button class="bttn">Go back to main dashboard</button></a>
+            <a href="main.jsp"><button class="bttn">Go back to main dashboard</button></a>
             <a class="bttn" href="LogoutServlet">Logout</a>
         </div>
         <div class="container">

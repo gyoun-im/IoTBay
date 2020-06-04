@@ -68,7 +68,7 @@ public class CustomerRegisterServlet extends HttpServlet {
                     int ids = user.getAccid();
                     //Add a LOGIN log to the ACCESS_LOG Table
                     manager.addLog(ids, "LOGIN");
-                    request.getRequestDispatcher("customerMain.jsp").include(request, response);
+                    request.getRequestDispatcher("main.jsp").include(request, response);
                 }
 
             } catch (SQLException ex) {

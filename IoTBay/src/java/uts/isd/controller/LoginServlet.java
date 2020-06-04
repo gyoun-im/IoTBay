@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("customer", customer);
                     int id = user.getAccid();               //get userId of the user                  
                     manager.addLog(id, "LOGIN");           //Add a row to the Access_Log table                                                  
-                    request.getRequestDispatcher("customerMain.jsp").include(request, response);
+                    request.getRequestDispatcher("main.jsp").include(request, response);
 
                     //if staff is the one logging in
                 } else if (user != null && staff != null && customer == null) {

@@ -44,7 +44,7 @@
         </div>
         <div class="center">
             <p>Don't have account? Sign up. Are you a <a href="customerRegister.jsp">customer</a> or a <a href ="staffRegister.jsp">staff</a></p>
-            <p>or continue as guest <a href="customerMain.jsp">click here</a> </p>
+            <p>or continue as guest <a href="main.jsp">click here</a> </p>
         </div>
     </body>
 </html>

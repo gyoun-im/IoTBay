@@ -57,9 +57,9 @@
                 <th><div class="center"><img src="css/menu.png" width="16px" height="20px"></div>Shop by Category</th>
                 <th><a href="main.jsp"><div class="center"><img src="css/hotdeals.png" width="18px" height="20px"> </div>Hot Deals</a></th>
                 <th> <a href="main.jsp"><div class="center"><img src="css/recent.png" width="20px" height="20px"> </div>Recently Viewed</a></th>
-                <th class="dropdown">  <img src="css/user.png" width="25px" height="25px">&nbsp; &nbsp; &nbsp;Hi, ${user.name}! <div class="dropdown-content"><a href="shipmentdetails.jsp" style="color:black;"> Shipment Details </a>
-                        <a href="viewprofile.jsp" style="color:black;">View Profile</a>
-                        <a href="logout.jsp" style="color:black;">Logout</a>
+                <th class="dropdown">  <img src="css/user.png" width="25px" height="25px">&nbsp; &nbsp; &nbsp;Hi, ${user.email}! <div class="dropdown-content"><a href="shipmentdetails.jsp" style="color:black;"> Shipment Details </a>
+                        <a href="CustomerEditServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'" style="color:black;">View Profile</a>
+                        <a href="LogoutServlet" style="color:black;">Logout</a>
                     </div>
                     </div>
                 </th>
@@ -79,6 +79,7 @@
                             <li> Promotional Newsletter </li>
                             <li> Change Password</li>
                             <li> Change Language</li>
+                            <li> <a href="CustomerAccessLogServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'">   View logs</a></li>
                              </ul> </div></td>  </tr>
                  <tr>  <td style="padding-left: 15px; padding-bottom:0px; color:black"> MY SHOPPING 
                     <div id="nacvontainer">
@@ -117,7 +118,7 @@
                 <th> <a href="#"><div class="center"><img src="css/hotdeals.png" width="18px" height="20px"> </div>Hot Deals</th>
                 <th> <a href="#"><div class="center"><img src="css/recent.png" width="20px" height="20px"> </div>Recently Viewed</th>
                 <th class="dropdown">  <img src="css/user.png" width="25px" height="25px">&nbsp; &nbsp; &nbsp;Sign In or Create an Account <div class="dropdown-content"><a href="login.jsp" style="color:black;"> Sign In </a>
-                        <a href="register.jsp" style="color:black;">Create an Account</a></div>
+                        <a href="customerRegister.jsp" style="color:black;">Create an Account</a></div>
                     </div>
                 </th>
             </tr>

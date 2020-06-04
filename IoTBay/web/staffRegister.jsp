@@ -57,7 +57,7 @@
         </form>
         <div class="center">
             <p>Already have an account? <a href="login.jsp">Login here</a></p>
-            <p>or continue as guest <a href="customerMain.jsp">click here</a> </p>
+            <p>or continue as guest <a href="main.jsp">click here</a> </p>
             <p>Registering as a customer? <a href="customerRegister.jsp">click here</a> </p>
         </div>
     </body>
