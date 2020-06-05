@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet {
                 if (user != null && customer != null && staff == null) {
                     session.setAttribute("user", user);
                     session.setAttribute("customer", customer);
-                    int id = user.getAccid();               //get userId of the user                  
+                    int id = user.getUserID();               //get userId of the user                  
                     manager.addLog(id, "LOGIN");           //Add a row to the Access_Log table                                                  
                     request.getRequestDispatcher("main.jsp").include(request, response);
 
@@ -55,7 +55,7 @@ public class LoginServlet extends HttpServlet {
                 } else if (user != null && staff != null && customer == null) {
                     session.setAttribute("user", user);
                     session.setAttribute("staff", staff);
-                    int id = user.getAccid();                     //get userId of the user
+                    int id = user.getUserID();                     //get userId of the user
                     manager.addLog(id, "LOGIN");                  //Add a row to the Access_Log table
                     request.getRequestDispatcher("staffMain.jsp").include(request, response);
 

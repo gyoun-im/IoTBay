@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-    private int accid;
+    private int userID;
     private String email;
     private String password;
     private String dob;
@@ -12,8 +12,8 @@ public class User implements Serializable {
     private boolean news;
     private int points;
 
-    public User(int accid, String email, String password, String dob, String gender, boolean news, int points) {
-        this.accid = accid;
+    public User(int userID, String email, String password, String dob, String gender, boolean news, int points) {
+        this.userID = userID;
         this.email = email;
         this.password = password;
         this.dob = dob;
@@ -22,12 +22,12 @@ public class User implements Serializable {
         this.points = points;
     }
 
-    public int getAccid() {
-        return accid;
+    public int getUserID() {
+        return userID;
     }
 
-    public void setAccid(int accid) {
-        this.accid = accid;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getEmail() {

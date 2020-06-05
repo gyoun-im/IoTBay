@@ -24,7 +24,7 @@ public class CustomerAccessLogServlet extends HttpServlet {
 
         try {
             User user = (User) session.getAttribute("user");
-            int id = user.getAccid();
+            int id = user.getUserID();
             //Get all logs related to the user that is logged in the current session
             ArrayList<Access_Log> lists = manager.fetchLog(id);
             request.setAttribute("list", lists);
