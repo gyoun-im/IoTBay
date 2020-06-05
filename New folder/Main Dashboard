@@ -30,15 +30,14 @@
                                     <a href="#" style="color:black"> View Payment Details</a>
                                     <a href="#" style="color:black"> View Order History </a>
                                     <a href="#" style="color:black"> View Access Logs </a>
-                                                                                                                                                        
-                                                                                                                                                        
-                                                                                                                                                        <a href="logout.jsp" style="color:black;">Logout</a>
-                                                                                                                                                        
-                                                                                                                          </div>
-                                                                                                                          </div>
+                                    <a href="ViewShipmentServlet?userID=3" style="color:black"> <!-- user.getID() --> View Shipment </a> 
+                                      <a href="logout.jsp" style="color:black;">Logout</a>
+
+                                </div>
+                                </div>
                             </th>
-                        </tr>
-            </table>
+                            </tr>
+         </table>
                        
                             <table class='viewprofile'>
                                 <tr><h1>Account Details </h1></tr>
