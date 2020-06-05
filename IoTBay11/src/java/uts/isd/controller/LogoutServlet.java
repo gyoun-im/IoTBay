@@ -21,7 +21,7 @@ public class LogoutServlet extends HttpServlet {
         AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
         try {
             User user = (User) session.getAttribute("user");
-            int id = user.getUserID();       //get the current session's userId
+            int id = user.getUserAccountID();       //get the current session's userId
             manager.addLog(id, "LOGOUT");    //Add a logout row into the ACCESS_LOG Table
         } catch (SQLException ex) {
             Logger.getLogger(LogoutServlet.class.getName()).log(Level.SEVERE, null, ex);

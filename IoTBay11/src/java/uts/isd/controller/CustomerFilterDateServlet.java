@@ -25,7 +25,7 @@ public class CustomerFilterDateServlet extends HttpServlet {
         
         try {  
                 //Filter by the current session's userId
-                int id = user.getUserID();
+                int id = user.getUserAccountID();
                 System.out.println(id);
                 ArrayList<Access_Log> lists = manager.fetchLogDate(date, id);
                 request.setAttribute("list", lists);

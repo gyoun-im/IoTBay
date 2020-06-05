@@ -65,7 +65,7 @@ public class CustomerRegisterServlet extends HttpServlet {
                     session.setAttribute("customer", customer);
                     session.setAttribute("user", user);
                     //get userId of the user
-                    int ids = user.getUserID();
+                    int ids = user.getUserAccountID();
                     //Add a LOGIN log to the ACCESS_LOG Table
                     manager.addLog(ids, "LOGIN");
                     request.getRequestDispatcher("main.jsp").include(request, response);
