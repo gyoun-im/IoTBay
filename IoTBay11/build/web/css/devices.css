@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 01/06/2020, 8:11:27 PM
+    Author     : Qianhui Yin
+*/
+
+.header img {
+    width: 10%;
+}
+
+.main-container {
+    width: 700px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    position: relative;
+}
+
+.add-btn {
+    position: absolute;
+    right: 20px;
+    top: 25px;
+}
+
