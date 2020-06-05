@@ -111,8 +111,15 @@
                 <th><a href="main.jsp"><div class="center"><img src="css/hotdeals.png" width="18px" height="20px"> </div>Hot Deals</a></th>
                 <th> <a href="main.jsp"><div class="center"><img src="css/recent.png" width="20px" height="20px"> </div>Recently Viewed</a></th>
                 <th class="dropdown">  <img src="css/user.png" width="25px" height="25px">&nbsp; &nbsp; &nbsp;Hi, ${user.name}! <div class="dropdown-content"><a href="shipmentdetails.jsp" style="color:black;"> Shipment Details </a>
-                        <a href="viewprofile.jsp" style="color:black;">View Profile</a>
-                        <a href="logout.jsp" style="color:black;">Logout</a>
+                          <a href="viewprofile.jsp" style="color:black;">My Account</a>        
+                                    <a href="#" style="color:black"> My Shopping </a>
+                                    <a href="shipment.jsp" style="color:black">  Find Shipment </a>
+                                    <a href="ShipmentDetailsServlet?userID=<%=user.getId()%>" style="color:black;"> View Shipment Details </a>
+                                    <a href="#" style="color:black"> View Payment Details</a>
+                                    <a href="#" style="color:black"> View Order History </a>
+                                    <a href="#" style="color:black"> View Access Logs </a>
+                                    <a href="ViewShipmentServlet?userID=3" style="color:black"> <!-- user.getID() -->  View Shipment </a> 
+                                      <a href="logout.jsp" style="color:black;">Logout</a>
                     </div>
                     </div>
                 </th>
@@ -124,16 +131,17 @@
             <tr>  <td style="padding-left: 15px; padding-bottom:0px; color:black"> MY ACCOUNT  
                     <div>
                         <ul>
-                            <li> Contact Details </li> 
-                            <li> <a href="ShipmentDetailsServlet?userID=4"> <!-- {user.userID}--> Shipment Details </a> </li> 
-                            <li> <a href="shipment.jsp" > Find Shipment </a></li>
+                                  <li> Contact Details </li> 
+                            <li> <a href="ShipmentDetailsServlet?userID=3"> <!-- user.getID() --> Shipment Details </li> 
+                            <li> <a href="shipment.jsp"> Find Shipment </a></li>
                             <li> Payment Details </li>
                             <li> IoTBay Card Rewards </li>
                             <li> Promotional Newsletter </li>
                             <li> Change Password</li>
                             <li> Change Language</li>
+                            <li> Access Logs </li>
                         </ul> </div></td>  </tr>
-            <tr>  <td style="padding-left: 15px; padding-bottom:0px; color:black"> MY SHOPPING 
+            <tr>  <td style="padding-left: 15px; padding-bottom:0px; color:black"> <b> MY SHOPPING </b> 
                     <div id="nacvontainer">
                         <ul id="navcontainer">
                             <li> </li> 
@@ -144,7 +152,7 @@
                             <li> eVouchers </li>
                             <li> Credits</li>
                             <li> Order History</li>
-
+                            <li> <a href="ViewShipmentServlet?userID=3"> <!-- user.getID() --> Shipment History </a> </li>
                         </ul> </div></td>  </tr>
 
 
@@ -182,7 +190,7 @@
                         <td style="border-bottom: 0px solid #ddd; border-color:gray; color:black; padding:10px;"> ${shipment.trackingNumber} </td>
                         <td style="border-bottom: 0px solid #ddd; border-color:gray; color:black; padding:10px;"> ${shipment.shipmentDate} </td>
                         <td style="border-bottom: 0px solid #ddd; border-color:gray; color:black; padding:10px;"> ${shipmentDet.streetAddress}, ${shipmentDet.suburb}, ${shipmentDet.postcode}, ${shipmentDet.state} </td>
-                        <td style="border-bottom: 0px solid #ddd; border-color:gray; color:black; padding:10px;"> COMPLETED </td>
+                        <td style="border-bottom: 0px solid #ddd; border-color:gray; color:black; padding:10px;"> COMPLETED </td> <!--  shipment.orderID ->
                     </tr> 
                 </table>
                     <%  } else {} %>
