@@ -7,8 +7,12 @@
     </head>
     <body>
           <img src="css/IoTBay_Logo.png" class="centerz" alt="IoTBay_Logo">
-          <a href="register.jsp">
-              <button class="buttonposition"> Register</button>
+          <a href="customerRegister.jsp">
+              <button class="buttonposition"> Register as a customer</button>
+          </a>
+          <br>
+          <a href="staffRegister.jsp">
+              <button class="buttonposition"> Register as a staff</button>
           </a>
           <br>
           <a href="login.jsp">
