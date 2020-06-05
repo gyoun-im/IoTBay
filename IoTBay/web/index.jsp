@@ -1,26 +1,20 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="uts.isd.model.*" %>
-<!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="css/index.css">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Index Page</title>
+        <title>Index page IoTBay</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/login.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <img class="logo" src="css/IoTBay_Logo.png">
-        <div>
-            <table class="center">
-                <tr>
-                    <td><a href="login.jsp"><button class="bttn">Login</button></a></td>
-                    <td><a href="customerRegister.jsp"><button class="bttn">Register as customer</button></a></td>
-                    <td><a href="staffRegister.jsp"><button class="bttn">Register as staff</button></a></td>
-                </tr>
-            </table>
-        </div>
-        <div class="center">
-            <a href="main.jsp"><button class="bttn">Continue to IoTBay</button></a>
-        </div>
-        <jsp:include page="/ConnServlet" flush="true"/>
+          <img src="css/IoTBay_Logo.png" class="centerz" alt="IoTBay_Logo">
+          <a href="register.jsp">
+              <button class="buttonposition"> Register</button>
+          </a>
+          <br>
+          <a href="login.jsp">
+              <button class="buttonposition"> Login </button>
+          </a>
+         
+          <jsp:include page="/ConnServlet" flush="true" />
     </body>
 </html>
