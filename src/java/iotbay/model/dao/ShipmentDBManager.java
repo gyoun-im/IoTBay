@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotbay.model.dao;
+package uts.isd.model.dao;
 
-import iotbay.model.Shipment;
-import iotbay.model.Shipment_Details;
+import uts.isd.model.Shipment;
+import uts.isd.model.Shipment_Details;
 import java.sql.*;
 import java.util.ArrayList;
 /**
@@ -35,8 +35,8 @@ public class ShipmentDBManager {
                String shipmentStatus = rs.getString(3);
                String trackingNumber = rs.getString(4);
                int shipmentDetailsID = rs.getInt(6);
-               // int orderID = rs.getInt(7);
-               Shipment shipment = new Shipment (courierName, shipmentStatus, trackingNumber, shipmentDate, shipmentDetailsID /*, orderID */);
+               int orderID = rs.getInt(7);
+               Shipment shipment = new Shipment (courierName, shipmentStatus, trackingNumber, shipmentDate, shipmentDetailsID , orderID);
                shipment.setShipmentID(id);
                return shipment;
            }
@@ -137,8 +137,8 @@ public class ShipmentDBManager {
             String trackingNumber = rs.getString(4);
             String shipmentDate = rs.getString (5);
             int shipmentDetailsID = rs.getInt(6);
-            // int orderID = rs.getInt(7);
-            Shipment shipment = new Shipment (courierName, shipmentStatus, trackingNumber, shipmentDate, shipmentDetailsID);
+            int orderID = rs.getInt(7);
+            Shipment shipment = new Shipment (courierName, shipmentStatus, trackingNumber, shipmentDate, shipmentDetailsID, orderID);
             shipment.setShipmentID(shipmentID);
             table.add(shipment);
         }
@@ -150,9 +150,6 @@ public class ShipmentDBManager {
     }
 
    
-   // Check is shipment exists 
-   // public boolean etc 
- //  request.getParameter()
- //  USER ACCOUNT DEOSTN HAVE AN ID ATTRIBUTE
+
 
 }
