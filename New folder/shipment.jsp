@@ -1,8 +1,8 @@
 <%@page import="uts.isd.model.Shipment_Details"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="iotbay.model.User"%>
-<%@page import="iotbay.model.Shipment"%>
+<%@page import="uts.isd.model.User"%>
+<%@page import="uts.isd.model.Shipment"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
