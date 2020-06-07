@@ -39,12 +39,14 @@
            HttpSession session = request.getSession();
            conn = db.openConnection();       
            try {
-               manager = new ShipmentDBManager(conn);
+               //intansiate new shipment Manager
+               shipmentManager = new ShipmentDBManager(conn);
+            
            } catch (SQLException ex) {
                Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
            }
            //export the DB manager to the view-session (JSPs)
-           session.setAttribute("manager", manager);           
+           session.setAttribute("shipmentManager", shipmentManager);           
        }   
         
        @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)
