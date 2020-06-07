@@ -15,25 +15,26 @@ public class Shipment {
     private String trackingNumber;
     private String shipmentDate;
     private int shipmentDetailsID; // Foriegn Key
-    // private int orderID // Foreign key
+    private int orderID // Foreign key
     private int shipmentID; // Primary Key
 
-    public Shipment(String courierName, String ShipmentStatus, String trackingNumber, String shipmentDate, int shipmentDetailsID /* ,int orderID */) {
+    public Shipment(String courierName, String ShipmentStatus, String trackingNumber, String shipmentDate, int shipmentDetailsID ,int orderID) {
         this.courierName = courierName;
         this.ShipmentStatus = ShipmentStatus;
         this.trackingNumber = trackingNumber;
         this.shipmentDate = shipmentDate;
         this.shipmentDetailsID = shipmentDetailsID;
-        // this.orderID = orderID;
-    }
-
-    /* public int getOrderID() {
-        return orderID;
-    }
-       public void setOrderID(int orderID) {
         this.orderID = orderID;
     }
-    */
+
+    public int getOrderID() {
+        return orderID;
+    }
+    
+    public void setOrderID(int orderID) {
+        this.orderID = orderID;
+    }
+    
     public int getShipmentID() {
         return shipmentID;
     }
