@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import uts.isd.model.User;
+import uts.isd.model.User_Account;
 import uts.isd.model.Shipment_Details;
 import uts.isd.model.dao.ShipmentDBManager;
 import java.sql.SQLException;
