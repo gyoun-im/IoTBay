@@ -11,9 +11,9 @@ public class Staff implements Serializable {
     private String address;
     private String type;
     private String history;
-    private int accid;
+    private int userAccountID;
 
-    public Staff(int staffid, String name, String email, String number, String address, String type, String history, int accid) {
+    public Staff(int staffid, String name, String email, String number, String address, String type, String history, int userAccountID) {
         this.staffid = staffid;
         this.name = name;
         this.email = email;
@@ -21,7 +21,7 @@ public class Staff implements Serializable {
         this.address = address;
         this.type = type;
         this.history = history;
-        this.accid = accid;
+        this.userAccountID = userAccountID;
     }
 
     public int getStaffid() {
@@ -80,12 +80,12 @@ public class Staff implements Serializable {
         this.history = history;
     }
 
-    public int getAccid() {
-        return accid;
+    public int getUserAccountID() {
+        return userAccountID;
     }
 
-    public void setAccid(int accid) {
-        this.accid = accid;
+    public void setUserAccountID(int userAccountID) {
+        this.userAccountID = userAccountID;
     }
 
 }

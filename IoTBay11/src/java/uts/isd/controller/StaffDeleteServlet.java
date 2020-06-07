@@ -22,6 +22,7 @@ public class StaffDeleteServlet extends HttpServlet {
         try {
             Staff staff = (Staff) session.getAttribute("staff");
             String staffEmail = staff.getEmail();  
+            System.out.print(staffEmail);
             //Delete staff from STAFF and USER_ACCOUNT Table
             manager.deleteStaff(staffEmail);
         } catch (SQLException ex) {
