@@ -122,11 +122,11 @@
                         <a href="#" style="color:black"> My Shopping </a>
                         <a href="shipment.jsp" style="color:black">  Find Shipment </a>
                         <a href="#" style="color:black">  Find Payment </a>
-                        <a href="ShipmentDetailsServlet?userID=<%=user.getId()%>" style="color:black;"> View Shipment Details </a>
+                        <a href="ShipmentDetailsServlet?userID=<%=user.getUserAccountID()%>" style="color:black;"> View Shipment Details </a>
                         <a href="#" style="color:black"> View Payment Details</a>
                         <a href="#" style="color:black"> View Order History </a>
                         <a href="#" style="color:black"> View Access Logs </a>
-                        <a href="ViewShipmentServlet?userID=3"  style="color:black"> <!-- user.getID() --> View Shipment </a> 
+                        <a href="ViewShipmentServlet?userID=<%=user.getUserAccountID()%>"  style="color:black"> View Shipment </a> 
                         <a href="logout.jsp" style="color:black;">Logout</a>
                     </div>
                     </div>
@@ -140,7 +140,7 @@
                     <div>
                         <ul>
                                  <li> Contact Details </li> 
-                            <li> <a href="ShipmentDetailsServlet?userID=3"> <!-- user.getID() --> Shipment Details </li> 
+                            <li> <a href="ShipmentDetailsServlet?userID=<%=user.getUserAccountID()%>"> Shipment Details </li> 
                             <li> <a href="shipment.jsp"> Find Shipment </a></li>
                             <li> Payment Details </li>
                             <li> Find Payment </li>
@@ -161,7 +161,7 @@
                             <li> eVouchers </li>
                             <li> Credits</li>
                             <li> Order History</li>
-                            <li> <a href="ViewShipmentServlet?userID=3"> <!-- user.getID() --> Shipment History </a> </li>
+                            <li> <a href="ViewShipmentServlet?userID=<%=user.getUserAccountID()%>">  Shipment History </a> </li>
 
                         </ul> </div></td>  </tr>
 
@@ -194,7 +194,7 @@
                 <td style="border-bottom: 0px solid #ddd; border-color:gray; color:black; padding:10px;"> <%=shipmentList.getTrackingNumber()%></td>
                 <td style="border-bottom: 0px solid #ddd; border-color:gray; color:black; padding:10px;"> <%=shipmentList.getShipmentDate()%></td>
 
-                <td style="border-bottom: 0px solid #ddd; border-color:gray; color:black; padding:10px;"> COMPLETED </td> <!--  shipment.orderID -->
+                <td style="border-bottom: 0px solid #ddd; border-color:gray; color:black; padding:10px;"> <%shipmentList.getOrderID()%> </td> 
             </tr> 
             <% } %>
         </table>
