@@ -5,7 +5,7 @@
  */
 package uts.isd.controller;
 
-import iotbay.model.dao.ShipmentDBManager;
+import uts.isd.model.dao.ShipmentDBManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
