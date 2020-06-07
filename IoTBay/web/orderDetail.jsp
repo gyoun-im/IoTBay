@@ -43,6 +43,7 @@
                     <td><%= o.getStatus()%></td>
                 </tr>
             </table>
+            <p class="text-info">We will sent you a shipping confirmation email once your order is fulfilled.</p>
             <table class="table table-striped">
                 <tr>
                     <th>ID</th>
@@ -63,8 +64,23 @@
                     <td><%= o.getTotal()%></td>
                 </tr>
             </table>
+            <div><b>Notes:</b>
+                <% if (o.getStatus().equals("Finished")) {%>
+                <%= o.getNotes()%>
+                <%}%>
+            </div>
             <% if (!o.getStatus().equals("Finished")) {%>
-            <a class="btn btn-warning float-right" href="payment.jsp">Pay</a>
+            <form action="UpdateOrderServlet?oid=<%= o.getId()%>" method="POST">
+                <div>
+                    <textarea rows="3" cols="50" name="notes"><%= o.getNotes() == null ? "" : o.getNotes()%></textarea>
+                </div>
+                <div class="text-danger">
+                    <%= session.getAttribute("orderError") != null ? session.getAttribute("orderError") : ""%>
+                </div>
+                <a class="btn btn-danger float-right" href="DeleteOrderServlet?oid=<%= o.getId()%>">Cancel</a>
+                <a class="btn btn-warning float-right" href="payment.jsp?oid=<%= o.getId()%>">Pay</a>
+                <button class="btn btn-success float-right" type="submit">Update Notes</button>
+            </form>
             <%}%>
         </div>
     </body>

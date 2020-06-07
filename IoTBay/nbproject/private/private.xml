@@ -3,7 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Gabriel/Uni%20docs/2020/Semester%201/Intro%20to%20Software/Assignment%202/IoTBay/IoTBay/IoTBay/src/java/uts/isd/controller/StaffUpdateServlet.java</file>
+            <file>file:/Users/Simon/IoTBay/IoTBay/nbproject/build-impl.xml</file>
+            <file>file:/Users/Simon/IoTBay/IoTBay/src/java/iotbay/controller/ConnServlet.java</file>
+            <file>file:/Users/Simon/IoTBay/IoTBay/src/java/iotbay/controller/ShipmentDetailsServlet.java</file>
         </group>
     </open-files>
 </project-private>

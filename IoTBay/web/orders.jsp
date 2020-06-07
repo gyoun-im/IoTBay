@@ -24,7 +24,7 @@
         </div>
         <div class="center-container">
             <h1>Orders</h1>
-             <form action="OrderHistoryServlet" method="GET">
+            <form action="OrderHistoryServlet" method="GET">
                 <div class="input-group my-2">
                     Order ID: <input type="text" class="form-control" placeholder="Search for Orders ..." name="searchId">
                     From: <input type="date" class="form-control" placeholder="From" name="dateFrom">
@@ -47,17 +47,23 @@
                     for (Order o : orders) {
                 %>
                 <tr>
-                    <td><%= o.getId() %></td>
-                    <td><%= o.getTotal() %></td>
+                    <td><%= o.getId()%></td>
+                    <td><%= o.getTotal()%></td>
                     <td><%= o.getDate()%></td>
-                    <td><%= o.getStatus() %></td>
-                    <td><a href="OrderDetailServlet?oid=<%= o.getId() %>">Details</a></td>
+                    <td><%= o.getStatus()%></td>
+                    <td><a href="OrderDetailServlet?oid=<%= o.getId()%>">Details</a></td>
                 </tr>
                 <%
                     }
                 %>
-                
+
             </table>
+            <form action="CreateOrderServlet" method="POST">
+                <input name="deviceId" value="1" style="display: none">
+                <input name="total" value="999" style="display: none">
+                <input name="quantity" value="10" style="display: none">
+                <button class="btn btn-success">Place Order</button>
+            </form>
         </div>
     </body>
 </html>

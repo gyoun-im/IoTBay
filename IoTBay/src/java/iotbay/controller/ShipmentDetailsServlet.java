@@ -5,21 +5,17 @@
  */
 package iotbay.controller;
 
-import com.sun.istack.logging.Logger;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import iotbay.model.User;
 import iotbay.model.Shipment_Details;
 import iotbay.model.dao.DBManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
-import sun.util.logging.PlatformLogger;
 
 /**
  *

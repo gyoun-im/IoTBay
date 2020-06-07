@@ -25,12 +25,40 @@
         <servlet-class>iotbay.controller.DeleteShipmentDetailsServlet</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>DeviceListController</servlet-name>
+        <servlet-class>uts.isd.controller.DeviceListController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>editDeviceServlet</servlet-name>
+        <servlet-class>uts.isd.controller.EditDeviceServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>EditShipmentDetailsServlet</servlet-name>
         <servlet-class>iotbay.controller.EditShipmentDetailsServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>UpdateShipmentDetailsServlet</servlet-name>
         <servlet-class>iotbay.controller.UpdateShipmentDetailsServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <servlet-class>uts.isd.controller.OrderHistoryServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>OrderDetailServlet</servlet-name>
+        <servlet-class>uts.isd.controller.OrderDetailServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeleteOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CreateOrderServlet</servlet-name>
+        <servlet-class>uts.isd.controller.CreateOrderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateOrderServlet</servlet-name>
+        <servlet-class>uts.isd.controller.UpdateOrderServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
@@ -61,8 +89,36 @@
         <url-pattern>/EditShipmentDetailsServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>OrderHistoryServlet</servlet-name>
+        <url-pattern>/OrderHistoryServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderDetailServlet</servlet-name>
+        <url-pattern>/OrderDetailServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeviceListController</servlet-name>
+        <url-pattern>/devices</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editDeviceServlet</servlet-name>
+        <url-pattern>/editDevice</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>UpdateShipmentDetailsServlet</servlet-name>
         <url-pattern>/UpdateShipmentDetailsServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteOrderServlet</servlet-name>
+        <url-pattern>/DeleteOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateOrderServlet</servlet-name>
+        <url-pattern>/CreateOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateOrderServlet</servlet-name>
+        <url-pattern>/UpdateOrderServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

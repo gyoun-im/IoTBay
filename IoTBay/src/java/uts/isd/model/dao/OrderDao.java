@@ -53,13 +53,27 @@ public class OrderDao {
         ResultSet rs = st.executeQuery(fetch);
         return processResultList(rs).get(0);
     }
-
+    
+    public void deleteOrder(String id) throws SQLException {
+        String sql = "delete from \"ORDER\" where id=" + id;
+        st.executeUpdate(sql);
+    }
+    
+    public void createOrder(String total, String userId, String deviceId, String quantity) throws SQLException {
+        String sql = "INSERT INTO \"ORDER\" (\"TOTAL\", \"STATUS\", \"USERID\", \"DEVICEID\", \"QUANTITY\") VALUES("+total+", 'Unpaid', '"+userId+"', "+deviceId+", "+quantity+")";
+        st.executeUpdate(sql);
+    }
+    
+    public void updateOrder(String id,String notes) throws SQLException {
+        String sql = "update \"ORDER\" set notes ='"+notes.replace("'", "''")+"' where id=" + id;
+        st.executeUpdate(sql);
+    }
 
     private List<Order> processResultList(ResultSet rs) throws SQLException{
         List<Order> orderList = new ArrayList();
         while (rs.next()) //goes through every row in the CUSTOMER table
         {
-            orderList.add(new Order(rs.getInt(1), rs.getString(3), rs.getDouble(2), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7)));
+            orderList.add(new Order(rs.getInt(1), rs.getString(3), rs.getDouble(2), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getInt(7), rs.getString(8)));
         }
         return orderList;
     }
