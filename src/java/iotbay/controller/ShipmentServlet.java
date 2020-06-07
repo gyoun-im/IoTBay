@@ -33,7 +33,7 @@ public class ShipmentServlet extends HttpServlet {
        ShipmentValidator validator = new ShipmentValidator();
        int shipmentID = Integer.parseInt(request.getParameter("shipmentID"));
        String shipmentDate = request.getParameter("shipmentDate");
-      ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("manager");
+      ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("shipmentManager");
        Shipment shipment = null;
        session.setAttribute ("shipment", null);
        session.setAttribute("searchErr", null);
