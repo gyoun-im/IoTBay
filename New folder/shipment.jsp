@@ -1,14 +1,14 @@
 <%@page import="uts.isd.model.Shipment_Details"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="uts.isd.model.User"%>
+<%@page import="uts.isd.model.User_Account"%>
 <%@page import="uts.isd.model.Shipment"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/dashboard.css" rel="stylesheet" type="text/css">
         <title>Find Shipment - IoTBay </title>
-        <% User user = (User) session.getAttribute("user");
+        <% User_Account user = (User_Account) session.getAttribute("user");
            String searchErr = (String)session.getAttribute("searchErr");
            Shipment shipment = (Shipment) session.getAttribute("shipment");
            String dateErr = (String) session.getAttribute("dateErr");
