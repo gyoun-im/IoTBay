@@ -34,7 +34,7 @@ public class ViewShipmentServlet extends HttpServlet {
        HttpSession session = request.getSession();
        
        int userID = Integer.parseInt(request.getParameter("userID"));
-       ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("manager");
+       ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("shipmentManager");
         ArrayList <Shipment> shipmentList = null;
         session.setAttribute("shipmentErr", null);
        
