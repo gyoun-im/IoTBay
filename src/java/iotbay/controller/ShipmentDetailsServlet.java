@@ -33,7 +33,7 @@ public class ShipmentDetailsServlet extends HttpServlet {
        HttpSession session = request.getSession();
        ShipmentValidator validator = new ShipmentValidator();
        int userID = Integer.parseInt(request.getParameter("userID"));
-       ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("manager");
+       ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("shipmentManager");
         ArrayList <Shipment_Details> shipmentD = null;
         session.setAttribute("existErr", null);
         session.setAttribute("shipmentD", null);
