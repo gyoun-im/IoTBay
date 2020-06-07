@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotbay.controller;
+package uts.isd.controller;
 
 import com.sun.istack.logging.Logger;
-import iotbay.model.Shipment;
+import uts.isd.model.Shipment;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import iotbay.model.User;
-import iotbay.model.Shipment_Details;
-import iotbay.model.dao.ShipmentDBManager;
+import uts.isd.model.User_Account;
+import uts.isd.model.Shipment_Details;
+import uts.isd.model.dao.ShipmentDBManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
