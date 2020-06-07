@@ -32,7 +32,7 @@ public class CustomerRegisterServlet extends HttpServlet {
         String number = request.getParameter("number");
         String address = request.getParameter("address");
         String news = request.getParameter(String.valueOf("news"));
-        AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
+        AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
         validator.clear(session);
 
         //Input validations

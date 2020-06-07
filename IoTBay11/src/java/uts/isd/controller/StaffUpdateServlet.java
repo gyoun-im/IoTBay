@@ -34,7 +34,7 @@ public class StaffUpdateServlet extends HttpServlet {
 
         Staff staff = new Staff(id, name, email, number, address, type, history, accid);
         User user = new User(accid, email, password, dob, gender, news, id);
-        AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
+        AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
 
         if (validator.registerCheckEmpty(email, password, name, dob, number, gender, address)) {
             session.setAttribute("empErr", "Please fill in every textfield");
