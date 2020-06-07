@@ -8,8 +8,6 @@ package uts.isd.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -24,27 +22,14 @@ import uts.isd.model.dao.IoTDeviceDao;
  *
  * @author apple1
  */
-public class DeviceListController extends HttpServlet {
-
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+public class DeviceDetailServlet extends HttpServlet {
     private IoTDeviceDao deviceDao;
 
-    public DeviceListController() throws SQLException, ClassNotFoundException {
+    public DeviceDetailServlet() throws SQLException, ClassNotFoundException {
         DBConnector connector = new DBConnector();
         deviceDao = new IoTDeviceDao(connector.openConnection());
     }
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -58,17 +43,18 @@ public class DeviceListController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<Device> devices = null;
-        String keyword = request.getParameter("keyword");
-        String id = request.getParameter("deviceId");
-        try {
-            devices = deviceDao.searchDevicesByNameAndID(id, keyword);
-        } catch (SQLException ex) {
-            Logger.getLogger(DeviceListController.class.getName()).log(Level.SEVERE, null, ex);
+        String deviceId = request.getParameter("deviceId");
+        if (deviceId != null && !deviceId.isEmpty()) {
+            try {
+                Device device = deviceDao.getDeviceById(deviceId);
+                request.setAttribute("currentDevice", device);
+            } catch (SQLException ex) {
+                Logger.getLogger(EditDeviceServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            request.getRequestDispatcher("deviceDetail.jsp?deviceId="+deviceId).forward(request, response);
+        } else {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
-        request.setAttribute("name", "Qianhui");
-        request.setAttribute("devices", devices);
-        request.getRequestDispatcher("/IoTDevices.jsp").include(request, response);
     }
 
     /**
@@ -82,16 +68,6 @@ public class DeviceListController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String deviceId = request.getParameter("deviceId");
-        List<Device> devices = null;
-        try {
-            deviceDao.deleteDevice(deviceId);
-            devices = deviceDao.findAll();
-        } catch (SQLException ex) {
-            Logger.getLogger(DeviceListController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        request.setAttribute("devices", devices);
-        request.getRequestDispatcher("/IoTDevices.jsp").include(request, response);
     }
 
     /**

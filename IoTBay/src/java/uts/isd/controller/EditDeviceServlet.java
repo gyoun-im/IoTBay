@@ -94,4 +94,7 @@ public class EditDeviceServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private boolean isEmpty(String s) {
+        return s==null || s.isEmpty();
+    }
 }

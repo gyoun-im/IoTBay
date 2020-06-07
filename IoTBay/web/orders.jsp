@@ -58,12 +58,6 @@
                 %>
 
             </table>
-            <form action="CreateOrderServlet" method="POST">
-                <input name="deviceId" value="1" style="display: none">
-                <input name="total" value="999" style="display: none">
-                <input name="quantity" value="10" style="display: none">
-                <button class="btn btn-success">Place Order</button>
-            </form>
         </div>
     </body>
 </html>

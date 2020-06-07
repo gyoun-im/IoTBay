@@ -60,6 +60,10 @@
         <servlet-name>UpdateOrderServlet</servlet-name>
         <servlet-class>uts.isd.controller.UpdateOrderServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeviceDetailServlet</servlet-name>
+        <servlet-class>uts.isd.controller.DeviceDetailServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConnServlet</servlet-name>
         <url-pattern>/ConnServlet</url-pattern>
@@ -119,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>UpdateOrderServlet</servlet-name>
         <url-pattern>/UpdateOrderServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeviceDetailServlet</servlet-name>
+        <url-pattern>/DeviceDetailServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

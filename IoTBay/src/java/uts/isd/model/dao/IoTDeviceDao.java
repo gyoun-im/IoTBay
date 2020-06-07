@@ -32,8 +32,14 @@ public class IoTDeviceDao {
         return processResultList(rs);
     }
 
-    public List<Device> findByDeviceName(String name) throws SQLException {
-        String fetch = "select * from IOTBAY.DEVICE where name='" + name + "'";
+    public List<Device> searchDevicesByNameAndID(String id, String name) throws SQLException {
+        String fetch = "select * from DEVICE where id>-1";
+        if(id != null && !id.isEmpty()) {
+            fetch = fetch + " and id=" +id;
+        }
+        if(name != null && !name.isEmpty()) {
+            fetch = fetch + " and name like '%" +name + "%'";
+        }
         ResultSet rs = st.executeQuery(fetch);
         return processResultList(rs);
     }

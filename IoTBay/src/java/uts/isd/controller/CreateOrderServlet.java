@@ -14,7 +14,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import uts.isd.model.Device;
 import uts.isd.model.dao.DBConnector;
+import uts.isd.model.dao.IoTDeviceDao;
 import uts.isd.model.dao.OrderDao;
 
 /**
@@ -24,10 +26,13 @@ import uts.isd.model.dao.OrderDao;
 public class CreateOrderServlet extends HttpServlet {
 
     private OrderDao orderDao;
+    private IoTDeviceDao deviceDao;
 
     public CreateOrderServlet() throws SQLException, ClassNotFoundException {
         DBConnector connector = new DBConnector();
         orderDao = new OrderDao(connector.openConnection());
+        deviceDao = new IoTDeviceDao(connector.openConnection());
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -59,11 +64,30 @@ public class CreateOrderServlet extends HttpServlet {
         String total = request.getParameter("total");
         String userId = "1"; // User user = (User)request.getSession().getAttribute("currentUser"); user.getId();
         String quantity = request.getParameter("quantity");
+        boolean isValid = true;
+        if (quantity == null || Integer.parseInt(quantity) < 1) {
+            request.getSession().setAttribute("DeviceDetailError", "Quantity must be at least 1.");
+            isValid = false;
+        }
         try {
-            orderDao.createOrder(total, userId, deviceId, quantity);
-            response.sendRedirect("OrderHistoryServlet");
+            Device d = deviceDao.getDeviceById(deviceId);
+            if (Integer.parseInt(quantity) > d.getStock()) {
+                request.getSession().setAttribute("DeviceDetailError", "Quantity must be smaller than stock left.");
+                isValid = false;
+            }
         } catch (SQLException ex) {
             Logger.getLogger(CreateOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (isValid) {
+            request.getSession().setAttribute("DeviceDetailError", null);
+            try {
+                orderDao.createOrder(total, userId, deviceId, quantity);
+                response.sendRedirect("OrderHistoryServlet");
+            } catch (SQLException ex) {
+                Logger.getLogger(CreateOrderServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            response.sendRedirect("DeviceDetailServlet?deviceId="+deviceId);
         }
     }
 

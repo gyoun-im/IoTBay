@@ -28,6 +28,7 @@
             <form action="devices" method="GET">
                 <div class="input-group my-2">
                     <input type="text" class="form-control" placeholder="Search for Product Name ..." name="keyword">
+                    <input type="text" class="form-control" placeholder="Search for Product ID ..." name="deviceId">
                     <div class="input-group-append">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </div>
@@ -55,7 +56,7 @@
                     <td><%= d.getPrice()%></td>
                     <td><%= d.getStock()%></td>
                     <td>
-                        <button class="btn btn-sm btn-info">View</button>
+                        <button class="btn btn-sm btn-info" onclick="window.location.href='DeviceDetailServlet?deviceId=<%=d.getId()%>'">View</button>
                         <button class="btn btn-sm btn-warning" onclick="window.location.href='editDevice?deviceId=<%=d.getId()%>'">Edit</button>
                         <form action="devices?deviceId=<%=d.getId()%>" method="POST" style="display:inline">
                             <button class="btn btn-sm btn-danger" type="submit">Delete</button>
