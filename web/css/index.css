@@ -1,0 +1,93 @@
+.logo{    
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.bttn {
+  background-color: Red;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+a.test{
+  color: blue;
+  text-decoration:none;
+  
+}
+a:hover{
+  opacity:0.8;
+  color:#47B9DE;
+}
+
+.center {
+  margin-left:auto; 
+  margin-right:auto;
+  text-align: center;
+}
+
+.tb
+{
+    width: 100%
+}
+
+h1 {
+ font-family: 'Raleway', sans-serif;
+ font-size: 30px;
+ font-weight: 800; 
+ line-height: 12px; 
+ margin: 0 0 24px; 
+ text-align: center; 
+
+}
+
+.tableAlignment
+{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table{
+    margin: 0 auto;
+    
+}
+
+.container img {
+    width: 10%;
+    height: auto;
+}
+
+.left{
+    text-align: left;
+    
+}
+
+.searchTb
+{
+    height: 50px;
+    width: 200px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    
+}
+
+.topRight{
+    position:absolute;
+    top:0;
+    right:0;
+}
+
+.sbttn{
+   background-color: Red;
+  color: white;
+  padding: 4px 5px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer; 
+}
