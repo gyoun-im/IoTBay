@@ -3,29 +3,29 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package iotbay.controller;
+package uts.isd.controller;
 
 import java.sql.*;
 import java.util.*;
 import java.util.logging.*;
-import iotbay.model.dao.*;
-import iotbay.model.Shipment;
-import iotbay.model.Shipment_Details;
+import uts.isd.model.dao.*;
+import uts.isd.model.Shipment;
+import uts.isd.model.Shipment_Details;
 /**
  *
  * @author Bryan Guntoro
  */
-public class TestDB {
+public class ShipmentTestDB {
     private static Scanner in = new Scanner(System.in);
     private DBConnector connector;
     private Connection conn;
     private ShipmentDBManager db;
 
     public static void main (String [] args) throws SQLException {
-        (new TestDB()).runQueries();
+        (new ShipmentTestDB()).runQueries();
     }
     
-    public TestDB() {
+    public ShipmentTestDB() {
         try {
             connector = new DBConnector();
             conn = connector.openConnection();
