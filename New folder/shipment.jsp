@@ -7,7 +7,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/dashboard.css" rel="stylesheet" type="text/css">
-        <title>Main Page of IoTBay</title>
+        <title>Find Shipment - IoTBay</title>
         <% User user = (User) session.getAttribute("user");
            String searchErr = (String)session.getAttribute("searchErr");
            Shipment shipment = (Shipment) session.getAttribute("shipment");
