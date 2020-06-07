@@ -18,7 +18,7 @@ public class LogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
+        AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
         try {
             User user = (User) session.getAttribute("user");
             int id = user.getUserAccountID();       //get the current session's userId

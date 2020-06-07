@@ -20,7 +20,7 @@ public class FilterDateServlet extends HttpServlet {
 
         String date = request.getParameter("date");
         String userId = request.getParameter("userId");
-        AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
+        AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
         Staff staff = (Staff) session.getAttribute("staff");
       
         try {

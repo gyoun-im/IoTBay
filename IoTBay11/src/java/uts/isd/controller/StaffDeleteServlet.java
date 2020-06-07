@@ -17,11 +17,12 @@ public class StaffDeleteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
-        AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
+        AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
 
         try {
             Staff staff = (Staff) session.getAttribute("staff");
             String staffEmail = staff.getEmail();  
+            System.out.print(staffEmail);
             //Delete staff from STAFF and USER_ACCOUNT Table
             manager.deleteStaff(staffEmail);
         } catch (SQLException ex) {

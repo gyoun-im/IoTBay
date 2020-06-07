@@ -2,10 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/D:/Gabriel/Uni%20docs/2020/Semester%201/Intro%20to%20Software/Assignment%202/IoTBay/IoTBay/IoTBay11/src/java/uts/isd/model/User.java</file>
             <file>file:/D:/Gabriel/Uni%20docs/2020/Semester%201/Intro%20to%20Software/Assignment%202/IoTBay/IoTBay/IoTBay11/src/java/uts/isd/model/dao/DB.java</file>
             <file>file:/D:/Gabriel/Uni%20docs/2020/Semester%201/Intro%20to%20Software/Assignment%202/IoTBay/IoTBay/IoTBay11/src/java/uts/isd/controller/StaffUpdateServlet.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> 96b3413bc7da0b0c565bdef0ee115dcf11361ae8
     </open-files>
 </project-private>

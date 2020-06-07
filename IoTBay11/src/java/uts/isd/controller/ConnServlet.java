@@ -41,7 +41,7 @@ public class ConnServlet extends HttpServlet {
             Logger.getLogger(ConnServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
         //export the DB manager to the view-session (JSPs)
-        session.setAttribute("manager", accessManager);     //Add manager to the session
+        session.setAttribute("accessManager", accessManager);     //Add manager to the session
     }
 
     @Override //Destroy the servlet and release the resources of the application (terminate also the db connection)

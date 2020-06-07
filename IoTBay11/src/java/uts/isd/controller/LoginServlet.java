@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
         AccessValidator validator = new AccessValidator();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
+        AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
 
         //To figure out if a customer or a staff logging in
         User user = null;

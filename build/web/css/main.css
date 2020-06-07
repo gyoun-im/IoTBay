@@ -1,0 +1,76 @@
+.logo{    
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.container img {
+    width: 10%;
+    height: auto;
+    text-align: center;
+}
+
+h1 {
+ font-family: 'Raleway', sans-serif;
+ font-size: 30px;
+ font-weight: 800; 
+ line-height: 12px; 
+ margin: 0 0 24px; 
+ text-align: center; 
+
+}
+
+.center
+{
+    text-align: center;
+}
+
+.searchTb
+{
+    height: 30px;
+    width: 200px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: width 0.4s ease-in-out;
+}
+
+.searchTb:focus
+{
+    width: 25%;
+}
+
+.cart
+{
+    text-align: right;
+}
+
+.dashboardTable
+{
+    border-collapse: collapse;
+    width: 100%;
+    border: 5px solid black;
+    padding-top: 50px;
+}
+
+.tabBorder
+{
+    border: 5px solid black;
+}
+
+.topRight
+{  
+     position:absolute;
+     top:0;
+     right:0;
+}
+
+.bttn {
+  background-color: Red;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+}

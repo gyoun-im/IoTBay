@@ -32,7 +32,7 @@ public class StaffRegisterServlet extends HttpServlet {
         String number = request.getParameter("number");
         String address = request.getParameter("address");
         String type = request.getParameter("type");
-        AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
+        AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
         validator.clear(session);
 
         //Input validations
