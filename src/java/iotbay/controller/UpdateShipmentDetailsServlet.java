@@ -36,7 +36,7 @@ public class UpdateShipmentDetailsServlet extends HttpServlet {
     int shipmentDetailsID = Integer.parseInt(request.getParameter("shipmentDetailsID"));
     ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("manager");
     session.setAttribute("updated",null);
-    Validator validator = new Validator();
+    ShipmentValidator validator = new ShipmentValidator();
     validator.clear(session);
     session.setAttribute("addressErr", null);
     session.setAttribute("postcodeErr", null);

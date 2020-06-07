@@ -11,6 +11,9 @@
    import javax.servlet.http.HttpServletResponse;
    import javax.servlet.http.HttpSession;
    import iotbay.model.dao.*;
+
+ 
+ 
  
    public class ConnServlet extends HttpServlet {
  
@@ -18,7 +21,8 @@
        private ShipmentDBManager manager;
        // Add your DBMangaers
        private Connection conn;
-        
+       
+      
        @Override //Create and instance of DBConnector for the deployment session
        public void init() {
            try {

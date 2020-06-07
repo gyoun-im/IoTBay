@@ -30,7 +30,7 @@ public class ShipmentServlet extends HttpServlet {
    protected void doPost(HttpServletRequest request, HttpServletResponse response)
            throws ServletException, IOException {
        HttpSession session = request.getSession();
-       Validator validator = new Validator();
+       ShipmentValidator validator = new ShipmentValidator();
        int shipmentID = Integer.parseInt(request.getParameter("shipmentID"));
        String shipmentDate = request.getParameter("shipmentDate");
       ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("manager");

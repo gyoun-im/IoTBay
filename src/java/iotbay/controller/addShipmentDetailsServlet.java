@@ -24,7 +24,7 @@ public class addShipmentDetailsServlet extends HttpServlet {
  protected void doPost(HttpServletRequest request, HttpServletResponse response) 
          throws ServletException, IOException {
      HttpSession session = request.getSession();
-     Validator validator = new Validator();
+     ShipmentValidator validator = new ShipmentValidator();
      String streetAddress = request.getParameter("streetAddress");
      String suburb = request.getParameter("suburb");
      String state = request.getParameter("state");
