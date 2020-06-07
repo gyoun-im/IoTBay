@@ -30,7 +30,7 @@ public class DeleteShipmentDetailsServlet extends HttpServlet {
         HttpSession session = request.getSession();
         int userID = Integer.parseInt(request.getParameter("userID"));
         int shipmentDetailsID = Integer.parseInt(request.getParameter("shipmentDetailsID"));
-        ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("manager");
+        ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("shipmentManager");
         try {
             manager.deleteShipmentDetails(shipmentDetailsID);
             request.getRequestDispatcher("/ShipmentDetailsServlet?userID=" + userID).include(request,response);
