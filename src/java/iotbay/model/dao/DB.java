@@ -1,6 +1,6 @@
 
 
-package iotbay.model.dao;
+package uts.isd.model.dao;
 
 import java.sql.Connection;
 
