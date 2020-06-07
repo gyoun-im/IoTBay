@@ -35,7 +35,7 @@ public class EditShipmentDetailsServlet extends HttpServlet {
         // int userID = Integer.parseInt(request.getParameter("userID"));
         int shipmentDetailsID = Integer.parseInt(request.getParameter("shipmentDetailsID"));
         
-        ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("manager");
+        ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("shipmentManager");
         
         Shipment_Details shipmentDet = null;
         
