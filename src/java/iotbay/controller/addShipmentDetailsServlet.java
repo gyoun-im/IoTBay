@@ -31,7 +31,7 @@ public class addShipmentDetailsServlet extends HttpServlet {
      int postcode = Integer.parseInt(request.getParameter("postcode"));
      int userID = Integer.parseInt(request.getParameter("userID"));
      Shipment_Details shipmentDetail = null;
-     ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("manager");
+     ShipmentDBManager manager = (ShipmentDBManager) session.getAttribute("shipmentManager");
      session.setAttribute("addSuccess", null);
      session.setAttribute("addressErr", null);
      
