@@ -179,11 +179,11 @@
                                     <a href="#" style="color:black"> My Shopping </a>
                                     <a href="shipment.jsp" style="color:black">  Find Shipment </a>
                                     <a href="#" style="color:black">  Find Payment </a>
-                                    <a href="ShipmentDetailsServlet?userAccountID=<%=user.getUserAccountID()%>" style="color:black;"> View Shipment Details </a>
+                                    <a href="ShipmentDetailsServlet?userID=<%=user.getUserAccountID()%>" style="color:black;"> View Shipment Details </a>
                                     <a href="#" style="color:black"> View Payment Details</a>
                                     <a href="#" style="color:black"> View Order History </a>
                                     <a href="#" style="color:black"> View Access Logs </a>
-                                    <a href="ViewShipmentServlet?userAccountID=<%=user.getUserAccountID()%"  style="color:black">View Shipment </a> 
+                                    <a href="ViewShipmentServlet?userID=<%=user.getUserAccountID()%"  style="color:black">View Shipment </a> 
                                       <a href="logout.jsp" style="color:black;">Logout</a>
                     </div>
                     </div>
