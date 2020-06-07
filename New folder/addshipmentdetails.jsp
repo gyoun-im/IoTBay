@@ -251,7 +251,7 @@
 
         </table>
 
-        <a href="ShipmentDetailsServlet?userID=3"  ><h1 class="redcolor"> < </h1> </a>
+        <a href="ShipmentDetailsServlet?userID=<%=user.getUserAccountID()%>"><h1 class="redcolor"> < </h1> </a>
         <h1 style="color:tomato; text-align:left; margin-left:20px;display:inline-block;font-size: 25px; color: black;"> Add Shipment Details: &nbsp; &nbsp;  <div style="color:tomato; float:right;" class="shakeanimation"> <%= (postcodeErr != null ? postcodeErr : "")%> <%= (addressErr != null ? addressErr :"")%> </div></h1>
         <form action="addShipmentDetailsServlet?userID=<%=user.getUserAccountID()%>" method="post">
             
