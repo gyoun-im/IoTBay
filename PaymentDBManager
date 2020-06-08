@@ -52,7 +52,7 @@ public class PaymentDBManager {
         st.executeUpdate("DELETE FROM IOTBAYUSER.PAYMENT WHERE PAYMENTID=" + paymentID + "");
     }
 
-    //Fetch All
+    //Fetch Payment
     public ArrayList<Payment> fetchPayments() throws SQLException {
         String fetch = "select * from PAYMENT";
         ResultSet rs = st.executeQuery(fetch);
