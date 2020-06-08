@@ -1,0 +1,26 @@
+//Payment Table
+
+CREATE TABLE Payment
+(paymentID INTEGER NOT NULL,
+paymentDate VARCHAR(20) NOT NULL,
+totalPrice INTEGER ,
+paymentType VARCHAR (20),
+paymentStatus VARCHAR (20),
+PRIMARY KEY (paymentID)
+);
+
+//PaymentMethod table
+
+
+CREATE TABLE Payment_Method_Details
+(methodID int NOT NULL 
+    GENERATED ALWAYS AS IDENTITY 
+    (START WITH 1, INCREMENT BY 1),
+    cardName VARCHAR(50),
+    cardNumber INTEGER,
+    cvc INTEGER ,
+    bankName VARCHAR(50) ,
+    userAccountID INTEGER,
+    PRIMARY KEY (methodID),
+    FOREIGN KEY (userAccountID) REFERENCES User_Account(userAccountID));
+  
