@@ -10,7 +10,7 @@
 
 
         <%
-            User user = (User) session.getAttribute("user");
+            User_Account user = (User_Account) session.getAttribute("user");
         %>
 
         <%if (user != null) {%>

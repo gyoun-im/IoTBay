@@ -5,10 +5,6 @@
         <servlet-class>uts.isd.controller.CancelServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>DeviceListController</servlet-name>
-        <servlet-class>uts.isd.controller.DeviceListController</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ConnServlet</servlet-name>
         <servlet-class>uts.isd.controller.ConnServlet</servlet-class>
     </servlet>
@@ -139,10 +135,6 @@
     <servlet-mapping>
         <servlet-name>FilterDateServlet</servlet-name>
         <url-pattern>/FilterDateServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>DeviceListController</servlet-name>
-        <url-pattern>/devices</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>editDeviceServlet</servlet-name>

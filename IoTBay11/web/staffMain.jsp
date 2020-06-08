@@ -10,7 +10,7 @@
     <body>
         <%
             Staff staff = (Staff) session.getAttribute("name");
-            User user = (User) session.getAttribute("user");
+            User_Account user = (User_Account) session.getAttribute("user");
         %>            
         <img src="css/IoTBay_Logo.png" class="logo">        
         <div class="topRight">

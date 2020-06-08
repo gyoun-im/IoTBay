@@ -12,7 +12,7 @@
         <%
             Customer customer = (Customer) session.getAttribute("customer");
             String updated = (String) session.getAttribute("updated");
-            User user = (User) session.getAttribute("user");
+            User_Account user = (User_Account) session.getAttribute("user");
             String nameErr = (String) session.getAttribute("nameErr");
             String numErr = (String) session.getAttribute("numErr");
             String passErr = (String) session.getAttribute("passErr");
