@@ -193,7 +193,7 @@
                             <li> Promotional Newsletter </li>
                             <li> Change Password</li>
                             <li> Change Language</li>
-                            <li> Access Logs </li>
+                            <li><a href="CustomerAccessLogServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'"> Access Logs </a> </li>
                         </ul> </div></td>  </tr>
             <tr>  <td style="padding-left: 15px; padding-bottom:0px; color:black"> <b> MY SHOPPING </b> 
                     <div id="nacvontainer">
