@@ -54,9 +54,12 @@
                     <input type="number" class="form-control"name="deviceStock" id="deviceStock" value="<%= d.getStock() %>">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <center><button type="submit" class="btn btn-primary">Submit</button></center>
 
             </form>
+                 <a href="main.jsp">
+              <button class="btn btn-primary"> main </button>
+                </a>
         </div>
 
     </body>

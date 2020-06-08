@@ -66,8 +66,11 @@
                     <input id="total" name="total" value="<%=d.getPrice()%>" style="display: none">
                 </table>
                 <div class="text-danger mb-2"><%= session.getAttribute("DeviceDetailError") == null ? "" : "Error: " + session.getAttribute("DeviceDetailError")%></div>
-                <button class="btn btn-success" type="submit">Place Order</button>
+                <center><button class="btn btn-success" type="submit">Place Order</button></center>
             </form>
+                 <a href="main.jsp">
+              <button class="btn btn-primary"> main </button>
+                </a>
         </div>
 
     </body>

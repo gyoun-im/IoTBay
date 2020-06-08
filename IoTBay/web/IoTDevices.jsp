@@ -67,6 +67,9 @@
                     }
                 %>
             </table>
+             <a href="main.jsp">
+              <button class="btn btn-primary"> main </button>
+                </a>
         </div>
 
     </body>
