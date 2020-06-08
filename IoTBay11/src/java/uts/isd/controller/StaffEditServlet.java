@@ -18,7 +18,7 @@ public class StaffEditServlet extends HttpServlet {
         AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
 
         try {
-            User user = manager.findUser(email, password);
+            User_Account user = manager.findUser(email, password);
             Staff staff = manager.findStaff(email);
             if (user != null) {
                 session.setAttribute("user", user);

@@ -21,7 +21,7 @@ public class CustomerFilterDateServlet extends HttpServlet {
         String date = request.getParameter("date");
         String userId = request.getParameter("userId");
         AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
-        User user = (User) session.getAttribute("user");
+        User_Account user = (User_Account) session.getAttribute("user");
         
         try {  
                 //Filter by the current session's userId

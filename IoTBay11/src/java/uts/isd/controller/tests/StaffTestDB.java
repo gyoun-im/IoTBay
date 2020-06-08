@@ -101,7 +101,7 @@ public class StaffTestDB {
         System.out.print("Customer email:");
         String password = in.nextLine(); 
         
-        User user = db.findUser(email, password);
+        User_Account user = db.findUser(email, password);
         
          
         

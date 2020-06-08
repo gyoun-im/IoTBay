@@ -1,4 +1,4 @@
-package uts.isd.controller.DBTests;
+package uts.isd.controller.tests;
 
 import java.sql.*;
 
@@ -101,7 +101,7 @@ public class CustomerTestDB {
         System.out.print("Customer email:");
         String password = in.nextLine(); 
         
-        User user = db.findUser(email, password);
+        User_Account user = db.findUser(email, password);
         
          
         

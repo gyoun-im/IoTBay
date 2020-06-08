@@ -1,4 +1,4 @@
-package uts.isd.controller.DBTests;
+package uts.isd.controller.tests;
 
 import java.sql.*;
 

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import uts.isd.model.Access_Log;
-import uts.isd.model.User;
+import uts.isd.model.User_Account;
 import uts.isd.model.dao.AccessDBManager;
 
 public class CustomerAccessLogServlet extends HttpServlet {
@@ -23,7 +23,7 @@ public class CustomerAccessLogServlet extends HttpServlet {
         AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
 
         try {
-            User user = (User) session.getAttribute("user");
+            User_Account user = (User_Account) session.getAttribute("user");
             int id = user.getUserAccountID();
             //Get all logs related to the user that is logged in the current session
             ArrayList<Access_Log> lists = manager.fetchLog(id);

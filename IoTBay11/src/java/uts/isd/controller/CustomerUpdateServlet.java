@@ -32,7 +32,7 @@ public class CustomerUpdateServlet extends HttpServlet {
         validator.clear(session);
 
         Customer customer = new Customer(id, name, number, email, address, Boolean.valueOf(news));
-        User user = new User(accid, email, password, dob, gender, Boolean.valueOf(news), id);
+        User_Account user = new User_Account(accid, email, password, dob, gender, Boolean.valueOf(news), id);
         AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
 
         //Input validations

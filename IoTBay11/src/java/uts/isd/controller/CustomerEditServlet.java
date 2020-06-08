@@ -18,7 +18,7 @@ public class CustomerEditServlet extends HttpServlet {
         AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
 
         try {
-            User user = manager.findUser(email, password);
+            User_Account user = manager.findUser(email, password);
             Customer customer = manager.findCustomer(email);
             if (user != null) {
                 //Grab all the details of the logged in user and post it on the customerDetails.jsp

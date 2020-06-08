@@ -3,7 +3,7 @@ package uts.isd.model.dao;
 import uts.isd.model.Customer;
 import uts.isd.model.Staff;
 import uts.isd.model.Access_Log;
-import uts.isd.model.User;
+import uts.isd.model.User_Account;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -361,11 +361,11 @@ public class AccessDBManager {
     }
 
     /*
-        User account functions
+        User_Account account functions
     */
     
     //Find if the user exists in the USER_ACCOUNT table using email and password
-    public User findUser(String username, String password) throws SQLException {       
+    public User_Account findUser(String username, String password) throws SQLException {       
         String fetch = "SELECT * FROM IOTBAY.USER_ACCOUNT WHERE USERNAME='" + username + "' AND PASSWORD='" + password + "'";
         ResultSet rs = st.executeQuery(fetch);
 
@@ -378,14 +378,14 @@ public class AccessDBManager {
                 String userGender = rs.getString(5);
                 Boolean userNews = rs.getBoolean(6);
                 int userPoints = rs.getInt(7);
-                return new User(userId, userName, userPassword, userDob, userGender, userNews, userPoints);
+                return new User_Account(userId, userName, userPassword, userDob, userGender, userNews, userPoints);
             }
         }
         return null;
     }
     
     //Find if the user exists in the USER_ACCOUNT table using email
-    public User findUserEmail(String username) throws SQLException {       
+    public User_Account findUserEmail(String username) throws SQLException {       
         String fetch = "SELECT * FROM IOTBAY.USER_ACCOUNT WHERE USERNAME='" + username + "'";
         ResultSet rs = st.executeQuery(fetch);
 
@@ -398,7 +398,7 @@ public class AccessDBManager {
                 Boolean userNews = rs.getBoolean(6);
                 int userPoints = rs.getInt(7);
                 String userPassword = rs.getString(3);
-                return new User(userId, userName, userPassword, userDob, userGender, userNews, userPoints);
+                return new User_Account(userId, userName, userPassword, userDob, userGender, userNews, userPoints);
             }
         }
         return null;

@@ -53,7 +53,7 @@ public class CustomerRegisterServlet extends HttpServlet {
             request.getRequestDispatcher("customerRegister.jsp").include(request, response);
         } else {
             try {
-                User exist = manager.findUserEmail(email);
+                User_Account exist = manager.findUserEmail(email);
                 if (exist != null) {                                                          //if the customer is already registered
                     session.setAttribute("existErr", "User email already exists in the database");
                     request.getRequestDispatcher("customerRegister.jsp").include(request, response);
@@ -61,7 +61,7 @@ public class CustomerRegisterServlet extends HttpServlet {
                     //if customer does not exist in the CUSTOMER and USER_ACCOUNT table, add it to CUSTOMER and USER_ACCOUNT table
                     manager.addCustomer(name, number, email, address, Boolean.FALSE, password, dob, gender, Boolean.TRUE, 0);
                     Customer customer = new Customer(id, name, number, email, address, Boolean.valueOf(news));
-                    User user = new User(accid, email, password, dob, gender, Boolean.valueOf(news), id);
+                    User_Account user = new User_Account(accid, email, password, dob, gender, Boolean.valueOf(news), id);
                     session.setAttribute("customer", customer);
                     session.setAttribute("user", user);
                     //get userId of the user

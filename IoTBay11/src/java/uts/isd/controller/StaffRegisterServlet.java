@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import uts.isd.model.Staff;
 import uts.isd.model.dao.AccessDBManager;
 import uts.isd.controller.AccessValidator;
-import uts.isd.model.User;
+import uts.isd.model.User_Account;
 
 public class StaffRegisterServlet extends HttpServlet {
 
@@ -53,7 +53,7 @@ public class StaffRegisterServlet extends HttpServlet {
             request.getRequestDispatcher("staffRegister.jsp").include(request, response);
         } else {
             try {
-                User exist = manager.findUserEmail(email);
+                User_Account exist = manager.findUserEmail(email);
 
                     //Check if staff email already exists in the database
                 if (exist != null) {
@@ -64,7 +64,7 @@ public class StaffRegisterServlet extends HttpServlet {
                     //add the staff in the STAFF and USER_ACCOUNT table
                     manager.addStaff(name, email, number, address, type, history, password, dob, gender, Boolean.FALSE, id);
                     Staff staff = new Staff(id, name, email, number, address, type, history, accid);
-                    User user = new User(accid, email, password, dob, gender, Boolean.FALSE, id);
+                    User_Account user = new User_Account(accid, email, password, dob, gender, Boolean.FALSE, id);
                     session.setAttribute("staff", staff);
                     session.setAttribute("user", user);
 

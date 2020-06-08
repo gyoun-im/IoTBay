@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
         AccessDBManager manager = (AccessDBManager) session.getAttribute("accessManager");
 
         //To figure out if a customer or a staff logging in
-        User user = null;
+        User_Account user = null;
         Customer customer = null;
         Staff staff = null;
         validator.clear(session);
