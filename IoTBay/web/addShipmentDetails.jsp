@@ -172,7 +172,7 @@
                                     <a href="#" style="color:black"> View Order History </a>
                                     <a href="CustomerAccessLogServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'" style="color:black"> View Access Logs </a>
                                     <a href="ViewShipmentServlet?userID=<%=user.getUserAccountID()%>" style="color:black">  View Shipment </a> 
-                                      <a href="logout.jsp" style="color:black;">Logout</a>
+                                    <a href="LogoutServlet" style="color:black;">Logout</a>
                     </div>
                     </div>
                 </th>
