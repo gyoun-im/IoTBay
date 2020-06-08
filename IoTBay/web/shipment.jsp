@@ -105,7 +105,7 @@
                                     <a href="ShipmentDetailsServlet?userID=<%=user.getUserAccountID()%>" style="color:black;"> View Shipment Details </a>
                                     <a href="#" style="color:black"> View Payment Details</a>
                                     <a href="#" style="color:black"> View Order History </a>
-                                    <a href="#" style="color:black"> View Access Logs </a>
+                                    <a href="CustomerAccessLogServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'" style="color:black"> View Access Logs </a>
                                     <a href="ViewShipmentServlet?userID=<%=user.getUserAccountID()%>" style="color:black"> View Shipment </a> 
                                       <a href="LogoutServlet" style="color:black;">Logout</a>s
                     </div>
@@ -127,7 +127,7 @@
                             <li> Promotional Newsletter </li>
                             <li> Change Password</li>
                             <li> Change Language</li>
-                            <li> Access Logs </li>
+                            <li><a href="CustomerAccessLogServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'"> Access Logs </a>  </li>
                         </ul> </div></td>  </tr>
             <tr>  <td style="padding-left: 15px; padding-bottom:0px; color:black"> <b> MY SHOPPING </b> 
                     <div id="nacvontainer">
