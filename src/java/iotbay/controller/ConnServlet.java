@@ -19,7 +19,7 @@
  
        private DBConnector db;
        // Shipment Manager
-       private ShipmentDBManager manager;
+       private ShipmentDBManager shipmentManager;
        // Add your DBMangaers here
        private Connection conn;
        
