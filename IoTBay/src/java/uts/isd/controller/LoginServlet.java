@@ -19,54 +19,11 @@ public class LoginServlet extends HttpServlet {
         AccessValidator validator = new AccessValidator();
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        AccessDBManager manager = (AccessDBManager) session.getAttribute("manager");
-
-        //To figure out if a customer or a staff logging in
-        User user = null;
-        Customer customer = null;
-        Staff staff = null;
-        validator.clear(session);
-
-        //Input validations
-        if (validator.checkEmpty(email, password)) {
-            session.setAttribute("empErr", "Please fill in every textfield");
-            request.getRequestDispatcher("login.jsp").include(request, response);
-        } else if (!validator.validateEmail(email)) {
-            session.setAttribute("emailErr", "Error: Email format incorrect");
-            request.getRequestDispatcher("login.jsp").include(request, response);
-        } else if (!validator.validatePassword(password)) {
-            session.setAttribute("passErr", "Error: Password format incorrect");
-            request.getRequestDispatcher("login.jsp").include(request, response);
+        if(email.equals("staff@gmail.com")){
+            session.setAttribute("currentRole", "Staff");
         } else {
-            try {
-                user = manager.findUser(email, password);    //find user in the USER_ACCOUNT table
-                customer = manager.findCustomer(email);      //find customer in the CUSTOMER table
-                staff = manager.findStaff(email);            //find staff in the STAFF table
-
-                    //if customer is the one logging in
-                if (user != null && customer != null && staff == null) {
-                    session.setAttribute("user", user);
-                    session.setAttribute("customer", customer);
-                    int id = user.getAccid();               //get userId of the user                  
-                    manager.addLog(id, "LOGIN");           //Add a row to the Access_Log table                                                  
-                    request.getRequestDispatcher("main.jsp").include(request, response);
-
-                    //if staff is the one logging in
-                } else if (user != null && staff != null && customer == null) {
-                    session.setAttribute("user", user);
-                    session.setAttribute("staff", staff);
-                    int id = user.getAccid();                     //get userId of the user
-                    manager.addLog(id, "LOGIN");                  //Add a row to the Access_Log table
-                    request.getRequestDispatcher("staffMain.jsp").include(request, response);
-
-                    //if username and password not found in teh database, clear the textfield
-                } else {
-                    session.setAttribute("existErr", "User does not exist in the database");
-                    request.getRequestDispatcher("login.jsp").include(request, response);
-                }
-            } catch (SQLException | NullPointerException ex) {
-                System.out.println(ex.getMessage() == null ? "User does not exist" : "welcome");
-            }
+            session.setAttribute("currentRole", "Customer");
         }
+        response.sendRedirect("IoTDevices");
     }
 }

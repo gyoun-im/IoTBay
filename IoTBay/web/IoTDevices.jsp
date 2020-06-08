@@ -19,12 +19,20 @@
         <link href="css/devices.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <%
+            String role = (String) session.getAttribute("currentRole");
+            if (role == null) {
+                role = "Customer";
+            }
+        %>
         <div class="header">
             <img src="css/IoTBay_Logo.png">
         </div>
         <div class="main-container">
-            <h1 class="text-danger">Device List</h1>
+            <h1 class="text-danger">Device List</h1
+            <% if (role.equals("Staff")) {%>
             <button class="btn btn-success btn-sm add-btn" onclick="window.location.href = 'editDevice'"> + Add New Device</button>
+            <%}%>
             <form action="devices" method="GET">
                 <div class="input-group my-2">
                     <input type="text" class="form-control" placeholder="Search for Product Name ..." name="keyword">
@@ -56,11 +64,13 @@
                     <td><%= d.getPrice()%></td>
                     <td><%= d.getStock()%></td>
                     <td>
-                        <button class="btn btn-sm btn-info" onclick="window.location.href='DeviceDetailServlet?deviceId=<%=d.getId()%>'">View</button>
-                        <button class="btn btn-sm btn-warning" onclick="window.location.href='editDevice?deviceId=<%=d.getId()%>'">Edit</button>
+                        <button class="btn btn-sm btn-info" onclick="window.location.href = 'DeviceDetailServlet?deviceId=<%=d.getId()%>'">View</button>
+                        <% if (role.equals("Staff")) {%>
+                        <button class="btn btn-sm btn-warning" onclick="window.location.href = 'editDevice?deviceId=<%=d.getId()%>'">Edit</button>
                         <form action="devices?deviceId=<%=d.getId()%>" method="POST" style="display:inline">
                             <button class="btn btn-sm btn-danger" type="submit">Delete</button>
-                        </form>
+                        </form>            
+                        <%}%>
                     </td>
                 </tr>
                 <%

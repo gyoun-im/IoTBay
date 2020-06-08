@@ -18,7 +18,7 @@
          <h1>Hello!</h1>
         
         <h2> Sign in to IoTBay or continue as <a href="main.jsp" class="test"> guest user here </a></h2>
-        <form action="welcome.jsp" method="post">
+        <form action="LoginServlet" method="post">
             
         
         <table class="center" >
