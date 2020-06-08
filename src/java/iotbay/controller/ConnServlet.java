@@ -18,6 +18,7 @@
    public class ConnServlet extends HttpServlet {
  
        private DBConnector db;
+       // Shipment Manager
        private ShipmentDBManager manager;
        // Add your DBMangaers here
        private Connection conn;
