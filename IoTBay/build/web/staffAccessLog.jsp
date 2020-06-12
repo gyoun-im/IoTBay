@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="css/acessLog.css">
+        <link rel="stylesheet" href="css/accessLog.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Staff Access Log Page</title>
     </head>

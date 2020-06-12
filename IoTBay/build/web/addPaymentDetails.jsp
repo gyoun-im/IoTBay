@@ -1,13 +1,13 @@
 <%@page import="uts.isd.model.PaymentMethod"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="uts.isd.model.User"%>
+<%@page import="uts.isd.model.*"%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/dashboard.css" rel="stylesheet" type="text/css">
         <title>Main Page of IoTBay</title>
-        <% User user = (User) session.getAttribute("user");
+        <% User_Account user = (User_Account) session.getAttribute("user");
             PaymentMethod p = (PaymentMethod) session.getAttribute("p");
             String cvcErr = (String) session.getAttribute("postcodeErr");
             

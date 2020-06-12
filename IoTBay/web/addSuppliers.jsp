@@ -6,7 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Add Supplier</title>
-        <link rel="stylesheet" href="css/dashboard.css">
+         <link rel="stylesheet" href="css/suppliers.css">
     </head>
     <body>
         <%
@@ -16,12 +16,14 @@
         %>
         
         <h1>Add Supplier</h1>
-        <a href = suppliers.jsp >go back</a>
+        <div class="center">
+            <a href = suppliers.jsp >go back</a>
+        </div>
         
         <p><span><%=(emptyErr != null ? emptyErr : "")%></span></p>
         
         <form method="post" action="AddSupplierServlet">
-            <table>
+            <table class="center">
                 <tr><th>Name: </th><td><input type="text" placeholder=" " name="name"></td></tr>
                 <tr><th>Type: </th><td><input type="text" placeholder=" " name="type"></td></tr>
                 <tr>

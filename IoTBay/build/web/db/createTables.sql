@@ -86,7 +86,7 @@ create table DEVICE (
     STOCK INTEGER default 0 not null
 );
 
-
+/*
 DROP TABLE "ORDER";
 CREATE TABLE "ORDER" (    
    "ID" INT not null primary key 
@@ -98,6 +98,16 @@ CREATE TABLE "ORDER" (
    "USERID" VARCHAR(50),
    "DEVICEID" INTEGER,
    "QUANTITY" INTEGER
+);
+*/
+
+/* Order Dummy */
+CREATE TABLE Orders (   
+   orderID INT not null
+    GENERATED ALWAYS AS IDENTITY
+    (START WITH 1000, INCREMENT BY 1),
+orderDescription VARCHAR(30) NOT NULL,
+PRIMARY KEY (orderID)
 );
 
 

@@ -17,8 +17,9 @@ public class Order {
     private String userId;
     private int deviceId;
     private int quantity;
+    private String notes;
 
-    public Order(int id, String date, double total, String status, String userId, int deviceId, int quantity) {
+    public Order(int id, String date, double total, String status, String userId, int deviceId, int quantity, String notes) {
         this.id = id;
         this.date = date;
         this.total = total;
@@ -26,6 +27,7 @@ public class Order {
         this.userId = userId;
         this.deviceId = deviceId;
         this.quantity = quantity;
+        this.notes = notes;
     }
 
     
@@ -87,7 +89,12 @@ public class Order {
         this.quantity = quantity;
     }
 
-   
-    
-    
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
 }

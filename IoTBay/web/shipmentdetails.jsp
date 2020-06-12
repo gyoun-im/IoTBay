@@ -154,7 +154,7 @@
         <p style="text-align:right">You are logged in as &lt; ${user.email} &gt; </p>  
         <table cellspacing="0" cellpadding="0" width="100%">
             <tr>
-                <th><a href="main.jsp"><div class="center"><img src="css/home.png" width="16px" height="20px"></div>Home &nbsp;</a></th>
+                 <th><a href="devices"><div class="center"><img src="css/home.png" width="16px" height="20px"></div>Home &nbsp;</a></th>
                 <th><div class="center"><img src="css/menu.png" width="16px" height="20px"></div>Shop by Category</th>
                 <th><a href="main.jsp"><div class="center"><img src="css/hotdeals.png" width="18px" height="20px"> </div>Hot Deals</a></th>
                 <th> <a href="main.jsp"><div class="center"><img src="css/recent.png" width="20px" height="20px"> </div>Recently Viewed</a></th>
@@ -180,7 +180,7 @@
                     <div>
                         <ul>
                                   <li> Contact Details </li> 
-                            <li> <a href="ShipmentDetailsServlet?userID=<%=user.getUserAccountID()%>" Shipment Details </li> 
+                            <li> <a href="ShipmentDetailsServlet?userID=<%=user.getUserAccountID()%>" Shipment Details</a> </li> 
                             <li> <a href="shipment.jsp"> Find Shipment </a></li>
                             <li> Payment Details </li>
                             <li> Find Payment </li>
@@ -188,7 +188,7 @@
                             <li> Promotional Newsletter </li>
                             <li> Change Password</li>
                             <li> Change Language</li>
-                            <li> Access Logs </li>
+                            <li><a href="CustomerAccessLogServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'"> Access Logs</a> </li>
                         </ul> </div></td>  </tr>
             <tr>  <td style="padding-left: 15px; padding-bottom:0px; color:black"> <b> MY SHOPPING </b> 
                     <div id="nacvontainer">

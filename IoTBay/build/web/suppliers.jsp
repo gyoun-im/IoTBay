@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Suppliers</title>
-        <link rel="stylesheet" href="css/dashboard.css">
+        <link rel="stylesheet" href="css/suppliers.css">
     </head>
     <body>
         <%
@@ -19,19 +19,26 @@
         %>
         
         <h1>Suppliers</h1>
-        <a href = "addSuppliers.jsp">add supplier</a>
+        <div class="topRight">
+            <a href="staffMain.jsp"><button class="bttn">Go back to main dashboard</button></a>
+            <a class="bttn" href="LogoutServlet">Logout</a>
+        </div>
         
+        
+      
         <form method="post" action="FilterSupplierServlet">
-            <table>
+            <table class="center">
                 <tr>
-                    <th>Filter:</th><td><input type="text" placeholder="Enter name" name="name"></td>
+                    <td>Filter:</td><td><input type="text" placeholder="Enter name" name="name"></td>
                     <td><input type="text" placeholder="Enter type" name="type"></td>
                     <td><input class="button" type="submit" value="filter"></td>
+                    <td><a href = "addSuppliers.jsp">add supplier</a></td>
                 </tr>              
             </table>
         </form>
+        
                        
-        <table>
+        <table class="center">
             <tr>
                 <th>Name</th>
                 <th>Type</th>
@@ -39,6 +46,8 @@
                 <th>Email</th>
                 <th>Address</th>
                 <th>Status</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
             <% for(Supplier s : suppliers) {%>
             <tr>
@@ -56,5 +65,6 @@
                 <td><a href="DeleteSupplierServlet?id=<%=s.getSupplierID()%>">delete</a></td>
             </tr><%}%>          
         </table>
+       
     </body>
 </html>

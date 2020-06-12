@@ -30,23 +30,22 @@ public class AddPaymentMethodServlet extends HttpServlet {
         session.setAttribute("addSuccess", null);
 
         validator.clear(session);
-        if (!validator.validateCvc(cvc)) {
-            session.setAttribute("cvcErr", "Wrong cvc! Please try again.");
-            request.getRequestDispatcher("addPaymentDetails.jsp").include(request, response);
-        } else {
+       // if (!validator.validateCvc(cvc)) {
+           // session.setAttribute("cvcErr", "Wrong cvc! Please try again.");
+           // request.getRequestDispatcher("addPaymentDetails.jsp").include(request, response);
+       //  } else {
             try {
                 manager.addPaymentMethod(cardName, cardNumber, cvc, bankName);
-                request.setAttribute("PaymentMethod", PaymentMethod);
-                session.setAttribute("PaymentMethod", PaymentMethod);
+                //request.setAttribute("PaymentMethod", PaymentMethod);
+                //session.setAttribute("PaymentMethod", PaymentMethod);
 
                 request.getRequestDispatcher("addPaymentDetails.jsp").include(request, response);
             } catch (SQLException ex) {
-                session.setAttribute("exceptionSupplierErr", "Submission Failed");
-                request.getRequestDispatcher("addPaymentDetails.jsp").include(request, response);
+                
+            Logger.getLogger(AddPaymentMethodServlet.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
         
 
     }
-}

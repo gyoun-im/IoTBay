@@ -52,7 +52,7 @@ public class PaymentDBManager {
         st.executeUpdate("DELETE FROM IOTBAYUSER.PAYMENT WHERE PAYMENTID=" + paymentID + "");
     }
 
-    //Fetch All
+    //Fetch Payment
     public ArrayList<Payment> fetchPayments() throws SQLException {
         String fetch = "select * from PAYMENT";
         ResultSet rs = st.executeQuery(fetch);
@@ -109,7 +109,7 @@ public class PaymentDBManager {
   
     //Create
     public void addPaymentMethod( String cardName, int cardNumber, int cvc, String bankName) throws SQLException {
-        st.executeUpdate("INSERT INTO IOTBAYUSER.PAYMENT_METHOD_DETAILS (CARDNAME, CARDNUMBER, CVC, BANKNAME) VALUES('" + cardName + "'," +cardNumber+ "," + cvc + ",'" + bankName + "')");
+        st.executeUpdate("INSERT INTO IOTBAYUSER.PAYMENT_METHOD_DETAILS (CARDNAME, CARDNUMBER, CVC, BANKNAME, USERACCOUNTID) VALUES('" + cardName + "'," +cardNumber+ "," + cvc + ",'" + bankName + "', 1)");
     }
 
     //Update

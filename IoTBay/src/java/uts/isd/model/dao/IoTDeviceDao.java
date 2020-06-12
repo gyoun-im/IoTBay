@@ -5,6 +5,8 @@
  */
 package uts.isd.model.dao;
 
+ 
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,17 +16,25 @@ import java.util.List;
 import uts.isd.model.Customer;
 import uts.isd.model.Device;
 
+ 
+
 /**
  *
  * @author Qianhui Yin
  */
 public class IoTDeviceDao {
 
+ 
+
     private Statement st;
+
+ 
 
     public IoTDeviceDao(Connection conn) throws SQLException {
         st = conn.createStatement();
     }
+
+ 
 
     public List<Device> findAll() throws SQLException {
         String fetch = "select * from IOTBAY.DEVICE";
@@ -32,8 +42,16 @@ public class IoTDeviceDao {
         return processResultList(rs);
     }
 
-    public List<Device> findByDeviceName(String name) throws SQLException {
-        String fetch = "select * from IOTBAY.DEVICE where name='" + name + "'";
+ 
+
+    public List<Device> searchDevicesByNameAndID(String id, String name) throws SQLException {
+        String fetch = "select * from DEVICE where id>-1";
+        if(id != null && !id.isEmpty()) {
+            fetch = fetch + " and id=" +id;
+        }
+        if(name != null && !name.isEmpty()) {
+            fetch = fetch + " and name like '%" +name + "%'";
+        }
         ResultSet rs = st.executeQuery(fetch);
         return processResultList(rs);
     }
@@ -60,6 +78,8 @@ public class IoTDeviceDao {
         return deviceList;
     }
 
+ 
+
     public void save(Device device) throws SQLException{
         if(device.getId() > 0) {
             updateDevice(device.getId(), device.getName(), device.getType(), device.getUnit(), device.getPrice(), device.getStock());
@@ -72,19 +92,27 @@ public class IoTDeviceDao {
         st.executeUpdate("INSERT INTO DEVICE(\"NAME\", \"TYPE\", \"UNIT\", \"PRICE\", \"STOCK\") " + "VALUES ('" + name + "', '" + type + "', '" + unit + "', " + price + ", " + stock + ")");
     }
 
+ 
+
     public void updateDevice(int id, String name, String type, String unit, double price, int stock) throws SQLException {
         st.executeUpdate("UPDATE DEVICE SET NAME='" + name + "', TYPE='" + type + "',UNIT= '" + unit + "',PRICE= " + price + ", STOCK=" + stock + " WHERE ID=" + id);
     }
     
 
+ 
+
     public void deleteDevice(String id) throws SQLException {
         st.executeUpdate("DELETE FROM DEVICE WHERE id=" + id);
     }
+
+ 
 
     public ArrayList<Device> fectDevice() throws SQLException {
         String fetch = "Select * from DEVICE";
         ResultSet rs = st.executeQuery(fetch);
         ArrayList<Device> temp = new ArrayList();
+
+ 
 
         while (rs.next()) {
             Integer deviceId = rs.getInt(1);
@@ -98,9 +126,13 @@ public class IoTDeviceDao {
         return temp;
     }
 
+ 
+
     public boolean checkDevice(int id, String name) throws SQLException {
         String fetch = "select * from IOTBAY.DEVICE where NAME = '" + name + "' and ID=" + id;
         ResultSet rs = st.executeQuery(fetch);
+
+ 
 
         while (rs.next()) {
             String deviceName = rs.getString(2);
@@ -111,5 +143,7 @@ public class IoTDeviceDao {
         }
         return false;
     }
+
+ 
 
 }

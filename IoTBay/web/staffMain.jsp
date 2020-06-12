@@ -32,6 +32,7 @@
                 <th class="tabBorder"><a href="StaffEditServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'">   Profile</th>
                 <th class="tabBorder"><a href="StaffAccessLogServlet?email='<%=user.getEmail()%>'&password='<%=user.getPassword()%>'">   Logs</th>
                 <th class="tabBorder">Sales</th>
+                <th class="tabBorder"><a href="suppliers.jsp">Suppliers</th>
                 <th class="tabBorder">About us</th>
                 <th class="tabBorder">Contact us</th>                
             </tr>

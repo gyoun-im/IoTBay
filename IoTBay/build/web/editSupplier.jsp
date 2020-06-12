@@ -6,7 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Edit Supplier</title>
-        <link rel="stylesheet" href="css/dashboard.css">
+         <link rel="stylesheet" href="css/suppliers.css">
     </head>
     <body>
         <%
@@ -20,12 +20,14 @@
         %>
         
         <h1>Edit Supplier</h1>
-        <a href = suppliers.jsp >go back</a>
+        <div class="center">
+            <a href = suppliers.jsp >go back</a>
+        </div>
         
         <p><span><%=(emptyErr != null ? emptyErr : "")%></span></p>
         
         <form method="post" action="EditSupplierServlet">
-            <table>
+            <table class="center">
                 <input type="hidden" value="<%=supplier.getSupplierID()%>" name="id">
                 <tr><th>Name: </th><td><input type="text" value="<%=supplier.getSupplierName()%>" name="name"></td></tr>
                 <tr><th>Type: </th><td><input type="text" value="<%=supplier.getCompanyType()%>" name="type"></td></tr>
